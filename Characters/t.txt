@@ -1,0 +1,51 @@
+
+public partial class player_1 : CharacterBody2D
+{
+  [Export]
+  private int speed = 100;
+  private Vector2 currentVelocity;
+
+  public override async void _PhysicsProcess(double delta)
+  {
+	base._PhysicsProcess(delta);
+
+	handleInput();
+
+	Velocity = currentVelocity;
+	MoveAndSlide();
+
+	AnimationTree animationTree = GetNode<AnimationTree>("AnimationTree");
+	AnimationNodeStateMachinePlayback stateMachinePlayback = (AnimationNodeStateMachinePlayback)animationTree.Get("parameters/playback");
+  
+
+	if (currentVelocity == Vector2.Zero)
+	{
+	  stateMachinePlayback.Travel("Idle");
+	}
+	else
+	{
+	  stateMachinePlayback.Travel("Walk");
+	  animationTree.Set("parameters/Idle/blend_position", currentVelocity);
+	  animationTree.Set("parameters/Walk/blend_position", currentVelocity);
+	  animationTree.Set("parameters/Attack/blend_position", currentVelocity);
+	}
+
+	if (Input.IsMouseButtonPressed(MouseButton.Left))
+	{
+	  // Angriffsanimation abspielen
+	  //stateMachinePlayback.Travel("Attack");
+	stateMachinePlayback.Travel("Attack");
+	}
+
+  }
+
+
+
+  private void handleInput()
+  {
+	currentVelocity = Input.GetVector("left", "right", "up", "down");
+
+	currentVelocity *= speed;
+  }
+}
+*/
