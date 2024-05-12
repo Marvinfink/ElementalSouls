@@ -1,4 +1,4 @@
-[gd_scene load_steps=143 format=3 uid="uid://8rnqji34k3af"]
+[gd_scene load_steps=144 format=3 uid="uid://8rnqji34k3af"]
 
 [ext_resource type="Script" path="res://Characters/player_1.cs" id="1_ujs20"]
 [ext_resource type="Texture2D" uid="uid://ytni45ei2pos" path="res://Art/mystic_woods_free_2.1/sprites/Foozle_2DC0009_Lucifer_Warrior_Pixel_Art/Down/Png/WarriorDownIdle.png" id="2_3m4xb"]
@@ -1215,6 +1215,10 @@ states/walk/node = SubResource("AnimationNodeBlendSpace2D_ripvx")
 states/walk/position = Vector2(633, 143)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_vmgb3"), "idle", "walk", SubResource("AnimationNodeStateMachineTransition_w2010"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_fa11o"), "idle", "attack", SubResource("AnimationNodeStateMachineTransition_pjliy"), "attack", "idle", SubResource("AnimationNodeStateMachineTransition_ju2nc"), "attack", "walk", SubResource("AnimationNodeStateMachineTransition_8edb2")]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_x8huf"]
+radius = 14.0
+height = 38.0
+
 [node name="Player1" type="CharacterBody2D"]
 z_index = 2
 collision_layer = 3
@@ -1223,7 +1227,7 @@ script = ExtResource("1_ujs20")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_xxm3v")
 animation = &"idle_down"
-frame = 4
+frame = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 2)
@@ -1262,3 +1266,16 @@ drag_horizontal_enabled = true
 drag_vertical_enabled = true
 drag_horizontal_offset = 1.0
 drag_vertical_offset = 1.0
+
+[node name="player_hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player_hitbox"]
+position = Vector2(0, -1)
+shape = SubResource("CapsuleShape2D_x8huf")
+
+[node name="attackCooldown" type="Timer" parent="."]
+wait_time = 0.3
+
+[connection signal="body_entered" from="player_hitbox" to="." method="_on_player_hitbox_body_entered"]
+[connection signal="body_exited" from="player_hitbox" to="." method="_on_player_hitbox_body_exited"]
+[connection signal="timeout" from="attackCooldown" to="." method="_on_attack_cooldown_timeout"]

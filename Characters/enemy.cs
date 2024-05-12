@@ -26,17 +26,19 @@ public partial class enemy : CharacterBody2D
   }
 
   //Chase player when in zone
-  private void _on_detection_area_body_entered(Node2D body)
+  public void _on_detection_area_body_entered(Node2D body)
   {
 	player = body;
 	playerChase = true;
   }
   //stop chasing when not in zone
-  private void _on_detection_area_body_exited(Node2D body)
+  public void _on_detection_area_body_exited(Node2D body)
   {
 	player = null;
 	playerChase = false;
   }
 
+	public void Enemy(){
+	}
 }
 
