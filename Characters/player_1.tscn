@@ -1234,7 +1234,7 @@ script = ExtResource("1_xr0id")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_xxm3v")
 animation = &"idle_down"
-frame = 4
+frame = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 2)
