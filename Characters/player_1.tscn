@@ -1,6 +1,6 @@
 [gd_scene load_steps=144 format=3 uid="uid://8rnqji34k3af"]
 
-[ext_resource type="Script" path="res://Characters/player_1.cs" id="1_ujs20"]
+[ext_resource type="Script" path="res://player.gd" id="1_xr0id"]
 [ext_resource type="Texture2D" uid="uid://ytni45ei2pos" path="res://Art/mystic_woods_free_2.1/sprites/Foozle_2DC0009_Lucifer_Warrior_Pixel_Art/Down/Png/WarriorDownIdle.png" id="2_3m4xb"]
 [ext_resource type="Texture2D" uid="uid://c28r5g8mrowfy" path="res://Art/mystic_woods_free_2.1/sprites/Foozle_2DC0009_Lucifer_Warrior_Pixel_Art/Down/Png/WarriorDownWalk.png" id="3_2q7no"]
 [ext_resource type="Texture2D" uid="uid://d1bwirtwftgrs" path="res://Art/mystic_woods_free_2.1/sprites/Foozle_2DC0009_Lucifer_Warrior_Pixel_Art/Down/Png/WarriorDownAttack01.png" id="4_3vp25"]
@@ -1206,6 +1206,7 @@ advance_mode = 2
 advance_condition = &"walk"
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_ui05d"]
+states/End/position = Vector2(899, 98)
 states/Start/position = Vector2(338, 143)
 states/attack/node = SubResource("AnimationNodeBlendSpace2D_iyd1p")
 states/attack/position = Vector2(491, 58)
@@ -1222,7 +1223,7 @@ height = 38.0
 [node name="Player1" type="CharacterBody2D"]
 z_index = 2
 collision_layer = 3
-script = ExtResource("1_ujs20")
+script = ExtResource("1_xr0id")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_xxm3v")
