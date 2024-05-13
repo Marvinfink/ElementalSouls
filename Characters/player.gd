@@ -28,10 +28,12 @@ func _process(_delta):
 	
 	if Input.is_action_just_pressed("swing") and walking:
 		set_swing(true)
-		#animation_tree["parameters/conditions/walk"] = true
+		animation_tree["parameters/conditions/walk"] = true
+
 	elif Input.is_action_just_pressed("swing") and not walking:
 		set_swing(true)
-		#animation_tree["parameters/conditions/idle"] = true
+		animation_tree["parameters/conditions/idle"] = true
+
 		
 func set_swing(value = false):
 	swing = value
