@@ -1,7 +1,7 @@
 [gd_scene load_steps=32 format=3 uid="uid://kdymejvrnjlh"]
 
 [ext_resource type="Texture2D" uid="uid://be5bsgvrbwvg4" path="res://Art/mystic_woods_free_2.1/sprites/characters/slime.png" id="1_jjs7m"]
-[ext_resource type="Script" path="res://Characters/enemy.cs" id="1_jsssb"]
+[ext_resource type="Script" path="res://Characters/enemy.gd" id="1_u16pt"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mryvn"]
 atlas = ExtResource("1_jjs7m")
@@ -250,12 +250,12 @@ transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition
 radius = 12.0
 
 [node name="Enemy" type="CharacterBody2D"]
-script = ExtResource("1_jsssb")
+script = ExtResource("1_u16pt")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_fr2eo")
 animation = &"idle"
-frame = 3
+frame = 1
 offset = Vector2(0, -6)
 
 [node name="detection_area" type="Area2D" parent="."]
