@@ -734,11 +734,14 @@ tracks/2/path = NodePath("..")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
 "values": [{
 "args": [false],
-"method": &"SetSwing"
+"method": &"set_swing"
+}, {
+"args": [false],
+"method": &"set_swing"
 }]
 }
 
@@ -775,14 +778,14 @@ tracks/2/path = NodePath("..")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0.2, 3.6),
+"times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "values": [{
 "args": [false],
-"method": &"SetSwing"
+"method": &"set_swing"
 }, {
 "args": [false],
-"method": &"SetSwing"
+"method": &"set_swing"
 }]
 }
 
@@ -819,14 +822,14 @@ tracks/2/path = NodePath("..")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0.2, 3.4),
+"times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "values": [{
 "args": [false],
-"method": &"SetSwing"
+"method": &"set_swing"
 }, {
 "args": [false],
-"method": &"SetSwing"
+"method": &"set_swing"
 }]
 }
 
@@ -863,11 +866,14 @@ tracks/2/path = NodePath("..")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
 "values": [{
 "args": [false],
-"method": &"SetSwing"
+"method": &"set_swing"
+}, {
+"args": [false],
+"method": &"set_swing"
 }]
 }
 
@@ -1228,7 +1234,6 @@ script = ExtResource("1_xr0id")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_xxm3v")
 animation = &"idle_down"
-frame = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 2)
