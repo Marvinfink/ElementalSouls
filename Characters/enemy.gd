@@ -3,6 +3,7 @@ extends CharacterBody2D
 var Speed: int = 60
 var playerChase: bool = false
 var player = null
+var damage : int =30
 
 @onready var animation_tree = $AnimationTree
 
@@ -35,6 +36,8 @@ func _on_enemy_hitbox_body_entered(body):
 func _on_enemy_hitbox_body_exited(body):
 	pass
 	
+func enemy():
+	pass
 
 func _on_detection_area_body_entered(body):
 	player = body

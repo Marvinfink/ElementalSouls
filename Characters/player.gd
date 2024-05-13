@@ -7,24 +7,26 @@ var swing : bool = false
 var walking : bool=false
 
 var in_attack_range : bool = false
-var enemy_attack_cooldown = false
+var enemy_attack_cooldown :bool = true
 var health : int = 100
 var player_alive : bool = true
 
 @onready var animation_tree = $AnimationTree
 
-func _physics_process(_delta):
+func _physics_process(delta):
 	if health <=0:
 		player_alive=false
 		health=0
 		print("player is died")
+		self.queue_free()
 	if not swing:
 		velocity = direction * speed
 	else:
 		velocity = Vector2.ZERO
+	enemy_attack()
 	move_and_slide()
 	
-func _process(_delta):
+func _process(delta):
 	direction = Input.get_vector("left","right","up","down")
 	
 	if direction != Vector2.ZERO and not swing:
@@ -64,18 +66,20 @@ func _on_player_hitbox_body_entered(body):
 	if body.has_method("enemy"):
 		print("player took damage")
 		in_attack_range=true
+		print(body.damage)
 
 func _on_player_hitbox_body_exited(body):
 	if body.has_method("enemy"):
 		in_attack_range=false
 		
 func enemy_attack():
-	if in_attack_range and enemy_attack_cooldown == true:
+	if in_attack_range and enemy_attack_cooldown:
+		print("something")
 		health = health-20
-		enemy_attack_cooldown =false
+		enemy_attack_cooldown = false
 		$attack_cooldown.start()
 		print(health)
 		
 func _on_attack_cooldown_timeout():
-	enemy_attack_cooldown=true
+	enemy_attack_cooldown = true
 	
