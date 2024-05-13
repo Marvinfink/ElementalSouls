@@ -23,7 +23,6 @@ func _physics_process(delta):
 		velocity = direction * speed
 	else:
 		velocity = Vector2.ZERO
-	enemy_attack()
 	move_and_slide()
 	
 func _process(delta):
@@ -64,21 +63,17 @@ func player():
 
 func _on_player_hitbox_body_entered(body):
 	if body.has_method("enemy"):
-		print("player took damage")
 		in_attack_range=true
-		print(body.damage)
 
 func _on_player_hitbox_body_exited(body):
 	if body.has_method("enemy"):
 		in_attack_range=false
 		
 func enemy_attack():
-	if in_attack_range and enemy_attack_cooldown:
-		print("something")
 		health = health-20
+		print(health)
 		enemy_attack_cooldown = false
 		$attack_cooldown.start()
-		print(health)
 		
 func _on_attack_cooldown_timeout():
 	enemy_attack_cooldown = true
