@@ -1,4 +1,4 @@
-[gd_scene load_steps=144 format=3 uid="uid://8rnqji34k3af"]
+[gd_scene load_steps=154 format=3 uid="uid://8rnqji34k3af"]
 
 [ext_resource type="Script" path="res://Characters/player.gd" id="1_soxp6"]
 [ext_resource type="Texture2D" uid="uid://ytni45ei2pos" path="res://Art/mystic_woods_free_2.1/sprites/Foozle_2DC0009_Lucifer_Warrior_Pixel_Art/Down/Png/WarriorDownIdle.png" id="2_3m4xb"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://d1bwirtwftgrs" path="res://Art/mystic_woods_free_2.1/sprites/Foozle_2DC0009_Lucifer_Warrior_Pixel_Art/Down/Png/WarriorDownAttack01.png" id="4_3vp25"]
 [ext_resource type="Texture2D" uid="uid://c6w8w6ta5gt3d" path="res://Art/mystic_woods_free_2.1/sprites/Foozle_2DC0009_Lucifer_Warrior_Pixel_Art/Left/Png/WarriorLeftIdle.png" id="5_c87wr"]
 [ext_resource type="Texture2D" uid="uid://3oot4v1anx0s" path="res://Art/mystic_woods_free_2.1/sprites/Foozle_2DC0009_Lucifer_Warrior_Pixel_Art/Left/Png/WarriorLeftWalk.png" id="6_mxb4f"]
+[ext_resource type="Texture2D" uid="uid://c3kgu1qh8vova" path="res://Art/mystic_woods_free_2.1/sprites/Foozle_2DC0009_Lucifer_Warrior_Pixel_Art/Down/Png/WarriorDownDeath.png" id="6_x4gk0"]
 [ext_resource type="Texture2D" uid="uid://d0is8k70f22hj" path="res://Art/mystic_woods_free_2.1/sprites/Foozle_2DC0009_Lucifer_Warrior_Pixel_Art/Left/Png/WarriorLeftAttack01.png" id="7_3m8sj"]
 [ext_resource type="Texture2D" uid="uid://0wcpqghe4vb" path="res://Art/mystic_woods_free_2.1/sprites/Foozle_2DC0009_Lucifer_Warrior_Pixel_Art/Right/Png/WarriorRightIdle.png" id="8_lmcnu"]
 [ext_resource type="Texture2D" uid="uid://cbt4jletepycr" path="res://Art/mystic_woods_free_2.1/sprites/Foozle_2DC0009_Lucifer_Warrior_Pixel_Art/Right/Png/WarriorRightWalk.png" id="9_qoeht"]
@@ -109,6 +110,26 @@ region = Rect2(192, 0, 48, 48)
 [sub_resource type="AtlasTexture" id="AtlasTexture_sgun7"]
 atlas = ExtResource("13_pjy6o")
 region = Rect2(240, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gxlr2"]
+atlas = ExtResource("6_x4gk0")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mstdc"]
+atlas = ExtResource("6_x4gk0")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_08eue"]
+atlas = ExtResource("6_x4gk0")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wf1bu"]
+atlas = ExtResource("6_x4gk0")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xkdbh"]
+atlas = ExtResource("6_x4gk0")
+region = Rect2(192, 0, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_icuxj"]
 atlas = ExtResource("2_3m4xb")
@@ -411,6 +432,26 @@ animations = [{
 "loop": true,
 "name": &"attack_up",
 "speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gxlr2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mstdc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_08eue")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wf1bu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xkdbh")
+}],
+"loop": false,
+"name": &"death_down",
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -866,12 +907,42 @@ tracks/2/path = NodePath("..")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
 "values": [{
 "args": [false],
 "method": &"SetSwing"
+}, {
+"args": [false],
+"method": &"set_swing"
 }]
+}
+
+[sub_resource type="Animation" id="Animation_2fleo"]
+resource_name = "death_down"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../AnimatedSprite2D:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["death_down"]
 }
 
 [sub_resource type="Animation" id="Animation_qqhw6"]
@@ -1104,6 +1175,7 @@ _data = {
 "attack_left": SubResource("Animation_7l0y1"),
 "attack_right": SubResource("Animation_obdx3"),
 "attack_up": SubResource("Animation_pnrxj"),
+"death_down": SubResource("Animation_2fleo"),
 "idle_down": SubResource("Animation_qqhw6"),
 "idle_left": SubResource("Animation_8ntxq"),
 "idle_right": SubResource("Animation_bpnad"),
@@ -1136,6 +1208,9 @@ blend_point_2/pos = Vector2(-1, 0)
 blend_point_3/node = SubResource("AnimationNodeAnimation_iywr5")
 blend_point_3/pos = Vector2(1, 0)
 blend_mode = 1
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_kexvl"]
+animation = &"death_down"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_osvhw"]
 animation = &"idle_down"
@@ -1208,20 +1283,31 @@ switch_mode = 2
 advance_mode = 2
 advance_condition = &"walk"
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_lrckn"]
+advance_mode = 2
+advance_condition = &"death"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_d3auh"]
+advance_mode = 2
+advance_condition = &"death"
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_ui05d"]
 states/End/position = Vector2(899, 98)
 states/Start/position = Vector2(338, 143)
 states/attack/node = SubResource("AnimationNodeBlendSpace2D_iyd1p")
 states/attack/position = Vector2(491, 58)
+states/death_down/node = SubResource("AnimationNodeAnimation_kexvl")
+states/death_down/position = Vector2(491, 242)
 states/idle/node = SubResource("AnimationNodeBlendSpace2D_uula8")
-states/idle/position = Vector2(491, 143)
+states/idle/position = Vector2(491, 150)
 states/walk/node = SubResource("AnimationNodeBlendSpace2D_ripvx")
 states/walk/position = Vector2(633, 143)
-transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_vmgb3"), "idle", "walk", SubResource("AnimationNodeStateMachineTransition_w2010"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_fa11o"), "idle", "attack", SubResource("AnimationNodeStateMachineTransition_pjliy"), "attack", "idle", SubResource("AnimationNodeStateMachineTransition_ju2nc"), "attack", "walk", SubResource("AnimationNodeStateMachineTransition_8edb2")]
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_vmgb3"), "idle", "walk", SubResource("AnimationNodeStateMachineTransition_w2010"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_fa11o"), "idle", "attack", SubResource("AnimationNodeStateMachineTransition_pjliy"), "attack", "idle", SubResource("AnimationNodeStateMachineTransition_ju2nc"), "attack", "walk", SubResource("AnimationNodeStateMachineTransition_8edb2"), "idle", "death_down", SubResource("AnimationNodeStateMachineTransition_lrckn"), "walk", "death_down", SubResource("AnimationNodeStateMachineTransition_d3auh")]
+graph_offset = Vector2(0, 71.5697)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_x8huf"]
-radius = 14.0
-height = 38.0
+radius = 26.0
+height = 52.0
 
 [node name="Player1" type="CharacterBody2D"]
 z_index = 2
@@ -1231,7 +1317,7 @@ script = ExtResource("1_soxp6")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_xxm3v")
 animation = &"idle_down"
-frame = 4
+frame = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 2)
@@ -1252,6 +1338,7 @@ libraries = {
 root_node = NodePath("../AnimationPlayer")
 tree_root = SubResource("AnimationNodeStateMachine_ui05d")
 anim_player = NodePath("../AnimationPlayer2")
+parameters/conditions/death = false
 parameters/conditions/idle = false
 parameters/conditions/is_walking = false
 parameters/conditions/swing = false
