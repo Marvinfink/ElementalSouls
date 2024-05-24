@@ -1,4 +1,4 @@
-[gd_scene load_steps=154 format=3 uid="uid://8rnqji34k3af"]
+[gd_scene load_steps=166 format=3 uid="uid://8rnqji34k3af"]
 
 [ext_resource type="Script" path="res://Characters/player.gd" id="1_soxp6"]
 [ext_resource type="Texture2D" uid="uid://ytni45ei2pos" path="res://Art/mystic_woods_free_2.1/sprites/Foozle_2DC0009_Lucifer_Warrior_Pixel_Art/Down/Png/WarriorDownIdle.png" id="2_3m4xb"]
@@ -1198,6 +1198,18 @@ animation = &"attack_left"
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_iywr5"]
 animation = &"attack_right"
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_6j47v"]
+animation = &"attack_down"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_pn1yg"]
+animation = &"attack_down"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_vdmxh"]
+animation = &"attack_up"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_vyflm"]
+animation = &"attack_up"
+
 [sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_iyd1p"]
 blend_point_0/node = SubResource("AnimationNodeAnimation_77is2")
 blend_point_0/pos = Vector2(0, 1)
@@ -1207,6 +1219,14 @@ blend_point_2/node = SubResource("AnimationNodeAnimation_txcrj")
 blend_point_2/pos = Vector2(-1, 0)
 blend_point_3/node = SubResource("AnimationNodeAnimation_iywr5")
 blend_point_3/pos = Vector2(1, 0)
+blend_point_4/node = SubResource("AnimationNodeAnimation_6j47v")
+blend_point_4/pos = Vector2(-1, 1)
+blend_point_5/node = SubResource("AnimationNodeAnimation_pn1yg")
+blend_point_5/pos = Vector2(1, 1)
+blend_point_6/node = SubResource("AnimationNodeAnimation_vdmxh")
+blend_point_6/pos = Vector2(1, -1)
+blend_point_7/node = SubResource("AnimationNodeAnimation_vyflm")
+blend_point_7/pos = Vector2(-1, -1)
 blend_mode = 1
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_kexvl"]
@@ -1224,6 +1244,18 @@ animation = &"idle_right"
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_b1b55"]
 animation = &"idle_left"
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_t4jdt"]
+animation = &"idle_down"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_nlcbr"]
+animation = &"idle_down"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_43wgl"]
+animation = &"idle_up"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_cgtyf"]
+animation = &"idle_up"
+
 [sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_uula8"]
 blend_point_0/node = SubResource("AnimationNodeAnimation_osvhw")
 blend_point_0/pos = Vector2(0, 1)
@@ -1233,6 +1265,14 @@ blend_point_2/node = SubResource("AnimationNodeAnimation_b37of")
 blend_point_2/pos = Vector2(1, 0)
 blend_point_3/node = SubResource("AnimationNodeAnimation_b1b55")
 blend_point_3/pos = Vector2(-1, 0)
+blend_point_4/node = SubResource("AnimationNodeAnimation_t4jdt")
+blend_point_4/pos = Vector2(-1, 1)
+blend_point_5/node = SubResource("AnimationNodeAnimation_nlcbr")
+blend_point_5/pos = Vector2(1, 1)
+blend_point_6/node = SubResource("AnimationNodeAnimation_43wgl")
+blend_point_6/pos = Vector2(1, -1)
+blend_point_7/node = SubResource("AnimationNodeAnimation_cgtyf")
+blend_point_7/pos = Vector2(-1, -1)
 blend_mode = 1
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_52bof"]
@@ -1247,6 +1287,18 @@ animation = &"walk_right"
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_l3fc6"]
 animation = &"walk_left"
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_bxct7"]
+animation = &"walk_down"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_gej5m"]
+animation = &"walk_down"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_2fyou"]
+animation = &"walk_up"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_kc00o"]
+animation = &"walk_up"
+
 [sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_ripvx"]
 blend_point_0/node = SubResource("AnimationNodeAnimation_52bof")
 blend_point_0/pos = Vector2(0, 1)
@@ -1256,6 +1308,14 @@ blend_point_2/node = SubResource("AnimationNodeAnimation_icseo")
 blend_point_2/pos = Vector2(1, 0)
 blend_point_3/node = SubResource("AnimationNodeAnimation_l3fc6")
 blend_point_3/pos = Vector2(-1, 0)
+blend_point_4/node = SubResource("AnimationNodeAnimation_bxct7")
+blend_point_4/pos = Vector2(-1, 1)
+blend_point_5/node = SubResource("AnimationNodeAnimation_gej5m")
+blend_point_5/pos = Vector2(1, 1)
+blend_point_6/node = SubResource("AnimationNodeAnimation_2fyou")
+blend_point_6/pos = Vector2(1, -1)
+blend_point_7/node = SubResource("AnimationNodeAnimation_kc00o")
+blend_point_7/pos = Vector2(-1, -1)
 blend_mode = 1
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_vmgb3"]
@@ -1303,7 +1363,7 @@ states/idle/position = Vector2(491, 150)
 states/walk/node = SubResource("AnimationNodeBlendSpace2D_ripvx")
 states/walk/position = Vector2(633, 143)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_vmgb3"), "idle", "walk", SubResource("AnimationNodeStateMachineTransition_w2010"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_fa11o"), "idle", "attack", SubResource("AnimationNodeStateMachineTransition_pjliy"), "attack", "idle", SubResource("AnimationNodeStateMachineTransition_ju2nc"), "attack", "walk", SubResource("AnimationNodeStateMachineTransition_8edb2"), "idle", "death_down", SubResource("AnimationNodeStateMachineTransition_lrckn"), "walk", "death_down", SubResource("AnimationNodeStateMachineTransition_d3auh")]
-graph_offset = Vector2(0, 71.5697)
+graph_offset = Vector2(0, 19.6483)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_x8huf"]
 radius = 26.0
@@ -1316,7 +1376,7 @@ script = ExtResource("1_soxp6")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_xxm3v")
-animation = &"idle_down"
+animation = &"idle_right"
 frame = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -1343,9 +1403,9 @@ parameters/conditions/idle = false
 parameters/conditions/is_walking = false
 parameters/conditions/swing = false
 parameters/conditions/walk = false
-parameters/attack/blend_position = Vector2(0.419053, 0.00440526)
-parameters/idle/blend_position = Vector2(-0.00175339, 0.577093)
-parameters/walk/blend_position = Vector2(0.0520164, 0.33627)
+parameters/attack/blend_position = Vector2(0.663688, -0.650794)
+parameters/idle/blend_position = Vector2(0.208773, -0.132275)
+parameters/walk/blend_position = Vector2(-0.0463038, 0.449735)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(4, 4)
@@ -1366,6 +1426,8 @@ shape = SubResource("CapsuleShape2D_x8huf")
 
 [node name="attack_cooldown" type="Timer" parent="."]
 wait_time = 1.971
+
+[node name="idle_cooldown" type="Timer" parent="."]
 
 [connection signal="body_entered" from="player_hitbox" to="." method="_on_player_hitbox_body_entered"]
 [connection signal="body_exited" from="player_hitbox" to="." method="_on_player_hitbox_body_exited"]
