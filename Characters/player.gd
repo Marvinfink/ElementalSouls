@@ -1,40 +1,47 @@
 extends CharacterBody2D
 
-# player movement and animation
+
+#player movement and animation
 var direction : Vector2 = Vector2.ZERO
 var mouse_position : Vector2 = Vector2.ZERO
 var player_direction : Vector2 = Vector2.ZERO
 var swing : bool = false
-var walking : bool = false
+var walking : bool=false
 
-# player attack
+#player attack
 var enemy = null
 var in_attack_range : bool = false
-var enemy_attack_cooldown : bool = true
-
-# player stats
-var speed: int = 100
+var enemy_attack_cooldown :bool = true
+var player_position
+var player_node 
+#playerstats
+var speed:int=100;
 var health : int = 200
 var player_alive : bool = true
-var damage : int = 200
-var element : String = "fire" # "fire", "water", "electro", "plant"
+var damage : int =200
+var old_element : String
+var element : String = "fire" #1=fire, 2=water, 3=electro, 4=plant
 
-@onready var animation_tree_fire = $AnimationTreeFire
-@onready var animation_tree_water = $AnimationTreeWater
-@onready var animation_tree_electro = $AnimationTreeElectro
-@onready var animation_tree_plant = $AnimationTreePlant
 
-var current_animation_tree = null
+#@onready var animation_tree = $AnimationTree
+@onready var animation_tree1 = $animation_tree
+var element_textures = {
+	"fire": preload("res://Art/mystic_woods_free_2.1/sprites/Foozle_2DC0009_Lucifer_Warrior_Pixel_Art/sprite_fire.png"),
+	"water": preload("res://Art/mystic_woods_free_2.1/sprites/Foozle_2DC0009_Lucifer_Warrior_Pixel_Art/sprite_water.png"),
+	"electro": preload("res://Art/mystic_woods_free_2.1/sprites/Foozle_2DC0009_Lucifer_Warrior_Pixel_Art/sprite_electro.png"),
+	"plant": preload("res://Art/mystic_woods_free_2.1/sprites/Foozle_2DC0009_Lucifer_Warrior_Pixel_Art/sprite_plant.png")
+}
 
 func _ready():
-	current_animation_tree = animation_tree_fire
+	$Sprite2D.texture=element_textures[element]
+	player_node=get_node(".")
 
 func _physics_process(delta):
-	if health <= 0:
-		player_alive = false
-		health = 0
-		print("player has died")
-		current_animation_tree["parameters/conditions/death"] = true
+	if health <=0:
+		player_alive=false
+		health=0
+		print("player is died")
+		animation_tree1["parameters/conditions/death"]=true
 	if in_attack_range and Input.is_action_just_pressed("swing"):
 		attack(damage)
 	if not swing:
@@ -42,88 +49,92 @@ func _physics_process(delta):
 	else:
 		velocity = Vector2.ZERO
 	move_and_slide()
-
+	
 func _process(delta):
-	mouse_position = get_viewport().get_mouse_position() - global_position
-	player_direction = mouse_position.normalized()
-	direction = Input.get_vector("left", "right", "up", "down")
+	player_position=player_node.position
+	mouse_position= get_viewport().get_mouse_position()
+	print(player_position)
+	print(mouse_position)
+	player_direction=mouse_position-player_position
+	 
+	player_direction=mouse_position-player_position#mouse_position.normalized()
+	#print(player_direction)
+	direction = Input.get_vector("left","right","up","down")
 	update_blend_position()
-
+	
 	if direction != Vector2.ZERO and not swing:
-		walking = true
+		walking =true
 		set_walking(walking)
+		update_blend_position()
 	else:
-		walking = false
+		walking=false
 		set_walking(walking)
-
-	# change element
+	
+	#change element
 	if Input.is_action_just_pressed("fire"):
-		element = "fire"
-		switch_animation_tree(animation_tree_fire)
+		change_element("fire")
 	elif Input.is_action_just_pressed("water"):
-		element = "water"
-		switch_animation_tree(animation_tree_water)
+		change_element("water")
 	elif Input.is_action_just_pressed("electro"):
-		element = "electro"
-		switch_animation_tree(animation_tree_electro)
+		change_element("electro")
 	elif Input.is_action_just_pressed("plant"):
-		element = "plant"
-		switch_animation_tree(animation_tree_plant)
+		change_element("plant")
 
-	# start swing animation
+		
 	if Input.is_action_just_pressed("swing") and walking:
 		set_swing(true)
-		current_animation_tree["parameters/conditions/walk"] = true
+		animation_tree1["parameters/conditions/walk"] = true
 	elif Input.is_action_just_pressed("swing") and not walking:
 		set_swing(true)
-		current_animation_tree["parameters/conditions/idle"] = true
-
-# switch between animation trees
-func switch_animation_tree(new_tree):
-	if current_animation_tree != null:
-		current_animation_tree.active = false
-	current_animation_tree = new_tree
-	current_animation_tree.active = true
-
-# play attack animation
+		animation_tree1["parameters/conditions/idle"] = true
+		
+	
+#play attack animation
+#Todo: change animations to swingfire,swingwater,...
+#change through animationtrees?
 func set_swing(value = false):
 	swing = value
-	current_animation_tree["parameters/conditions/swing"] = value
-
-# play walking animation
-func set_walking(value):
-	current_animation_tree["parameters/conditions/is_walking"] = value
-	current_animation_tree["parameters/conditions/idle"] = not value
-
-# set animation direction
+	animation_tree1["parameters/conditions/swing"]=value
+						
+#play walking animation
+func set_walking(value,element="fire"):
+	animation_tree1["parameters/conditions/walk"]=value
+	animation_tree1["parameters/conditions/idle"]=not value
+	
+#set animation directon
 func update_blend_position():
-	current_animation_tree["parameters/attack/blend_position"] = player_direction
-	current_animation_tree["parameters/walk/blend_position"] = player_direction
-	current_animation_tree["parameters/idle/blend_position"] = player_direction
+	animation_tree1["parameters/attack/blend_position"] = player_direction
+	animation_tree1["parameters/walk/blend_position"] = player_direction
+	animation_tree1["parameters/idle/blend_position"] = player_direction
 
-# handle enemy attack
+func player():
+	pass
+
+#take damage from enemy
 func enemy_attack(damage):
-	health -= damage
-	print(health)
-	enemy_attack_cooldown = false
-	$attack_cooldown.start()
-
-# attack enemy
+		health = health-damage
+		print(health)
+		enemy_attack_cooldown = false
+		$attack_cooldown.start()
+		
 func attack(damage):
-	if enemy:
-		enemy.player_attack(damage)
+	enemy.player_attack(damage)		
 
-# check for enemy in range
+# Change element and sprite texture
+func change_element(new_element):
+	element = new_element
+	$Sprite2D.texture = element_textures[element]
+
+#check for enemy if in range
 func _on_player_hitbox_body_entered(body):
-	enemy = body
+	enemy=body
 	if body.has_method("enemy"):
-		in_attack_range = true
-
-# check for enemy out of range
+		in_attack_range=true
+#check for enemy if out of range
 func _on_player_hitbox_body_exited(body):
 	if body.has_method("enemy"):
-		in_attack_range = false
-
-# reset attack cooldown
+		in_attack_range=false
+			
 func _on_attack_cooldown_timeout():
 	enemy_attack_cooldown = true
+	

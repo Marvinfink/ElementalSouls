@@ -267,7 +267,7 @@ script = ExtResource("1_8esvl")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_fr2eo")
 animation = &"idle"
-frame = 3
+frame = 2
 offset = Vector2(0, -6)
 
 [node name="detection_area" type="Area2D" parent="."]
