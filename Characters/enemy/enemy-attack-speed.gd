@@ -6,6 +6,7 @@ func set_data():
 	damage = 0.5
 	element = 0
 	cooldown = 0.5
+	attack_speed = 0.25
 
 # für physikalische Berechnungen und Logik, die präzise Synchronisation erfordert, wie Bewegungen und Kollisionen
 func _physics_process(delta: float) -> void:
@@ -14,4 +15,7 @@ func _physics_process(delta: float) -> void:
 
 # für nicht-physikalische Logik wie Animationen, UI-Updates, nicht-physikbasierte Bewegungen
 func _process(delta: float) -> void:
+	pass
+
+func attack_move():
 	pass

@@ -1,16 +1,18 @@
 extends CharacterBody2D
 #base enemy
 
-var health
-var speed
-var damage
-var element
-var cooldown
+var health: int
+var speed: int
+var damage: float
+var element: int
+var cooldown: float
+var attack_speed: float
 var player_in_range: bool
 var player_chase: bool
 var enemy_attack_cooldown: bool
 var player: Node
 var dead: bool
+var element_multipliers
 
 @onready var animation_tree = $AnimationTree
 
@@ -21,14 +23,20 @@ func _ready():
 	enemy_attack_cooldown = true
 	player = get_node("../Player1")
 	dead = false
+	$attack_cooldown.wait_time = cooldown
+	element_multipliers = preload("res://Characters/elements.gd").new()
 
 func attack():
 	if player_in_range and enemy_attack_cooldown:
-		print("attack")
+		print("attack player")
 		enemy_attack_cooldown = false
-		$attack_cooldown.wait_time = cooldown
+		#animation_tree["parameters/conditions/attack"] = true
+		#await attack_move()
+		await get_tree().create_timer(attack_speed).timeout
+		#animation_tree["parameters/conditions/attack"] = false
+		if (player_in_range):
+			player.enemy_attack(damage)
 		$attack_cooldown.start()
-		player.enemy_attack(damage)
 
 func move_position():
 	if player_chase and !dead:
