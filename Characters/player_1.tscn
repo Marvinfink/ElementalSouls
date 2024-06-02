@@ -1,7 +1,7 @@
 [gd_scene load_steps=84 format=3 uid="uid://8rnqji34k3af"]
 
 [ext_resource type="Script" path="res://Characters/player.gd" id="1_soxp6"]
-[ext_resource type="Texture2D" uid="uid://cb815r13sxdy5" path="res://Art/mystic_woods_free_2.1/sprites/Foozle_2DC0009_Lucifer_Warrior_Pixel_Art/sprite_fire.png" id="2_wh1k7"]
+[ext_resource type="Texture2D" path="res://Art/mystic_woods_free_2.1/sprites/Foozle_2DC0009_Lucifer_Warrior_Pixel_Art/sprite_fire.png" id="2_wh1k7"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0s20j"]
 radius = 5.0
@@ -761,18 +761,8 @@ parameters/conditions/swing = false
 parameters/conditions/walk = false
 parameters/attack/blend_position = Vector2(0, 0)
 parameters/death/blend_position = Vector2(0, 0)
-parameters/idle/blend_position = Vector2(-0.410236, -0.396825)
+parameters/idle/blend_position = Vector2(-0.337124, 0.142857)
 parameters/walk/blend_position = Vector2(0, 0)
-
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(139, 77)
-zoom = Vector2(4, 4)
-limit_left = 0
-limit_top = 0
-limit_right = 832
-limit_bottom = 544
-drag_horizontal_enabled = true
-drag_vertical_enabled = true
 
 [node name="player_hitbox" type="Area2D" parent="."]
 
