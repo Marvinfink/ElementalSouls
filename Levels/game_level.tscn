@@ -1,11 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://bf4wgcyu31x7p"]
+[gd_scene load_steps=6 format=3 uid="uid://bf4wgcyu31x7p"]
 
 [ext_resource type="PackedScene" uid="uid://8rnqji34k3af" path="res://Characters/player_1.tscn" id="1_w8loj"]
 [ext_resource type="Texture2D" uid="uid://dco3y8x3x6xuh" path="res://Art/mystic_woods_free_2.1/sprites/tilesets/Tiles.png" id="2_kyimk"]
 [ext_resource type="PackedScene" uid="uid://kdymejvrnjlh" path="res://Characters/enemy/enemy.tscn" id="3_ag7kc"]
-[ext_resource type="Script" path="res://Characters/enemy/enemy-allround.gd" id="4_6xlw8"]
-[ext_resource type="Script" path="res://Characters/enemy/enemy-attack-speed.gd" id="5_frm5j"]
-[ext_resource type="Script" path="res://Characters/enemy/enemy-damage.gd" id="6_kfped"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cho5q"]
 texture = ExtResource("2_kyimk")
@@ -937,14 +934,11 @@ scale = Vector2(0.75, 0.75)
 [node name="Enemy-Allround-1" parent="." instance=ExtResource("3_ag7kc")]
 position = Vector2(394, 275)
 scale = Vector2(0.75, 0.75)
-script = ExtResource("4_6xlw8")
 
 [node name="Enemy-Attack-Speed-1" parent="." instance=ExtResource("3_ag7kc")]
 position = Vector2(201, 172)
 scale = Vector2(0.75, 0.75)
-script = ExtResource("5_frm5j")
 
 [node name="Enemy-Damage-1" parent="." instance=ExtResource("3_ag7kc")]
 position = Vector2(404, 154)
 scale = Vector2(0.75, 0.75)
-script = ExtResource("6_kfped")
