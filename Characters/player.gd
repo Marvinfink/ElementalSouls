@@ -19,20 +19,19 @@ var speed:int=100;
 var health : int = 200
 var player_alive : bool = true
 var damage : int =200
-var old_element : String
-var element : String = "fire" #1=fire, 2=water, 3=electro, 4=plant
-
+var element =Elements.Element
 
 #@onready var animation_tree = $AnimationTree
 @onready var animation_tree1 = $animation_tree
 var element_textures = {
-	"fire": preload("res://Art/mystic_woods_free_2.1/sprites/Foozle_2DC0009_Lucifer_Warrior_Pixel_Art/sprite_fire.png"),
-	"water": preload("res://Art/mystic_woods_free_2.1/sprites/Foozle_2DC0009_Lucifer_Warrior_Pixel_Art/sprite_water.png"),
-	"electro": preload("res://Art/mystic_woods_free_2.1/sprites/Foozle_2DC0009_Lucifer_Warrior_Pixel_Art/sprite_electro.png"),
-	"plant": preload("res://Art/mystic_woods_free_2.1/sprites/Foozle_2DC0009_Lucifer_Warrior_Pixel_Art/sprite_plant.png")
+	Elements.Element.FIRE: preload("res://Art/mystic_woods_free_2.1/sprites/Foozle_2DC0009_Lucifer_Warrior_Pixel_Art/sprite_fire.png"),
+	Elements.Element.WATER: preload("res://Art/mystic_woods_free_2.1/sprites/Foozle_2DC0009_Lucifer_Warrior_Pixel_Art/sprite_water.png"),
+	Elements.Element.ELETRICITY: preload("res://Art/mystic_woods_free_2.1/sprites/Foozle_2DC0009_Lucifer_Warrior_Pixel_Art/sprite_electro.png"),
+	Elements.Element.PLANT: preload("res://Art/mystic_woods_free_2.1/sprites/Foozle_2DC0009_Lucifer_Warrior_Pixel_Art/sprite_plant.png")
 }
 
 func _ready():
+	element=Elements.Element.FIRE
 	$Sprite2D.texture=element_textures[element]
 	player_node=get_node(".")
 
@@ -51,14 +50,17 @@ func _physics_process(delta):
 	move_and_slide()
 	
 func _process(delta):
+	print(swing)
 	player_position=player_node.position
 	mouse_position= get_global_mouse_position()
 
 	player_direction=mouse_position-player_position
 	player_direction=player_direction.normalized()
+	$player_hitbox/CollisionPolygon2D.look_at(get_global_mouse_position())
 	
 	direction = Input.get_vector("left","right","up","down")
-	update_blend_position()
+	if not swing:
+		update_blend_position()
 	
 	if direction != Vector2.ZERO and not swing:
 		walking =true
@@ -66,17 +68,22 @@ func _process(delta):
 		update_blend_position()
 	else:
 		walking=false
+		
 		set_walking(walking)
 	
 	#change element
 	if Input.is_action_just_pressed("fire"):
-		change_element("fire")
+		element=Elements.Element.FIRE
+		change_element()
 	elif Input.is_action_just_pressed("water"):
-		change_element("water")
+		element=Elements.Element.WATER
+		change_element()
 	elif Input.is_action_just_pressed("electro"):
-		change_element("electro")
+		element=Elements.Element.ELETRICITY
+		change_element()
 	elif Input.is_action_just_pressed("plant"):
-		change_element("plant")
+		element=Elements.Element.PLANT
+		change_element()
 
 		
 	if Input.is_action_just_pressed("swing") and walking:
@@ -95,7 +102,7 @@ func set_swing(value = false):
 	animation_tree1["parameters/conditions/swing"]=value
 						
 #play walking animation
-func set_walking(value,element="fire"):
+func set_walking(value):
 	animation_tree1["parameters/conditions/walk"]=value
 	animation_tree1["parameters/conditions/idle"]=not value
 	
@@ -116,11 +123,10 @@ func enemy_attack(damage):
 		$attack_cooldown.start()
 		
 func attack(damage):
-	enemy.player_attack(damage)		
+	enemy.player_attack(damage,element)		
 
 # Change element and sprite texture
-func change_element(new_element):
-	element = new_element
+func change_element():
 	$Sprite2D.texture = element_textures[element]
 
 #check for enemy if in range
