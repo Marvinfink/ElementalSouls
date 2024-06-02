@@ -36,11 +36,6 @@ func _ready():
 	player_node=get_node(".")
 
 func _physics_process(delta):
-	if health <=0:
-		player_alive=false
-		health=0
-		print("player is died")
-		animation_tree1["parameters/conditions/death"]=true
 	if in_attack_range and Input.is_action_just_pressed("swing"):
 		attack(damage)
 	if not swing:
@@ -50,7 +45,6 @@ func _physics_process(delta):
 	move_and_slide()
 	
 func _process(delta):
-	print(swing)
 	player_position=player_node.position
 	mouse_position= get_global_mouse_position()
 
@@ -117,13 +111,20 @@ func player():
 
 #take damage from enemy
 func enemy_attack(damage):
-		health = health-damage
-		print(health)
-		enemy_attack_cooldown = false
-		$attack_cooldown.start()
+	health = health-damage
+	if health <=0:
+		player_alive=false
+		health=0
+		print("player is died")
+		animation_tree1["parameters/conditions/death"]=true
+	print(health)
+	
 		
 func attack(damage):
-	enemy.player_attack(damage,element)		
+	if enemy_attack_cooldown:
+		enemy_attack_cooldown = false
+		$attack_cooldown.start()
+		enemy.player_attack(damage,element)		
 
 # Change element and sprite texture
 func change_element():
