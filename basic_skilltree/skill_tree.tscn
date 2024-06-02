@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://ck8n6e8trqkm4"]
 
-[ext_resource type="PackedScene" uid="uid://cvxwtywvuoxpj" path="res://skilltree/skill_button.tscn" id="1_m3w0h"]
+[ext_resource type="PackedScene" uid="uid://cvxwtywvuoxpj" path="res://basic_skilltree/skill_button.tscn" id="1_m3w0h"]
 
 [node name="SkillTree" type="Control"]
 layout_mode = 3
