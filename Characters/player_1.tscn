@@ -766,7 +766,7 @@ parameters/walk/blend_position = Vector2(-0.369618, 0.0476191)
 polygon = PackedVector2Array(-4, -4, -4, 4, 6, 8, 10, 25, 28, 13, 34, 0, 28, -14, 11, -24, 6, -8)
 
 [node name="attack_cooldown" type="Timer" parent="."]
-wait_time = 1.971
+wait_time = 0.7
 
 [node name="idle_cooldown" type="Timer" parent="."]
 
