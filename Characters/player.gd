@@ -12,8 +12,10 @@ var walking : bool=false
 var enemy = null
 var in_attack_range : bool = false
 var enemy_attack_cooldown :bool = true
+var special_attack_cooldown :bool = true
 var player_position
 var player_node 
+var special_attack_bar : int = 0
 #playerstats
 var speed:int=100;
 var health : int = 200
@@ -36,8 +38,10 @@ func _ready():
 	player_node=get_node(".")
 
 func _physics_process(delta):
-	if in_attack_range and Input.is_action_just_pressed("swing"):
+	if in_attack_range and Input.is_action_just_pressed("swing") and enemy_attack_cooldown == true:
 		attack(damage)
+	if Input.is_action_just_pressed("special_attack") and special_attack_bar >= 5:
+		special_attack()
 	if not swing:
 		velocity = direction * speed
 	else:
@@ -121,11 +125,17 @@ func enemy_attack(damage):
 	
 		
 func attack(damage):
+	special_attack_bar +=1
+	print(special_attack_bar)
 	if enemy_attack_cooldown:
 		enemy_attack_cooldown = false
 		$attack_cooldown.start()
 		enemy.player_attack(damage,element)		
-
+#Todo: multiplier 
+func special_attack():
+	special_attack_bar = 0
+	print("SPECIAL ATTACK")
+	print(element)
 # Change element and sprite texture
 func change_element():
 	$Sprite2D.texture = element_textures[element]
@@ -143,3 +153,5 @@ func _on_player_hitbox_body_exited(body):
 func _on_attack_cooldown_timeout():
 	enemy_attack_cooldown = true
 	
+func _on_special_attack_cooldown_timeout():
+	special_attack_cooldown = true
