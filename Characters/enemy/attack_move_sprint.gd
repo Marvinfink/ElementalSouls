@@ -1,9 +1,9 @@
 extends "res://Characters/enemy/base_enemy.gd"
 
 # variable for each enemy
-var sprint_distance: int
-var sprint_speed: int
-var attack_delay: float
+@export var sprint_distance: int
+@export var sprint_speed: int
+@export var attack_delay: float
 # set in base
 var attack_move: bool = false
 var sprint_direction

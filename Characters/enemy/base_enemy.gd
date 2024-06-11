@@ -2,11 +2,11 @@ extends CharacterBody2D
 #base enemy
 
 # variable for each enemy
-var health: int
-var speed: int
-var damage: float
-var element: Elements.Element
-var cooldown: float
+@export var health: int
+@export var speed: int
+@export var damage: float
+@export var element: Elements.Element
+@export var cooldown: float
 # set in base
 var player_in_range: bool
 var player_chase: bool
@@ -54,15 +54,17 @@ func enemy():
 
 
 func _on_detection_area_body_entered(body):
-	player_chase = true
-	animation_tree["parameters/conditions/is_walking"] = true
-	animation_tree["parameters/conditions/idle"] = false
+	if body.has_method("player"):
+		player_chase = true
+		animation_tree["parameters/conditions/is_walking"] = true
+		animation_tree["parameters/conditions/idle"] = false
 
 
 func _on_detection_area_body_exited(body):
-	player_chase = false
-	animation_tree["parameters/conditions/is_walking"] = false
-	animation_tree["parameters/conditions/idle"] = true
+	if body.has_method("player"):
+		player_chase = false
+		animation_tree["parameters/conditions/is_walking"] = false
+		animation_tree["parameters/conditions/idle"] = true
 
 
 func _on_attack_cooldown_timeout():
