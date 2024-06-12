@@ -1,8 +1,8 @@
-# Allrounder.gd
+# Marksman
 extends "res://Characters/enemy/attack_move_projectile.gd"
 
 func set_data():
-	health = 200
+	health = 150
 	speed = 60
 	damage = 0.5
 	element = Elements.Element.WATER

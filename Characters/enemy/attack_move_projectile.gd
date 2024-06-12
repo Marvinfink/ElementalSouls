@@ -9,12 +9,10 @@ func shoot():
 		shooting = true
 		enemy_attack_cooldown = false
 		await get_tree().create_timer(1).timeout
-		
 		var projectile := marksman_projectile.instantiate()
 		owner.add_child(projectile)
 		projectile.position = $Marker2D.global_position
 		projectile.rotation = self.global_position.direction_to(player.global_position).angle()
-		
 		$attack_cooldown.start()
 		shooting = false
 		

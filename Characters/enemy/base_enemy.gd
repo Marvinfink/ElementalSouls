@@ -35,7 +35,6 @@ func move_position(delta: float):
 
 
 func player_attack(amount: int, enemy_element: Elements.Element):
-	print("damage")
 	health -=  round(amount * Elements.get_element_multiplier(enemy_element, element))
 	if health <= 0:
 		dead = true

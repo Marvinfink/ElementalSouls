@@ -15,7 +15,6 @@ func set_data():
 # für physikalische Berechnungen und Logik, die präzise Synchronisation erfordert, wie Bewegungen und Kollisionen
 func _physics_process(delta: float) -> void:
 	if attack_move:
-		print("physics")
 		move_sprint(delta)
 	else:
 		move_position(delta)
