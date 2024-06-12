@@ -12,13 +12,17 @@ func shoot():
 		
 		var projectile := marksman_projectile.instantiate()
 		owner.add_child(projectile)
-		projectile.position = $Marker2D.global_position  # Setze die Position des Projektils
-		
-		# Setze die Richtung des Projektils in Richtung des Spielers
-		projectile.transform = $Marker2D.transform
+		projectile.position = $Marker2D.global_position
+		projectile.rotation = self.global_position.direction_to(player.global_position).angle()
 		
 		$attack_cooldown.start()
 		shooting = false
+		
+func move_position(delta: float):
+	if player_in_range and not dead:
+		var direction = (player.position - position).normalized()
+		var velocity  = direction * speed * get_physics_process_delta_time()
+		move_and_collide(velocity)
 		
 func _on_detection_area_body_entered(body):
 	if body.has_method("player"):

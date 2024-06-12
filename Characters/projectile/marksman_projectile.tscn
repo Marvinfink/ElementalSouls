@@ -4,14 +4,19 @@
 [ext_resource type="Texture2D" uid="uid://da1c3wrc6vun5" path="res://Art/mystic_woods_free_2.1/sprites/particles/laserRed01.png" id="2_718ks"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_as6kd"]
-radius = 6.0
-height = 58.0
+radius = 1.5
+height = 17.0
 
-[node name="markman_projectile" type="Area2D"]
+[node name="marksman_projectile" type="Area2D"]
 script = ExtResource("1_t7l2n")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 1.5708
+scale = Vector2(0.3, 0.3)
 texture = ExtResource("2_718ks")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="hit_box" type="CollisionShape2D" parent="."]
+rotation = 1.5708
 shape = SubResource("CapsuleShape2D_as6kd")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

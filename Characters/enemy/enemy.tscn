@@ -265,7 +265,6 @@ radius = 12.0
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_fr2eo")
 animation = &"idle"
-frame = 1
 offset = Vector2(0, -6)
 
 [node name="detection_area" type="Area2D" parent="."]
@@ -299,12 +298,8 @@ shape = SubResource("CircleShape2D_g6nv2")
 
 [node name="attack_cooldown" type="Timer" parent="."]
 
-[node name="Node2D" type="Node2D" parent="."]
-position = Vector2(-4, -2)
-rotation = -6.28319
-
-[node name="Marker2D" type="Marker2D" parent="Node2D"]
-position = Vector2(12, -4)
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(0, -2)
 
 [connection signal="body_entered" from="detection_area" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="detection_area" to="." method="_on_detection_area_body_exited"]

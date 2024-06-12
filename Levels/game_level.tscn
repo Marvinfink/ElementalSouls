@@ -956,7 +956,7 @@ position = Vector2(369, 118)
 scale = Vector2(0.75, 0.75)
 script = ExtResource("6_0r14g")
 
-[node name="Enemy-Markman-1" parent="." instance=ExtResource("3_ag7kc")]
+[node name="Enemy-Marksman-1" parent="." instance=ExtResource("3_ag7kc")]
 position = Vector2(391, 326)
 script = ExtResource("7_uce1y")
 

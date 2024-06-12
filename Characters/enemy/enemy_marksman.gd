@@ -6,11 +6,10 @@ func set_data():
 	speed = 60
 	damage = 0.5
 	element = Elements.Element.WATER
-	cooldown = 1
+	cooldown = 3
 
 # für physikalische Berechnungen und Logik, die präzise Synchronisation erfordert, wie Bewegungen und Kollisionen
 func _physics_process(delta: float) -> void:
-	$Node2D.look_at(player.position)
 	shoot()
 	if not shooting:
 		move_position(delta)
