@@ -1,8 +1,8 @@
-extends "res://Characters/enemy/base_enemy.gd"
+extends "res://Enemy/base/base_enemy.gd"
 
 var shooting: bool = false
 
-const marksman_projectile := preload("res://Characters/projectile/marksman_projectile.tscn")
+const marksman_projectile := preload("res://Enemy/projectile/marksman_projectile.tscn")
 
 func shoot():
 	if player_in_range and enemy_attack_cooldown and not dead and not shooting:

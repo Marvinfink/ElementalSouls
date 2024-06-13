@@ -1,4 +1,4 @@
-extends "res://Characters/enemy/base_enemy.gd"
+extends "res://Enemy/base/base_enemy.gd"
 
 # variable for each enemy
 @export var sprint_distance: int
