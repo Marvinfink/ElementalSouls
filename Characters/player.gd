@@ -16,6 +16,7 @@ var special_attack_cooldown :bool = true
 var player_position
 var player_node 
 var special_attack_bar : int = 0
+
 #playerstats
 var speed:int=100;
 var health : int = 200
@@ -90,7 +91,11 @@ func _process(delta):
 	elif Input.is_action_just_pressed("swing") and not walking:
 		set_swing(true)
 		animation_tree1["parameters/conditions/idle"] = true
-		
+	
+	if Input.is_action_just_pressed("dash"):
+		var direction = (mouse_position - position).normalized()
+		var velocity  = direction * 4500 * get_physics_process_delta_time()
+		move_and_collide(velocity)
 	
 #play attack animation
 #Todo: change animations to swingfire,swingwater,...
@@ -139,6 +144,11 @@ func special_attack():
 # Change element and sprite texture
 func change_element():
 	$Sprite2D.texture = element_textures[element]
+
+func dash():
+	pass
+	
+
 
 #check for enemy if in range
 func _on_player_hitbox_body_entered(body):
