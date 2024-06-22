@@ -24,6 +24,14 @@ var player_alive : bool = true
 var damage : int =200
 var element =Elements.Element
 
+#Dash variables
+var is_dashing : bool = false
+var dash_speed : float = 200
+var dash_duration : float = 0.2  # Dash duration in seconds
+var dash_timer : float = 0
+var dash_direction : Vector2 = Vector2.ZERO
+var dash_used :bool = true
+
 #@onready var animation_tree = $AnimationTree
 @onready var animation_tree1 = $animation_tree
 var element_textures = {
@@ -37,8 +45,28 @@ func _ready():
 	element=Elements.Element.FIRE
 	$Sprite2D.texture=element_textures[element]
 	player_node=get_node(".")
-
+	
+func _input(event):
+		if Input.is_action_just_pressed("dash") && dash_used:
+			dash_used=false
+			mouse_position=get_global_mouse_position()
+			dash_direction = (mouse_position - global_position).normalized()
+			#velocity  = dash_direction * dash_speed * get_physics_process_delta_time()
+			is_dashing=true
+			dash_timer=0
+			$dash_timer.start()
+		
 func _physics_process(delta):
+	if is_dashing:
+		dash_timer+=delta
+		if dash_timer>=dash_duration:
+			is_dashing=false
+			dash_timer=0
+			velocity=Vector2.ZERO
+			
+		else:
+			velocity = dash_direction * dash_speed
+		move_and_slide()
 	if in_attack_range and Input.is_action_just_pressed("swing") and enemy_attack_cooldown == true:
 		attack(damage)
 	if Input.is_action_just_pressed("special_attack") and special_attack_bar >= 5:
@@ -91,11 +119,7 @@ func _process(delta):
 	elif Input.is_action_just_pressed("swing") and not walking:
 		set_swing(true)
 		animation_tree1["parameters/conditions/idle"] = true
-	
-	if Input.is_action_just_pressed("dash"):
-		var direction = (mouse_position - position).normalized()
-		var velocity  = direction * 4500 * get_physics_process_delta_time()
-		move_and_collide(velocity)
+
 	
 #play attack animation
 #Todo: change animations to swingfire,swingwater,...
@@ -145,9 +169,6 @@ func special_attack():
 func change_element():
 	$Sprite2D.texture = element_textures[element]
 
-func dash():
-	pass
-	
 
 
 #check for enemy if in range
@@ -165,3 +186,6 @@ func _on_attack_cooldown_timeout():
 	
 func _on_special_attack_cooldown_timeout():
 	special_attack_cooldown = true
+
+func _on_dash_timer_timeout():
+	dash_used=true # Replace with function body.
