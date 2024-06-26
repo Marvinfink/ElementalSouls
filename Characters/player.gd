@@ -80,7 +80,6 @@ func _physics_process(delta):
 func _process(delta):
 	player_position=player_node.position
 	mouse_position= get_global_mouse_position()
-
 	player_direction=mouse_position-player_position
 	player_direction=player_direction.normalized()
 	$player_hitbox/CollisionPolygon2D.look_at(get_global_mouse_position())

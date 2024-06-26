@@ -1,6 +1,6 @@
 [gd_scene load_steps=83 format=3 uid="uid://8rnqji34k3af"]
 
-[ext_resource type="Script" path="res://Characters/player.gd" id="1_soxp6"]
+[ext_resource type="Script" path="res://Characters/player.gd" id="1_6i8kp"]
 [ext_resource type="Texture2D" uid="uid://cb815r13sxdy5" path="res://Art/mystic_woods_free_2.1/sprites/Foozle_2DC0009_Lucifer_Warrior_Pixel_Art/sprite_fire.png" id="2_wh1k7"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0s20j"]
@@ -726,7 +726,7 @@ graph_offset = Vector2(0, 241.431)
 [node name="Player1" type="CharacterBody2D"]
 z_index = 2
 collision_layer = 3
-script = ExtResource("1_soxp6")
+script = ExtResource("1_6i8kp")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_wh1k7")
@@ -757,7 +757,7 @@ parameters/conditions/swing = false
 parameters/conditions/walk = false
 parameters/attack/blend_position = Vector2(0, 0)
 parameters/death/blend_position = Vector2(0, 0)
-parameters/idle/blend_position = Vector2(-0.337124, 0.142857)
+parameters/idle/blend_position = Vector2(-0.306491, -0.269841)
 parameters/walk/blend_position = Vector2(-0.369618, 0.0476191)
 
 [node name="player_hitbox" type="Area2D" parent="."]
@@ -773,6 +773,7 @@ wait_time = 0.7
 [node name="special_attack_cooldown" type="Timer" parent="."]
 
 [node name="dash_timer" type="Timer" parent="."]
+wait_time = 0.5
 
 [connection signal="body_entered" from="player_hitbox" to="." method="_on_player_hitbox_body_entered"]
 [connection signal="body_exited" from="player_hitbox" to="." method="_on_player_hitbox_body_exited"]
