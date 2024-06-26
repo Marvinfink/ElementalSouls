@@ -1,0 +1,131 @@
+[gd_scene load_steps=7 format=3 uid="uid://dgykfqb5fl5a7"]
+
+[ext_resource type="Script" path="res://skilltree/Skill_tree_camera.gd" id="1_c0dui"]
+[ext_resource type="Texture2D" uid="uid://1m2sju87177b" path="res://icon.svg" id="1_qp4ll"]
+[ext_resource type="Script" path="res://skilltree/SkillTree_code.gd" id="1_vm2bs"]
+[ext_resource type="PackedScene" uid="uid://kf3b65ngyoid" path="res://skilltree/skillbutton.tscn" id="3_yweqh"]
+[ext_resource type="Texture2D" uid="uid://b8ideaxtdlag3" path="res://Art/SpecialAttacks/Plant1.png" id="4_2pico"]
+[ext_resource type="Texture2D" uid="uid://4gr1skw0osgt" path="res://Art/SpecialAttacks/Plant2.png" id="5_bg4u1"]
+
+[node name="Skilltree_Room" type="Node2D"]
+
+[node name="SkillTree" type="Node2D" parent="." groups=["SkillTree"]]
+script = ExtResource("1_vm2bs")
+
+[node name="Sprite2D" type="Sprite2D" parent="SkillTree"]
+visible = false
+texture = ExtResource("1_qp4ll")
+
+[node name="SkillButton" parent="SkillTree" instance=ExtResource("3_yweqh")]
+offset_left = 16.0
+offset_top = -48.0
+offset_right = 48.0
+offset_bottom = -16.0
+
+[node name="SkillButton" parent="SkillTree/SkillButton" instance=ExtResource("3_yweqh")]
+layout_mode = 0
+offset_left = 112.0
+offset_right = 144.0
+disabled = true
+SkillName = "FireTornado"
+
+[node name="SkillButton2" parent="SkillTree/SkillButton/SkillButton" instance=ExtResource("3_yweqh")]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 48.0
+offset_right = 96.0
+offset_bottom = 80.0
+disabled = true
+
+[node name="SkillButton" parent="SkillTree/SkillButton/SkillButton" instance=ExtResource("3_yweqh")]
+layout_mode = 0
+offset_left = 64.0
+offset_top = -48.0
+offset_right = 96.0
+offset_bottom = -16.0
+disabled = true
+
+[node name="SkillButton2" parent="SkillTree/SkillButton" instance=ExtResource("3_yweqh")]
+layout_mode = 0
+offset_top = -112.0
+offset_bottom = -80.0
+disabled = true
+SkillName = "Fireball"
+
+[node name="SkillButton2" parent="SkillTree/SkillButton/SkillButton2" instance=ExtResource("3_yweqh")]
+layout_mode = 0
+offset_left = -48.0
+offset_top = -64.0
+offset_right = -16.0
+offset_bottom = -32.0
+disabled = true
+
+[node name="SkillButton3" parent="SkillTree/SkillButton/SkillButton2" instance=ExtResource("3_yweqh")]
+layout_mode = 0
+offset_left = 48.0
+offset_top = -64.0
+offset_right = 80.0
+offset_bottom = -32.0
+disabled = true
+
+[node name="SkillButton3" parent="SkillTree/SkillButton" instance=ExtResource("3_yweqh")]
+layout_mode = 0
+offset_left = -32.0
+offset_top = 72.0
+offset_right = 0.0
+offset_bottom = 104.0
+
+[node name="SkillButton" parent="SkillTree/SkillButton/SkillButton3" instance=ExtResource("3_yweqh")]
+layout_mode = 0
+offset_left = 128.0
+offset_top = 120.0
+offset_right = 160.0
+offset_bottom = 152.0
+disabled = true
+texture_normal = ExtResource("4_2pico")
+SkillName = "Plant2"
+
+[node name="SkillButton2" parent="SkillTree/SkillButton/SkillButton3/SkillButton" instance=ExtResource("3_yweqh")]
+layout_mode = 0
+offset_left = -64.0
+offset_top = 64.0
+offset_right = -32.0
+offset_bottom = 96.0
+disabled = true
+
+[node name="SkillButton" parent="SkillTree/SkillButton/SkillButton3/SkillButton" instance=ExtResource("3_yweqh")]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 64.0
+offset_right = 96.0
+offset_bottom = 96.0
+disabled = true
+
+[node name="SkillButton2" parent="SkillTree/SkillButton/SkillButton3" instance=ExtResource("3_yweqh")]
+layout_mode = 0
+offset_left = -128.0
+offset_top = 120.0
+offset_right = -96.0
+offset_bottom = 152.0
+disabled = true
+texture_normal = ExtResource("5_bg4u1")
+SkillName = "Plant1"
+
+[node name="SkillButton2" parent="SkillTree/SkillButton/SkillButton3/SkillButton2" instance=ExtResource("3_yweqh")]
+layout_mode = 0
+offset_left = -64.0
+offset_top = 64.0
+offset_right = -32.0
+offset_bottom = 96.0
+disabled = true
+
+[node name="SkillButton3" parent="SkillTree/SkillButton/SkillButton3/SkillButton2" instance=ExtResource("3_yweqh")]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 64.0
+offset_right = 96.0
+offset_bottom = 96.0
+disabled = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+script = ExtResource("1_c0dui")
