@@ -1,3 +1,4 @@
+
 [gd_scene load_steps=27 format=3 uid="uid://bf4wgcyu31x7p"]
 
 [ext_resource type="PackedScene" uid="uid://8rnqji34k3af" path="res://Characters/player_1.tscn" id="1_w8loj"]
@@ -7,16 +8,27 @@
 [ext_resource type="Texture2D" uid="uid://r77xsgaglm4u" path="res://Art/mystic_woods_free_2.1/sprites/DG Fire Zone Expansion Free Ver/All Tiles Free Ver..png" id="3_q67ss"]
 [ext_resource type="Texture2D" uid="uid://8oatw54a200k" path="res://Art/mystic_woods_free_2.1/sprites/DG Fire Zone Expansion Free Ver/tiles1.1.png" id="4_gt7ua"]
 [ext_resource type="Texture2D" uid="uid://yolvymetgpir" path="res://Art/mystic_woods_free_2.1/sprites/Dungeon Gathering Free Version/Set 4.5.png" id="4_j8yhr"]
+
+[gd_scene load_steps=10 format=3 uid="uid://bf4wgcyu31x7p"]
+
+[ext_resource type="PackedScene" uid="uid://8rnqji34k3af" path="res://Characters/player_1.tscn" id="1_w8loj"]
+[ext_resource type="Texture2D" uid="uid://dco3y8x3x6xuh" path="res://Art/mystic_woods_free_2.1/sprites/tilesets/Tiles.png" id="2_kyimk"]
+[ext_resource type="PackedScene" uid="uid://2vi1bcr01qel" path="res://Characters/enemy/enemy.tscn" id="3_ag7kc"]
+
 [ext_resource type="Script" path="res://Characters/enemy/enemy_allround.gd" id="4_nnqig"]
 [ext_resource type="Texture2D" uid="uid://cxwl6i3spnxp7" path="res://Art/mystic_woods_free_2.1/sprites/Dungeon Gathering Free Version/Water.png" id="5_mxu3q"]
 [ext_resource type="Script" path="res://Characters/enemy/enemy_attack_speed.gd" id="5_t2gpe"]
 [ext_resource type="Script" path="res://Characters/enemy/enemy_damage.gd" id="6_0r14g"]
+
 [ext_resource type="Texture2D" uid="uid://lohw7rnhx3va" path="res://Art/mystic_woods_free_2.1/sprites/Dungeon Gathering Free Version/Set 1.png" id="6_h2r71"]
 [ext_resource type="Texture2D" uid="uid://sxvc02iahmjg" path="res://Art/mystic_woods_free_2.1/sprites/Dungeon Gathering Free Version/Unbenannt.png" id="7_ehwkq"]
 [ext_resource type="Texture2D" uid="uid://dacmu0apfirgi" path="res://Art/mystic_woods_free_2.1/sprites/DG Fire Zone Expansion Free Ver/planttile1.1.png" id="7_nosvp"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_5arxs"]
 load_path = "res://.godot/imported/Tiles.png-ba7806c41787639925f2305d29de213c.ctex"
+
+[ext_resource type="Script" path="res://Characters/enemy/enemy_marksman.gd" id="7_uce1y"]
+
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cho5q"]
 texture = SubResource("CompressedTexture2D_5arxs")
@@ -4840,7 +4852,24 @@ script = ExtResource("5_t2gpe")
 
 [node name="Enemy-Damage-1" parent="." instance=ExtResource("3_ag7kc")]
 position = Vector2(617, 2063)
+
+position = Vector2(678, 113)
+scale = Vector2(0.75, 0.75)
+script = ExtResource("4_nnqig")
+
+[node name="Enemy-Attack-Speed-1" parent="." instance=ExtResource("3_ag7kc")]
+position = Vector2(118, 103)
+scale = Vector2(0.75, 0.75)
+script = ExtResource("5_t2gpe")
+
+[node name="Enemy-Damage-1" parent="." instance=ExtResource("3_ag7kc")]
+position = Vector2(369, 118)
+scale = Vector2(0.75, 0.75)
 script = ExtResource("6_0r14g")
+
+[node name="Enemy-Marksman-1" parent="." instance=ExtResource("3_ag7kc")]
+position = Vector2(391, 326)
+script = ExtResource("7_uce1y")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(-124, 671)
