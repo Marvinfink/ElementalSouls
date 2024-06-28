@@ -35,15 +35,15 @@ var dash_used :bool = true
 #@onready var animation_tree = $AnimationTree
 @onready var animation_tree1 = $animation_tree
 var element_textures = {
-	Elements.Element.FIRE: preload("res://Art/mystic_woods_free_2.1/sprites/Foozle_2DC0009_Lucifer_Warrior_Pixel_Art/sprite_fire.png"),
-	Elements.Element.WATER: preload("res://Art/mystic_woods_free_2.1/sprites/Foozle_2DC0009_Lucifer_Warrior_Pixel_Art/sprite_water.png"),
-	Elements.Element.ELETRICITY: preload("res://Art/mystic_woods_free_2.1/sprites/Foozle_2DC0009_Lucifer_Warrior_Pixel_Art/sprite_electro.png"),
-	Elements.Element.PLANT: preload("res://Art/mystic_woods_free_2.1/sprites/Foozle_2DC0009_Lucifer_Warrior_Pixel_Art/sprite_plant.png")
+	#Elements.Element.FIRE: preload("res://Art/mystic_woods_free_2.1/sprites/Foozle_2DC0009_Lucifer_Warrior_Pixel_Art/sprite_fire.png"),
+	#Elements.Element.WATER: preload("res://Art/mystic_woods_free_2.1/sprites/Foozle_2DC0009_Lucifer_Warrior_Pixel_Art/sprite_water.png"),
+	#Elements.Element.ELETRICITY: preload("res://Art/mystic_woods_free_2.1/sprites/Foozle_2DC0009_Lucifer_Warrior_Pixel_Art/sprite_electro.png"),
+	#Elements.Element.PLANT: preload("res://Art/mystic_woods_free_2.1/sprites/Foozle_2DC0009_Lucifer_Warrior_Pixel_Art/sprite_plant.png")
 }
 
 func _ready():
 	element=Elements.Element.FIRE
-	$Sprite2D.texture=element_textures[element]
+	#$Sprite2D.texture=element_textures[element]
 	player_node=get_node(".")
 	
 #Handles the user input

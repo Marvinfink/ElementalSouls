@@ -4,7 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://dk3ahnhsnr8cv" path="res://Art/mystic_woods_free_2.1/sprites/characters/Fire/Sprite_Fire_Complete_Outlines-Sheet.png" id="2_wxjvv"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_q54ym"]
-load_path = "res://.godot/imported/sprite_fire.png-469de30e28c00375fd8c0a6609b5097d.ctex"
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0s20j"]
 radius = 5.0
