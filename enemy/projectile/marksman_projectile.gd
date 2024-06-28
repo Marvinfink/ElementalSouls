@@ -1,4 +1,4 @@
-extends "res://Enemy/base/base_projectile.gd"
+extends "res://enemy/base/base_projectile.gd"
 
 func _ready():
 	speed = 100

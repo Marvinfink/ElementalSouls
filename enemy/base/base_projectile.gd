@@ -2,7 +2,7 @@ extends Area2D
 
 # Eigenschaften für das Projektil
 @export var speed: int
-@export var range: int
+@export var range: float
 @export var damage: float
 @export var stun_duration: int
 @export var knockback_force: int

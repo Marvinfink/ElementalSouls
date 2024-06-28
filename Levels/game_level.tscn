@@ -1,12 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://bf4wgcyu31x7p"]
+[gd_scene load_steps=10 format=3 uid="uid://bf4wgcyu31x7p"]
 
 [ext_resource type="PackedScene" uid="uid://8rnqji34k3af" path="res://Characters/player_1.tscn" id="1_w8loj"]
 [ext_resource type="Texture2D" uid="uid://dco3y8x3x6xuh" path="res://Art/mystic_woods_free_2.1/sprites/tilesets/Tiles.png" id="2_kyimk"]
-[ext_resource type="PackedScene" uid="uid://2vi1bcr01qel" path="res://Enemy/enemy.tscn" id="3_ag7kc"]
 [ext_resource type="Script" path="res://Enemy/enemy_allround.gd" id="4_nnqig"]
 [ext_resource type="Script" path="res://Enemy/enemy_attack_speed.gd" id="5_t2gpe"]
 [ext_resource type="Script" path="res://Enemy/enemy_damage.gd" id="6_0r14g"]
-[ext_resource type="Script" path="res://Enemy/enemy_marksman.gd" id="7_uce1y"]
+[ext_resource type="PackedScene" uid="uid://2vi1bcr01qel" path="res://Enemy/marksman.tscn" id="8_bcy6o"]
 [ext_resource type="PackedScene" uid="uid://cgba3rwoeuejw" path="res://Enemy/endboss/endboss.tscn" id="8_is22n"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cho5q"]
@@ -942,27 +941,45 @@ remote_path = NodePath("../../Camera2D")
 [node name="RemoteTransform2D2" type="RemoteTransform2D" parent="Player1"]
 remote_path = NodePath("../../Camera2D")
 
-[node name="Enemy-Allround-1" parent="." instance=ExtResource("3_ag7kc")]
+[node name="Enemy-Allround-1" parent="." instance=ExtResource("8_bcy6o")]
 position = Vector2(678, 113)
 scale = Vector2(0.75, 0.75)
 script = ExtResource("4_nnqig")
+health = null
+speed = null
+damage = null
+element = null
+cooldown = null
 
-[node name="Enemy-Attack-Speed-1" parent="." instance=ExtResource("3_ag7kc")]
+[node name="Enemy-Attack-Speed-1" parent="." instance=ExtResource("8_bcy6o")]
 position = Vector2(118, 103)
 scale = Vector2(0.75, 0.75)
 script = ExtResource("5_t2gpe")
 
-[node name="Enemy-Damage-1" parent="." instance=ExtResource("3_ag7kc")]
+[node name="Enemy-Damage-1" parent="." instance=ExtResource("8_bcy6o")]
 position = Vector2(369, 118)
 scale = Vector2(0.75, 0.75)
 script = ExtResource("6_0r14g")
+health = null
+speed = null
+damage = null
+element = null
+cooldown = null
 
-[node name="Enemy-Marksman-1" parent="." instance=ExtResource("3_ag7kc")]
-position = Vector2(391, 326)
-script = ExtResource("7_uce1y")
+[node name="Enemy-Marksman-1" parent="." instance=ExtResource("8_bcy6o")]
+position = Vector2(414, 364)
 
 [node name="endboss" parent="." instance=ExtResource("8_is22n")]
 position = Vector2(637, 348)
+
+[node name="Enemy" parent="." instance=ExtResource("8_bcy6o")]
+position = Vector2(97, 399)
+script = ExtResource("6_0r14g")
+health = null
+speed = null
+damage = null
+element = null
+cooldown = null
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(300, 300)

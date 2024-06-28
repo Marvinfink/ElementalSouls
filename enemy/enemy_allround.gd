@@ -1,18 +1,24 @@
-# Marksman
-extends "res://Enemy/attacks/attack_move_projectile.gd"
+# Allrounder.gd
+extends "res://enemy/types/fighter.gd"
 
 func set_data():
-	health = 150
+	health = 200
 	speed = 60
 	damage = 0.5
 	element = Elements.Element.WATER
-	cooldown = 3
+	cooldown = 1
+	attack_delay = 0.5
+	sprint_speed = 130
+	sprint_distance = 50
+
 
 # für physikalische Berechnungen und Logik, die präzise Synchronisation erfordert, wie Bewegungen und Kollisionen
 func _physics_process(delta: float) -> void:
-	shoot()
-	if not shooting:
+	if charging_helper.attack_move:
+		charging_helper.move_sprint(delta)
+	else:
 		move_position(delta)
+		charging_helper.start_attack_move()
 
 
 # für nicht-physikalische Logik wie Animationen, UI-Updates, nicht-physikbasierte Bewegungen

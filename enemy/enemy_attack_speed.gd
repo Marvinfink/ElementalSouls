@@ -1,24 +1,23 @@
-# Allrounder.gd
-extends "res://Enemy/attacks/attack_move_sprint.gd"
+extends "res://enemy/types/fighter.gd"
 
 func set_data():
-	health = 200
-	speed = 60
+	health = 150
+	speed = 80
 	damage = 0.5
 	element = Elements.Element.WATER
-	cooldown = 1
+	cooldown = 0.5
 	attack_delay = 0.5
-	sprint_speed = 130
-	sprint_distance = 50
+	sprint_speed = 200
+	sprint_distance = 40
 
 
 # für physikalische Berechnungen und Logik, die präzise Synchronisation erfordert, wie Bewegungen und Kollisionen
 func _physics_process(delta: float) -> void:
-	if attack_move:
-		move_sprint(delta)
+	if charging_helper.attack_move:
+		charging_helper.move_sprint(delta)
 	else:
 		move_position(delta)
-		start_attack_move()
+		charging_helper.start_attack_move()
 
 
 # für nicht-physikalische Logik wie Animationen, UI-Updates, nicht-physikbasierte Bewegungen
