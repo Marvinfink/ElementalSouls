@@ -1,4 +1,4 @@
-extends "res://Characters/enemy/attack_move_sprint.gd"
+extends "res://enemy/types/fighter.gd"
 
 func set_data():
 	health = 150
@@ -13,11 +13,11 @@ func set_data():
 
 # für physikalische Berechnungen und Logik, die präzise Synchronisation erfordert, wie Bewegungen und Kollisionen
 func _physics_process(delta: float) -> void:
-	if attack_move:
-		move_sprint(delta)
+	if charging_helper.attack_move:
+		charging_helper.move_sprint(delta)
 	else:
 		move_position(delta)
-		start_attack_move()
+		charging_helper.start_attack_move()
 
 
 # für nicht-physikalische Logik wie Animationen, UI-Updates, nicht-physikbasierte Bewegungen
