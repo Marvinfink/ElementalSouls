@@ -1,0 +1,52 @@
+extends CanvasLayer
+
+@onready var menubutton = $MenuButton
+@onready var selected_element: Elements.Element = -1
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	var popup = menubutton.get_popup()
+	popup.id_pressed.connect(menu_button_selected)
+	popup.add_item("Wasser", Elements.Element.WATER)
+	popup.add_item("Feuer", Elements.Element.FIRE)
+	popup.add_item("Pflanze", Elements.Element.PLANT)
+	popup.add_item("Elektro", Elements.Element.ELECTRICITY)
+	get_tree().paused = true
+	self.show()
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+	
+
+func show_main_menu():
+	get_tree().paused = true
+	get_tree().reload_current_scene()
+	$MenuButton.text = "Wähle..."
+	selected_element = -1
+	self.show()
+
+
+func _on_button_pressed():
+	if selected_element != -1:
+		get_tree().paused = false
+		self.hide()
+		#set element in player and map
+		return 
+	print("kein element gewählt")
+		
+
+func menu_button_selected(id): 
+	var selected_text: String
+	match id:
+		Elements.Element.FIRE:
+			selected_text = "Fire"
+		Elements.Element.WATER:
+			selected_text = "Water"
+		Elements.Element.PLANT:
+			selected_text = "Plant"
+		Elements.Element.ELECTRICITY:
+			selected_text = "Electricity"
+	$MenuButton.text = selected_text
+	selected_element = id

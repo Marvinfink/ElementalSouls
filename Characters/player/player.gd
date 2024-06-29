@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 
 #playerstats
-var health : int = 200
+var health : int = 2
 var speed:int=100;
 var damage : int =200
 var element =Elements.Element
@@ -178,6 +178,8 @@ func enemy_attack(damage):
 		health=0
 		print("player is died")
 		animation_tree1["parameters/conditions/death"]=true
+		await get_tree().create_timer(1,5).timeout
+		get_node("../Game_Over_Overlay").game_over()
 	print(health)
 
 func player():
