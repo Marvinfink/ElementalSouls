@@ -1,6 +1,6 @@
 extends "res://enemy/helper/base_helper.gd"
 
-const marksman_projectile := preload("res://Enemy/projectile/marksman_projectile.tscn")
+const marksman_projectile := preload("res://enemy/projectile/marksman_projectile.tscn")
 
 
 func shoot():

@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://daua0c7y8buor"]
 
-[ext_resource type="Script" path="res://Enemy/projectile/marksman_projectile.gd" id="1_66nyf"]
+[ext_resource type="Script" path="res://enemy/projectile/marksman_projectile.gd" id="1_66nyf"]
 [ext_resource type="Texture2D" uid="uid://da1c3wrc6vun5" path="res://Art/mystic_woods_free_2.1/sprites/particles/laserRed01.png" id="2_718ks"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_as6kd"]

@@ -1,7 +1,7 @@
 extends "res://enemy/base/base_enemy.gd"
 var player_in_shooting_range: bool
 
-@onready var shooting_helper = preload("res://Enemy/helper/attack_move_projectile.gd").new()
+@onready var shooting_helper = preload("res://enemy/helper/attack_move_projectile.gd").new()
 
 
 func set_helper():
