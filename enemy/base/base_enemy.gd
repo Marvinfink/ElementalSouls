@@ -21,6 +21,7 @@ var blends: Array = []
 
 func _ready():
 	set_data()
+	set_type()
 	set_dictionaries()
 	set_helper()
 	player_in_range = false
@@ -56,6 +57,10 @@ func start_attack_countdown():
 
 
 func set_data():
+	pass
+	
+	
+func set_type():
 	pass
 
 

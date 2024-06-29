@@ -65,7 +65,7 @@ func _input(event):
 		element=Elements.Element.WATER
 		change_element()
 	elif Input.is_action_just_pressed("electro"):
-		element=Elements.Element.ELETRICITY
+		element=Elements.Element.ELECTRICITY
 		change_element()
 	elif Input.is_action_just_pressed("plant"):
 		element=Elements.Element.PLANT
