@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://cvxwtywvuoxpj"]
+[gd_scene load_steps=2 format=3 uid="uid://cvxwtywvuoxpj"]
 
 [ext_resource type="Texture2D" uid="uid://1m2sju87177b" path="res://icon.svg" id="1_a2yg1"]
-[ext_resource type="Script" path="res://skilltree/skill_button.gd" id="2_u0j7n"]
 
 [node name="skillButton" type="TextureButton"]
 offset_right = 70.0
@@ -10,7 +9,6 @@ toggle_mode = true
 texture_normal = ExtResource("1_a2yg1")
 ignore_texture_size = true
 stretch_mode = 0
-script = ExtResource("2_u0j7n")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 0

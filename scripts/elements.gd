@@ -6,7 +6,7 @@ enum Element {
 	FIRE,
 	WATER,
 	PLANT,
-	ELETRICITY
+	ELECTRICITY
 }
 
 var element_multipliers: Dictionary = {
@@ -14,25 +14,25 @@ var element_multipliers: Dictionary = {
 											  Element.FIRE: 1.0,
 											  Element.WATER: 0.5,
 											  Element.PLANT: 1.5,
-											  Element.ELETRICITY: 1.0
+											  Element.ELECTRICITY: 1.0
 										  },
 										  Element.WATER: {
 											  Element.FIRE: 1.5,
 											  Element.WATER: 1.0,
 											  Element.PLANT: 1.0,
-											  Element.ELETRICITY: 0.5
+											  Element.ELECTRICITY: 0.5
 										  },
 										  Element.PLANT: {
 											  Element.FIRE: 0.5,
 											  Element.WATER: 1.0,
 											  Element.PLANT: 1.0,
-											  Element.ELETRICITY: 1.5
+											  Element.ELECTRICITY: 1.5
 										  },
-										  Element.ELETRICITY: {
+										  Element.ELECTRICITY: {
 											  Element.FIRE: 1.0,
 											  Element.WATER: 1.5,
 											  Element.PLANT: 0.5,
-											  Element.ELETRICITY: 1.0
+											  Element.ELECTRICITY: 1.0
 										  }
 									  }
 
