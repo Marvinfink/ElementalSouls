@@ -7,6 +7,7 @@ func set_data():
 	damage = 0.5
 	element = Elements.Element.WATER
 	cooldown = 3
+	$Sprite2D.texture = preload("res://Art/mystic_woods_free_2.1/enemies/FireRanged.png")
 
 # für physikalische Berechnungen und Logik, die präzise Synchronisation erfordert, wie Bewegungen und Kollisionen
 func _physics_process(delta: float) -> void:

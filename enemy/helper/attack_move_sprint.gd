@@ -6,7 +6,7 @@ var sprint_target
 
 
 func start_attack_move():
-	if base.player_in_range and base.enemy_attack_cooldown and not base.dead and not attack_move:
+	if base.player_in_range and base.enemy_attack_cooldown and not base.states[Animations.IS_DEAD] and not attack_move:
 		base.enemy_attack_cooldown = false
 		#animation_tree["parameters/conditions/attack"] = true
 		#animation_tree["parameters/conditions/attack"] = false

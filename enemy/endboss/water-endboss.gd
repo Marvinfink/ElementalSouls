@@ -12,3 +12,5 @@ var attack_delay: float
 func set_helper():
 	charging_helper.set_node(self)
 	shooting_helper.set_node(self)
+	states[Animations.USING_SPECIAL_ATTACK] = false
+	blends.append(Animations.BLEND_SPECIAL_ATTACK)

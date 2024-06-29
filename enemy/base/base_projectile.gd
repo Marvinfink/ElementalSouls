@@ -1,7 +1,7 @@
 extends Area2D
 
 # Eigenschaften für das Projektil
-@export var speed: int
+@export var speed: float
 @export var range: float
 @export var damage: float
 @export var stun_duration: int
@@ -9,17 +9,18 @@ extends Area2D
 
 # Interna
 var distance_travelled: float = 0.0
+var direction: Vector2 = Vector2.ZERO
 
 # Referenzen
 @onready var hitbox = $Hitbox
 
 func _physics_process(delta):
 	if distance_travelled > range:
-		destroy()
-	var direction = Vector2.RIGHT.rotated(rotation)
-	var step = speed * delta * direction
-	distance_travelled += step.length()
-	global_position += step
+		queue_free()
+	else:
+		var step = speed * delta * direction
+		distance_travelled += step.length()
+		global_position += step
 
 func _on_body_entered(body):
 	if body.has_method("enemy"):

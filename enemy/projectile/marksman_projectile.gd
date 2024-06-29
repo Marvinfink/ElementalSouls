@@ -1,7 +1,7 @@
 extends "res://enemy/base/base_projectile.gd"
 
 func _ready():
-	speed = 100
+	speed = 1.5
 	range = 200
 	damage = 0.5
 	stun_duration = 1

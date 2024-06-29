@@ -13,29 +13,27 @@ var player_in_range: bool
 var player_chase: bool
 var enemy_attack_cooldown: bool
 var player: Node
-var dead: bool
 var states: Dictionary
+var blends: Array = []
 
 @onready var animation_tree = $AnimationTree
 
 
 func _ready():
-	states[Animations.IDLE] = true
-	states[Animations.GETS_DAMAGE] = false
-	states[Animations.IS_WALKING] = false
-	states[Animations.IS_ATTACKING] = false
 	set_data()
+	set_dictionaries()
+	set_dictionaries()
 	set_helper()
 	player_in_range = false
 	player_chase = false
 	enemy_attack_cooldown = true
 	player = get_node("../Player1")
-	dead = false
 	$attack_cooldown.wait_time = cooldown
 
 
 func move_position(delta: float):
-	if player_chase and not dead and not player_in_range:
+	if player_chase and not states[Animations.IS_DEAD] and not player_in_range:
+		set_state(Animations.IS_WALKING)
 		var direction = (player.position - position).normalized()
 		var velocity  = direction * speed * get_physics_process_delta_time()
 		move_and_collide(velocity)
@@ -43,13 +41,15 @@ func move_position(delta: float):
 
 func player_attack(amount: int, enemy_element: Elements.Element):
 	health -=  round(amount * Elements.get_element_multiplier(enemy_element, element))
-	animation_tree["parameters/conditions/get_damage"] = true
 	if health <= 0:
-		dead = true
+		set_state(Animations.IS_DEAD)
 		set_process(false)
-		animation_tree["parameters/conditions/is_dead"] = true
-		await get_tree().create_timer(1.0).timeout
+		await get_tree().create_timer(0.5).timeout
 		queue_free()
+		return
+	set_state(Animations.GETS_DAMAGE)
+	await get_tree().create_timer(0.5).timeout
+	set_state(Animations.IDLE)
 
 
 func start_attack_countdown():
@@ -66,18 +66,37 @@ func set_helper():
 
 func enemy():
 	pass
+	
+
+func set_dictionaries():
+	states[Animations.IDLE] = true
+	states[Animations.GETS_DAMAGE] = false
+	states[Animations.IS_WALKING] = false
+	states[Animations.IS_ATTACKING] = false
+	states[Animations.IS_DEAD] = false
+	blends.append(Animations.BLEND_ATTACK)
+	blends.append(Animations.BLEND_DAMAGE)
+	blends.append(Animations.BLEND_DEATH)
+	blends.append(Animations.BLEND_WALK)
+	
+	
+func update_blend_position():
+	var direction = player.position - position
+	var direction_normalized = direction.normalized()
+	for b in blends:
+		animation_tree["parameters/%s/blend_position" % b] = direction_normalized
 
 
 func _on_detection_area_body_entered(body):
 	if body.has_method("player"):
 		player_chase = true
-		set_animation(Animations.IS_WALKING)
+		set_state(Animations.IS_WALKING)
 
 
 func _on_detection_area_body_exited(body):
 	if body.has_method("player"):
 		player_chase = false
-		set_animation(Animations.IDLE)
+		set_state(Animations.IDLE)
 
 
 func _on_attack_cooldown_timeout():
@@ -95,14 +114,14 @@ func _on_enemy_hitbox_body_exited(body):
 
 
 func set_state(state: String):
-	for a in states.values():
-		a = false
+	for a in states:
+		states[a] = false
 	states[state] = true
 	set_animation(state)
 
 
 func set_animation(animation: String):
-	for a in states.keys():
+	for a in states:
 		animation_tree["parameters/conditions/%s" % a] = false
 	animation_tree["parameters/conditions/%s" % animation] = true
 
