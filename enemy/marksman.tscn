@@ -415,15 +415,15 @@ advance_condition = &"is_walking"
 states/End/position = Vector2(911, 71)
 states/Start/position = Vector2(154, 71)
 states/attack/node = SubResource("AnimationNodeBlendSpace2D_kxx2n")
-states/attack/position = Vector2(286, 177)
+states/attack/position = Vector2(212, 183)
 states/damage/node = SubResource("AnimationNodeBlendSpace2D_op5m4")
-states/damage/position = Vector2(411, 257)
+states/damage/position = Vector2(432, 268)
 states/death/node = SubResource("AnimationNodeBlendSpace2D_wfrjg")
-states/death/position = Vector2(707, 71)
+states/death/position = Vector2(706, 76)
 states/idle/node = SubResource("AnimationNodeAnimation_l8oem")
 states/idle/position = Vector2(424, 71)
 states/walk/node = SubResource("AnimationNodeBlendSpace2D_08bjm")
-states/walk/position = Vector2(567, 169)
+states/walk/position = Vector2(629, 177)
 transitions = ["attack", "walk", SubResource("AnimationNodeStateMachineTransition_fxrg4"), "walk", "attack", SubResource("AnimationNodeStateMachineTransition_n0lnr"), "walk", "death", SubResource("AnimationNodeStateMachineTransition_5xgjh"), "attack", "death", SubResource("AnimationNodeStateMachineTransition_0ln8h"), "Start", "idle", SubResource("AnimationNodeStateMachineTransition_3ibue"), "idle", "attack", SubResource("AnimationNodeStateMachineTransition_p1rw8"), "attack", "idle", SubResource("AnimationNodeStateMachineTransition_3caoa"), "idle", "walk", SubResource("AnimationNodeStateMachineTransition_raaxk"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_ftgnu"), "idle", "death", SubResource("AnimationNodeStateMachineTransition_sfcj0"), "idle", "damage", SubResource("AnimationNodeStateMachineTransition_8g2jo"), "damage", "idle", SubResource("AnimationNodeStateMachineTransition_0vr35"), "attack", "damage", SubResource("AnimationNodeStateMachineTransition_xnii2"), "walk", "damage", SubResource("AnimationNodeStateMachineTransition_v5xeg"), "damage", "walk", SubResource("AnimationNodeStateMachineTransition_a1ewn")]
 graph_offset = Vector2(0, 38.1176)
 
@@ -434,7 +434,7 @@ radius = 58.0
 radius = 46.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g6nv2"]
-radius = 14.0
+radius = 15.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ggb7a"]
 radius = 8.0
@@ -442,22 +442,22 @@ radius = 8.0
 [node name="Marksman" type="CharacterBody2D"]
 script = ExtResource("1_tjw1w")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="BodyMarksman" type="Sprite2D" parent="."]
 position = Vector2(0, -11)
 texture = ExtResource("2_ax3jv")
 hframes = 5
 vframes = 13
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-root_node = NodePath("../Sprite2D")
+[node name="AnimationPlayerMarksman" type="AnimationPlayer" parent="."]
+root_node = NodePath("../BodyMarksman")
 libraries = {
 "": SubResource("AnimationLibrary_wojl0")
 }
 
-[node name="AnimationTree" type="AnimationTree" parent="."]
-root_node = NodePath("../Sprite2D")
+[node name="AnimationTreeMarksman" type="AnimationTree" parent="."]
+root_node = NodePath("../BodyMarksman")
 tree_root = SubResource("AnimationNodeStateMachine_cymd2")
-anim_player = NodePath("../AnimationPlayer")
+anim_player = NodePath("../AnimationPlayerMarksman")
 parameters/conditions/gets_damage = false
 parameters/conditions/idle = false
 parameters/conditions/is_attacking = false
@@ -469,10 +469,9 @@ parameters/death/blend_position = Vector2(0.00817847, -0.369748)
 parameters/walk/blend_position = Vector2(-0.320446, -0.471429)
 
 [node name="shooting_area" type="Area2D" parent="."]
-visible = false
 
 [node name="shooting_shape" type="CollisionShape2D" parent="shooting_area"]
-position = Vector2(1, -9)
+position = Vector2(1, -11)
 shape = SubResource("CircleShape2D_pmibg")
 
 [node name="detection_area" type="Area2D" parent="."]
@@ -480,24 +479,20 @@ collision_layer = 2
 collision_mask = 2
 
 [node name="DetectionShape" type="CollisionShape2D" parent="detection_area"]
-position = Vector2(1, -9)
+position = Vector2(1, -11)
 shape = SubResource("CircleShape2D_i6ysq")
 
 [node name="enemy_hitbox" type="Area2D" parent="."]
-visible = false
 
 [node name="HitboxShape" type="CollisionShape2D" parent="enemy_hitbox"]
-position = Vector2(1, -10)
+position = Vector2(1, -11)
 shape = SubResource("CircleShape2D_g6nv2")
 
 [node name="attack_cooldown" type="Timer" parent="."]
 
-[node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(1, -9)
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
-position = Vector2(1, -9)
+position = Vector2(1, -11)
 shape = SubResource("CircleShape2D_ggb7a")
 
 [connection signal="body_entered" from="shooting_area" to="." method="_on_shooting_area_body_entered"]

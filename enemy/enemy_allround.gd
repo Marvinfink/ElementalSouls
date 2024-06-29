@@ -10,6 +10,8 @@ func set_data():
 	attack_delay = 0.5
 	sprint_speed = 130
 	sprint_distance = 50
+	$BodyTank.texture = preload("res://Art/mystic_woods_free_2.1/enemies/feuer_tank.png")
+	animation_tree = $AnimationTreeTank
 
 
 # für physikalische Berechnungen und Logik, die präzise Synchronisation erfordert, wie Bewegungen und Kollisionen

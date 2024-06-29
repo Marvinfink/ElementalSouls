@@ -16,7 +16,7 @@ var player: Node
 var states: Dictionary
 var blends: Array = []
 
-@onready var animation_tree = $AnimationTree
+@onready var animation_tree
 
 
 func _ready():
