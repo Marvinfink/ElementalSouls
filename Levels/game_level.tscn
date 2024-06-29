@@ -3915,15 +3915,15 @@ remote_path = NodePath("../../Camera2D")
 remote_path = NodePath("../../Camera2D")
 
 [node name="Enemy-Allround-1" parent="." instance=ExtResource("3_ag7kc")]
-position = Vector2(373, 2056)
+position = Vector2(-298, 845)
 script = ExtResource("4_nnqig")
 
 [node name="Enemy-Attack-Speed-1" parent="." instance=ExtResource("3_ag7kc")]
-position = Vector2(783, 2080)
+position = Vector2(112, 869)
 script = ExtResource("5_t2gpe")
 
 [node name="Enemy-Damage-1" parent="." instance=ExtResource("3_ag7kc")]
-position = Vector2(617, 2063)
+position = Vector2(-54, 852)
 script = ExtResource("6_0r14g")
 
 [node name="Camera2D" type="Camera2D" parent="."]

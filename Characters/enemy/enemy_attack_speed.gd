@@ -20,6 +20,7 @@ func _physics_process(delta: float) -> void:
 		start_attack_move()
 
 
+
 # für nicht-physikalische Logik wie Animationen, UI-Updates, nicht-physikbasierte Bewegungen
 func _process(delta: float) -> void:
 	pass
