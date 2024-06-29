@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://bf4wgcyu31x7p"]
+[gd_scene load_steps=23 format=3 uid="uid://bf4wgcyu31x7p"]
 
 [ext_resource type="PackedScene" uid="uid://8rnqji34k3af" path="res://Characters/player_1.tscn" id="1_w8loj"]
 [ext_resource type="Texture2D" uid="uid://tau1gknfvjq8" path="res://Art/mystic_woods_free_2.1/sprites/Dungeon Gathering Free Version/Set 1.1 New.png" id="2_srd1t"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://sxvc02iahmjg" path="res://Art/mystic_woods_free_2.1/sprites/Dungeon Gathering Free Version/Unbenannt.png" id="7_ehwkq"]
 [ext_resource type="Texture2D" uid="uid://dacmu0apfirgi" path="res://Art/mystic_woods_free_2.1/sprites/DG Fire Zone Expansion Free Ver/planttile1.1.png" id="7_nosvp"]
 [ext_resource type="PackedScene" uid="uid://2vi1bcr01qel" path="res://enemy/marksman.tscn" id="11_xethf"]
+[ext_resource type="PackedScene" uid="uid://dc01d5k5ii4sp" path="res://enemy/base_tank.tscn" id="12_fwog5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qy48l"]
 texture = ExtResource("2_srd1t")
@@ -3922,4 +3923,7 @@ limit_bottom = 2499
 editor_draw_limits = true
 
 [node name="Marksman" parent="." instance=ExtResource("11_xethf")]
-position = Vector2(-181, 729)
+position = Vector2(-213, 745)
+
+[node name="Tank" parent="." instance=ExtResource("12_fwog5")]
+position = Vector2(-76, 773)
