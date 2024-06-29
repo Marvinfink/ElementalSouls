@@ -1,6 +1,6 @@
-[gd_scene load_steps=62 format=3 uid="uid://2vi1bcr01qel"]
+[gd_scene load_steps=62 format=3 uid="uid://dc01d5k5ii4sp"]
 
-[ext_resource type="Texture2D" uid="uid://dbgvbi3dbvgmy" path="res://Art/mystic_woods_free_2.1/enemies/elektro_tank.png" id="1_i506q"]
+[ext_resource type="Texture2D" uid="uid://lr36brdi7emp" path="res://Art/mystic_woods_free_2.1/enemies/elektro_tank.png" id="1_i506q"]
 [ext_resource type="Script" path="res://enemy/enemy_allround.gd" id="1_u66v1"]
 
 [sub_resource type="Animation" id="Animation_ymrl7"]
@@ -31,7 +31,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 1,
-"values": [Vector2i(0, 15), Vector2i(1, 15), Vector2i(2, 15), Vector2i(3, 15), Vector2i(4, 15)]
+"values": [Vector2i(0, 14), Vector2i(1, 14), Vector2i(2, 14), Vector2i(3, 14), Vector2i(4, 14)]
 }
 
 [sub_resource type="Animation" id="Animation_qi6sv"]
@@ -47,7 +47,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 1,
-"values": [Vector2i(0, 16), Vector2i(1, 16), Vector2i(2, 16), Vector2i(3, 16), Vector2i(4, 16)]
+"values": [Vector2i(0, 15), Vector2i(1, 15), Vector2i(2, 15), Vector2i(3, 15), Vector2i(4, 15)]
 }
 
 [sub_resource type="Animation" id="Animation_oxbyx"]
@@ -63,7 +63,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 1,
-"values": [Vector2i(0, 17), Vector2i(1, 17), Vector2i(2, 17), Vector2i(3, 17), Vector2i(4, 17)]
+"values": [Vector2i(0, 16), Vector2i(1, 16), Vector2i(2, 16), Vector2i(3, 16), Vector2i(4, 16)]
 }
 
 [sub_resource type="Animation" id="Animation_ua3ek"]
@@ -79,7 +79,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 1,
-"values": [Vector2i(0, 14), Vector2i(1, 14), Vector2i(2, 14), Vector2i(3, 14), Vector2i(4, 14)]
+"values": [Vector2i(0, 13), Vector2i(1, 13), Vector2i(2, 13), Vector2i(3, 13), Vector2i(4, 13)]
 }
 
 [sub_resource type="Animation" id="Animation_ejq8i"]
@@ -160,7 +160,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.3),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [Vector2i(0, 13), Vector2i(1, 13)]
+"values": [Vector2i(0, 12), Vector2i(1, 12)]
 }
 
 [sub_resource type="Animation" id="Animation_0wc63"]
@@ -241,7 +241,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.3, 0.6, 0.9),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [Vector2i(0, 9), Vector2i(1, 9), Vector2i(2, 9), Vector2i(3, 9)]
+"values": [Vector2i(0, 8), Vector2i(1, 8), Vector2i(2, 8), Vector2i(3, 8)]
 }
 
 [sub_resource type="Animation" id="Animation_dtfq3"]
@@ -258,7 +258,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.3, 0.6, 0.9),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [Vector2i(0, 11), Vector2i(1, 11), Vector2i(2, 11), Vector2i(3, 11)]
+"values": [Vector2i(0, 10), Vector2i(1, 10), Vector2i(2, 10), Vector2i(3, 10)]
 }
 
 [sub_resource type="Animation" id="Animation_aichx"]
@@ -275,7 +275,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.3, 0.6, 0.9),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [Vector2i(0, 12), Vector2i(1, 12), Vector2i(2, 12), Vector2i(3, 12)]
+"values": [Vector2i(0, 11), Vector2i(1, 11), Vector2i(2, 11), Vector2i(3, 11)]
 }
 
 [sub_resource type="Animation" id="Animation_hu2jc"]
@@ -292,7 +292,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.3, 0.6, 0.9),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [Vector2i(0, 10), Vector2i(1, 10), Vector2i(2, 10), Vector2i(3, 10)]
+"values": [Vector2i(0, 9), Vector2i(1, 9), Vector2i(2, 9), Vector2i(3, 9)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_nbay3"]
@@ -515,7 +515,7 @@ script = ExtResource("1_u66v1")
 position = Vector2(-1, -14)
 texture = ExtResource("1_i506q")
 hframes = 7
-vframes = 18
+vframes = 17
 
 [node name="AnimationPlayerTank" type="AnimationPlayer" parent="."]
 libraries = {
@@ -530,10 +530,10 @@ parameters/conditions/idle = false
 parameters/conditions/is_attacking = false
 parameters/conditions/is_dead = false
 parameters/conditions/is_walking = false
-parameters/attack/blend_position = Vector2(-0.0423792, -0.74874)
+parameters/attack/blend_position = Vector2(-0.473606, 0.231)
 parameters/damage/blend_position = Vector2(-0.00669146, -0.388235)
 parameters/death/blend_position = Vector2(0.0111524, 0.748739)
-parameters/walk/blend_position = Vector2(0.00371742, -0.60084)
+parameters/walk/blend_position = Vector2(0.479554, -0.0549999)
 
 [node name="detection_area" type="Area2D" parent="."]
 collision_layer = 2

@@ -1,7 +1,7 @@
-[gd_scene load_steps=59 format=3 uid="uid://2vi1bcr01qel"]
+[gd_scene load_steps=63 format=3 uid="uid://2vi1bcr01qel"]
 
 [ext_resource type="Script" path="res://enemy/enemy_marksman.gd" id="1_tjw1w"]
-[ext_resource type="Texture2D" uid="uid://dpxwbnwcosb3p" path="res://Art/mystic_woods_free_2.1/enemies/elektroRanged.png" id="2_ax3jv"]
+[ext_resource type="Texture2D" uid="uid://cuml37prg4fr4" path="res://Art/mystic_woods_free_2.1/enemies/elektroRanged.png" id="2_ax3jv"]
 
 [sub_resource type="Animation" id="Animation_jv01g"]
 length = 0.001
@@ -227,6 +227,74 @@ tracks/0/keys = {
 "values": [Vector2i(0, 12), Vector2i(1, 12)]
 }
 
+[sub_resource type="Animation" id="Animation_8wh6f"]
+resource_name = "walk_bot"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Vector2i(0, 12), Vector2i(1, 12)]
+}
+
+[sub_resource type="Animation" id="Animation_4yka2"]
+resource_name = "walk_top"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Vector2i(0, 13), Vector2i(1, 13)]
+}
+
+[sub_resource type="Animation" id="Animation_fsjes"]
+resource_name = "walk_left"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Vector2i(0, 14), Vector2i(1, 14)]
+}
+
+[sub_resource type="Animation" id="Animation_wmpdu"]
+resource_name = "walk_right"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Vector2i(0, 15), Vector2i(1, 15)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_wojl0"]
 _data = {
 "RESET": SubResource("Animation_jv01g"),
@@ -242,7 +310,11 @@ _data = {
 "death_left": SubResource("Animation_fps6s"),
 "death_right": SubResource("Animation_27nyr"),
 "death_top": SubResource("Animation_wsnyg"),
-"idle": SubResource("Animation_pn3me")
+"idle": SubResource("Animation_pn3me"),
+"walk_bot": SubResource("Animation_8wh6f"),
+"walk_left": SubResource("Animation_fsjes"),
+"walk_right": SubResource("Animation_wmpdu"),
+"walk_top": SubResource("Animation_4yka2")
 }
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_f2ngl"]
@@ -323,29 +395,30 @@ blend_mode = 1
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_l8oem"]
 animation = &"idle"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_3spwe"]
-animation = &"idle"
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_6wg8s"]
+animation = &"walk_bot"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_i1ko1"]
-animation = &"idle"
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_3ki1o"]
+animation = &"walk_top"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_qapsx"]
-animation = &"idle"
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_2j3l5"]
+animation = &"walk_left"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_148qh"]
-animation = &"idle"
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_pau6r"]
+animation = &"walk_right"
 
 [sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_08bjm"]
-blend_point_0/node = SubResource("AnimationNodeAnimation_3spwe")
-blend_point_0/pos = Vector2(0, -1.1)
-blend_point_1/node = SubResource("AnimationNodeAnimation_i1ko1")
-blend_point_1/pos = Vector2(-1, 0)
-blend_point_2/node = SubResource("AnimationNodeAnimation_qapsx")
-blend_point_2/pos = Vector2(0, 1.1)
-blend_point_3/node = SubResource("AnimationNodeAnimation_148qh")
+blend_point_0/node = SubResource("AnimationNodeAnimation_6wg8s")
+blend_point_0/pos = Vector2(0, 1.1)
+blend_point_1/node = SubResource("AnimationNodeAnimation_3ki1o")
+blend_point_1/pos = Vector2(0, -1.1)
+blend_point_2/node = SubResource("AnimationNodeAnimation_2j3l5")
+blend_point_2/pos = Vector2(-1, 0)
+blend_point_3/node = SubResource("AnimationNodeAnimation_pau6r")
 blend_point_3/pos = Vector2(1, 0)
 min_space = Vector2(-1, -1.1)
 max_space = Vector2(1, 1.1)
+blend_mode = 1
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_fxrg4"]
 switch_mode = 2
@@ -446,7 +519,7 @@ script = ExtResource("1_tjw1w")
 position = Vector2(0, -11)
 texture = ExtResource("2_ax3jv")
 hframes = 5
-vframes = 13
+vframes = 16
 
 [node name="AnimationPlayerMarksman" type="AnimationPlayer" parent="."]
 root_node = NodePath("../BodyMarksman")
@@ -466,7 +539,7 @@ parameters/conditions/is_walking = false
 parameters/attack/blend_position = Vector2(-0.0230483, -0.711765)
 parameters/damage/blend_position = Vector2(-0.315985, -0.905882)
 parameters/death/blend_position = Vector2(0.00817847, -0.369748)
-parameters/walk/blend_position = Vector2(-0.320446, -0.471429)
+parameters/walk/blend_position = Vector2(-0.12119, 0.582353)
 
 [node name="shooting_area" type="Area2D" parent="."]
 

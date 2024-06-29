@@ -22,7 +22,6 @@ var blends: Array = []
 func _ready():
 	set_data()
 	set_dictionaries()
-	set_dictionaries()
 	set_helper()
 	player_in_range = false
 	player_chase = false

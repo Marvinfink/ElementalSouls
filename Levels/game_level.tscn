@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://bf4wgcyu31x7p"]
+[gd_scene load_steps=7 format=3 uid="uid://bf4wgcyu31x7p"]
 
 [ext_resource type="PackedScene" uid="uid://8rnqji34k3af" path="res://Characters/player_1.tscn" id="1_w8loj"]
 [ext_resource type="Texture2D" uid="uid://dco3y8x3x6xuh" path="res://Art/mystic_woods_free_2.1/sprites/tilesets/Tiles.png" id="2_kyimk"]
-[ext_resource type="PackedScene" uid="uid://2vi1bcr01qel" path="res://enemy/enemy.tscn" id="3_wi860"]
+[ext_resource type="PackedScene" uid="uid://dc01d5k5ii4sp" path="res://enemy/base_tank.tscn" id="3_osmfx"]
+[ext_resource type="PackedScene" uid="uid://2vi1bcr01qel" path="res://enemy/marksman.tscn" id="3_wi860"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cho5q"]
 texture = ExtResource("2_kyimk")
@@ -947,5 +948,8 @@ limit_right = 832
 limit_bottom = 544
 editor_draw_limits = true
 
-[node name="Tank" parent="." instance=ExtResource("3_wi860")]
-position = Vector2(393, 340)
+[node name="Tank" parent="." instance=ExtResource("3_osmfx")]
+position = Vector2(227, 351)
+
+[node name="Marksman" parent="." instance=ExtResource("3_wi860")]
+position = Vector2(402, 357)
