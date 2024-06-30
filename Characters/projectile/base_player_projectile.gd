@@ -9,13 +9,11 @@ extends Area2D
 
 # Interna
 var distance_travelled: float = 0.0
-
+var element
 # Referenzen
 @onready var hitbox = $Hitbox
-#@onready var element = get_node("Player1")
 
 func _physics_process(delta):
-	#print(element.element)
 	if distance_travelled > range:
 		destroy()
 	var direction = Vector2.RIGHT.rotated(rotation)
@@ -27,9 +25,8 @@ func _on_body_entered(body):
 	if body.has_method("player"):
 		return
 	elif body.has_method("enemy"):
-		body.player_attack(damage,Elements.Element.FIRE)
+		body.player_attack(damage,element)
 	destroy()
 	
 func destroy():
 	queue_free()
-

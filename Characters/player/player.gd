@@ -67,7 +67,6 @@ func _input(event):
 		attack(damage)
 	# handle special attack input
 	if Input.is_action_just_pressed("special_attack") and mana_handler.use_spell():
-		print("yoya")
 		handle_special_attack()
 	#change element
 	if Input.is_action_just_pressed("fire"):
@@ -118,7 +117,6 @@ func _physics_process(delta):
 # attack functions
 func attack(damage):
 	mana_handler.load_spell()
-	#special_attack_bar +=1
 	if enemy_attack_cooldown:
 		enemy_attack_cooldown = false
 		$attack_cooldown.start()
@@ -130,10 +128,10 @@ func special_attack(special_damage):
 func special_attack_range():
 	var projectile := player_projectile.instantiate()
 	owner.add_child(projectile)
+	projectile.element=element
 	projectile_direction = (get_global_mouse_position() - global_position).normalized()
 	projectile.position=global_position
 	projectile.rotation = self.global_position.direction_to(get_global_mouse_position()).angle()
-	special_attack_bar = 0
 	
 func special_attack_close():
 	if special_in_range:
