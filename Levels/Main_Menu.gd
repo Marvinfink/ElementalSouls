@@ -34,19 +34,19 @@ func _on_button_pressed():
 		self.hide()
 		#set element in player and map
 		return 
-	print("kein element gewählt")
-		
+	$Error.text = "Bitte wähle ein Element"
 
 func menu_button_selected(id): 
 	var selected_text: String
 	match id:
 		Elements.Element.FIRE:
-			selected_text = "Fire"
+			selected_text = "Feuer"
 		Elements.Element.WATER:
-			selected_text = "Water"
+			selected_text = "Wasser"
 		Elements.Element.PLANT:
-			selected_text = "Plant"
+			selected_text = "Pflanze"
 		Elements.Element.ELECTRICITY:
-			selected_text = "Electricity"
+			selected_text = "Elektro"
 	$MenuButton.text = selected_text
+	$Error.text = ""
 	selected_element = id
