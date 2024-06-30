@@ -1,5 +1,7 @@
-[gd_scene load_steps=31 format=3 uid="uid://bf4wgcyu31x7p"]
+[gd_scene load_steps=34 format=3 uid="uid://bf4wgcyu31x7p"]
 
+[ext_resource type="Script" path="res://Levels/Main_Menu.gd" id="1_5xqtd"]
+[ext_resource type="Script" path="res://Levels/Game_Over_Overlay.gd" id="1_uqqfm"]
 [ext_resource type="PackedScene" uid="uid://8rnqji34k3af" path="res://Characters/player_1.tscn" id="1_w8loj"]
 [ext_resource type="Texture2D" uid="uid://tau1gknfvjq8" path="res://Art/mystic_woods_free_2.1/sprites/Dungeon Gathering Free Version/Set 1.1 New.png" id="2_srd1t"]
 [ext_resource type="Texture2D" uid="uid://b0l7ha24q06ol" path="res://Art/mystic_woods_free_2.1/sprites/Dungeon Gathering Free Version/Set 1.1.png" id="3_6veiq"]
@@ -20,6 +22,8 @@
 [ext_resource type="Script" path="res://enemy/types/fire/enemy_fire_marksman.gd" id="18_sk018"]
 [ext_resource type="Script" path="res://enemy/types/water/enemy_water_marksman.gd" id="19_pv3eq"]
 [ext_resource type="Script" path="res://enemy/types/electricity/enemy_electricity_marksman.gd" id="20_bnntl"]
+
+[sub_resource type="Theme" id="Theme_l0axd"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qy48l"]
 texture = ExtResource("2_srd1t")
@@ -3893,6 +3897,102 @@ sources/10 = SubResource("TileSetAtlasSource_q84vm")
 
 [node name="GameLevel" type="Node2D"]
 
+[node name="Main_Menu" type="CanvasLayer" parent="."]
+process_mode = 3
+visible = false
+script = ExtResource("1_5xqtd")
+
+[node name="Panel" type="Panel" parent="Main_Menu"]
+process_mode = 3
+offset_right = 1152.0
+offset_bottom = 648.0
+theme = SubResource("Theme_l0axd")
+
+[node name="Button" type="Button" parent="Main_Menu"]
+custom_minimum_size = Vector2(300, 100)
+offset_left = 668.0
+offset_top = 450.0
+offset_right = 968.0
+offset_bottom = 550.0
+theme_override_font_sizes/font_size = 40
+text = "Start"
+
+[node name="MenuButton" type="MenuButton" parent="Main_Menu"]
+custom_minimum_size = Vector2(300, 100)
+offset_left = 184.0
+offset_top = 450.0
+offset_right = 484.0
+offset_bottom = 550.0
+theme_override_font_sizes/font_size = 40
+text = "Wählen..."
+
+[node name="Header" type="Label" parent="Main_Menu"]
+offset_top = 50.0
+offset_right = 1152.0
+offset_bottom = 250.0
+theme_override_colors/font_color = Color(0.819608, 0, 0, 1)
+theme_override_font_sizes/font_size = 80
+text = "ELEMENTAL SOUL"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Body" type="Label" parent="Main_Menu"]
+offset_top = 250.0
+offset_right = 1152.0
+offset_bottom = 400.0
+theme_override_font_sizes/font_size = 20
+text = "Wähle das Element, mit dem du starten möchtest.
+ Drücke anschließend auf \"Start\" um zu beginnen."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Error" type="Label" parent="Main_Menu"]
+offset_left = 184.0
+offset_top = 400.0
+offset_right = 484.0
+offset_bottom = 450.0
+theme_override_colors/font_color = Color(0.819608, 0, 0, 1)
+theme_override_font_sizes/font_size = 15
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Game_Over_Overlay" type="CanvasLayer" parent="."]
+process_mode = 3
+visible = false
+script = ExtResource("1_uqqfm")
+
+[node name="Panel" type="Panel" parent="Game_Over_Overlay"]
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="Label" type="Label" parent="Game_Over_Overlay"]
+offset_top = 50.0
+offset_right = 1152.0
+offset_bottom = 350.0
+theme_override_colors/font_color = Color(0.819608, 0, 0, 1)
+theme_override_font_sizes/font_size = 80
+text = "GAME OVER!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button_Restart" type="Button" parent="Game_Over_Overlay"]
+custom_minimum_size = Vector2(300, 100)
+offset_left = 668.0
+offset_top = 450.0
+offset_right = 968.0
+offset_bottom = 550.0
+theme_override_font_sizes/font_size = 40
+text = "Retry"
+
+[node name="Button_Main_Menu" type="Button" parent="Game_Over_Overlay"]
+custom_minimum_size = Vector2(300, 100)
+offset_left = 184.0
+offset_top = 450.0
+offset_right = 484.0
+offset_bottom = 550.0
+theme_override_font_sizes/font_size = 40
+text = "Main Menu"
+
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2(0, -1)
 tile_set = SubResource("TileSet_1elv8")
@@ -3961,3 +4061,8 @@ script = ExtResource("19_pv3eq")
 [node name="Marksman_Electricity" parent="." instance=ExtResource("11_xethf")]
 position = Vector2(-151, 721)
 script = ExtResource("20_bnntl")
+
+[connection signal="pressed" from="Main_Menu/Button" to="Main_Menu" method="_on_button_pressed"]
+[connection signal="pressed" from="Main_Menu/MenuButton" to="Main_Menu" method="_on_menu_button_pressed"]
+[connection signal="pressed" from="Game_Over_Overlay/Button_Restart" to="Game_Over_Overlay" method="_on_button_restart_pressed"]
+[connection signal="pressed" from="Game_Over_Overlay/Button_Main_Menu" to="Game_Over_Overlay" method="_on_button_main_menu_pressed"]
