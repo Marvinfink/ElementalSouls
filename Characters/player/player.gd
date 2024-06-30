@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 
 #playerstats
-var health : int = 10
+int = 10
 var speed:int=100;
 var damage : int =50
 var special_damage : int = 100
@@ -37,6 +37,10 @@ var dash_timer : float = 0
 var dash_direction : Vector2 = Vector2.ZERO
 var dash_used :bool = true
 
+#overlay
+@onready var mana_handler: Control = get_node("../Mana_Bars/Control")
+@onready var health_bar = get_node("../Heart_bar/heart_container")
+
 #@onready var animation_tree = $AnimationTree
 @onready var animation_tree1 = $animation_tree
 var element_textures = {
@@ -49,11 +53,8 @@ var element_textures = {
 const marksman_projectile := preload("res://Characters/projectile/player_projectile.tscn")
 
 func _ready():
-	element=Elements.Element.FIRE
-	Elements.set_current_element(element)
-	print(element)
-	$Sprite2D2.texture=element_textures[element]
 	player_node=get_node(".")
+	health_bar.set_max_hearts(health)
 	
 #Handles the user input
 func _input(event):
@@ -117,10 +118,10 @@ func attack(damage):
 	if enemy_attack_cooldown:
 		enemy_attack_cooldown = false
 		$attack_cooldown.start()
-		enemy.player_attack(damage,Elements.get_current_element())	
+		enemy.player_attack(damage,element)	
 		
 func special_attack(special_damage):
-	enemy.player_attack(special_damage,Elements.get_current_element())
+	enemy.player_attack(special_damage,element)
 	
 func special_attack_range():
 	var projectile := marksman_projectile.instantiate()
@@ -153,7 +154,6 @@ func handle_special_attack():
 
 # Change element and sprite texture
 func change_element():
-	Elements.set_current_element(element)
 	$Sprite2D2.texture = element_textures[element]
 
 # Changes player direction to mouse position
@@ -224,6 +224,7 @@ func update_blend_position():
 #take damage from enemy
 func enemy_attack(damage):
 	health = health-damage
+	health_bar.set_heart_bar(health)
 	set_damage(true)
 	if health <=0:
 		player_alive=false
@@ -233,6 +234,15 @@ func enemy_attack(damage):
 		await get_tree().create_timer(1,5).timeout
 		get_node("../Game_Over_Overlay").game_over()
 	print(health)
+	
+	
+func set_first_element(e: Elements.Element):
+	element = e
+	print(element)
+	element = Elements.Element.FIRE
+	$Sprite2D2.texture=element_textures[element]
+	# todo update super attack
+	
 
 func player():
 	pass
