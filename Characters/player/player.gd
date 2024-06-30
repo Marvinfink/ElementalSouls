@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 
 #playerstats
-int = 10
+var health: int = 10
 var speed:int=100;
 var damage : int =50
 var special_damage : int = 100
@@ -238,8 +238,6 @@ func enemy_attack(damage):
 	
 func set_first_element(e: Elements.Element):
 	element = e
-	print(element)
-	element = Elements.Element.FIRE
 	$Sprite2D2.texture=element_textures[element]
 	# todo update super attack
 	
