@@ -20,4 +20,4 @@ var BLEND_DAMAGE: String = "damage"
 
 var BLEND_ATTACK: String = "attack"
 
-var BLEND_SPECIAL_ATTACK: String = "special_attack"
+var BLEND_SPECIAL_ATTACK: String = "spell"

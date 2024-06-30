@@ -44,7 +44,7 @@ func player_attack(amount: int, enemy_element: Elements.Element):
 	if health <= 0:
 		set_state(Animations.IS_DEAD)
 		set_process(false)
-		await get_tree().create_timer(0.5).timeout
+		await get_tree().create_timer(1).timeout
 		queue_free()
 		return
 	set_state(Animations.GETS_DAMAGE)

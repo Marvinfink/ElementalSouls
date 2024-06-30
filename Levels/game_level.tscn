@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://bf4wgcyu31x7p"]
+[gd_scene load_steps=38 format=3 uid="uid://bf4wgcyu31x7p"]
 
 [ext_resource type="Script" path="res://Levels/Main_Menu.gd" id="1_5xqtd"]
 [ext_resource type="Script" path="res://Levels/Game_Over_Overlay.gd" id="1_uqqfm"]
@@ -24,6 +24,8 @@
 [ext_resource type="Script" path="res://enemy/types/fire/enemy_fire_marksman.gd" id="18_sk018"]
 [ext_resource type="Script" path="res://enemy/types/water/enemy_water_marksman.gd" id="19_pv3eq"]
 [ext_resource type="Script" path="res://enemy/types/electricity/enemy_electricity_marksman.gd" id="20_bnntl"]
+[ext_resource type="PackedScene" uid="uid://cgba3rwoeuejw" path="res://enemy/endboss/endboss.tscn" id="25_d87ku"]
+[ext_resource type="Script" path="res://enemy/endboss/plant/endboss_plant.gd" id="26_hksux"]
 
 [sub_resource type="Theme" id="Theme_l0axd"]
 
@@ -4088,36 +4090,40 @@ limit_bottom = 2499
 editor_draw_limits = true
 
 [node name="Tank_Plant" parent="." instance=ExtResource("12_fwog5")]
-position = Vector2(-336, 811)
+position = Vector2(-371, 811)
 script = ExtResource("13_mmqso")
 
 [node name="Tank_Fire" parent="." instance=ExtResource("12_fwog5")]
-position = Vector2(-133, 948)
+position = Vector2(-133, 1004)
 script = ExtResource("13_gu6ls")
 
 [node name="Tank_Water" parent="." instance=ExtResource("12_fwog5")]
-position = Vector2(75, 832)
+position = Vector2(99, 828)
 script = ExtResource("14_1lgo5")
 
 [node name="Tank_Electricity" parent="." instance=ExtResource("12_fwog5")]
-position = Vector2(-116, 722)
+position = Vector2(-123, 680)
 script = ExtResource("15_himr5")
 
 [node name="Marksman_Plant" parent="." instance=ExtResource("11_xethf")]
-position = Vector2(-335, 837)
+position = Vector2(-360, 845)
 script = ExtResource("17_8ukml")
 
 [node name="Marksman_Fire" parent="." instance=ExtResource("11_xethf")]
-position = Vector2(-116, 962)
+position = Vector2(-109, 1020)
 script = ExtResource("18_sk018")
 
 [node name="Marksman_Water" parent="." instance=ExtResource("11_xethf")]
-position = Vector2(71, 857)
+position = Vector2(105, 859)
 script = ExtResource("19_pv3eq")
 
 [node name="Marksman_Electricity" parent="." instance=ExtResource("11_xethf")]
-position = Vector2(-151, 721)
+position = Vector2(-142, 672)
 script = ExtResource("20_bnntl")
+
+[node name="Endboss_Plant" parent="." instance=ExtResource("25_d87ku")]
+position = Vector2(-199, 825)
+script = ExtResource("26_hksux")
 
 [connection signal="pressed" from="Main_Menu/Button" to="Main_Menu" method="_on_button_pressed"]
 [connection signal="pressed" from="Main_Menu/MenuButton" to="Main_Menu" method="_on_menu_button_pressed"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=77 format=3 uid="uid://cgba3rwoeuejw"]
+[gd_scene load_steps=81 format=3 uid="uid://cgba3rwoeuejw"]
 
 [ext_resource type="Texture2D" uid="uid://bupo4t18ya38f" path="res://Art/mystic_woods_free_2.1/enemies/plant_boss.png" id="1_5h4xe"]
 
@@ -7,7 +7,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/path = NodePath("BodyEndboss:frame_coords")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -23,7 +23,7 @@ length = 0.3
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/path = NodePath("BodyEndboss:frame_coords")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -39,7 +39,7 @@ length = 0.3
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/path = NodePath("BodyEndboss:frame_coords")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -55,7 +55,7 @@ length = 0.3
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/path = NodePath("BodyEndboss:frame_coords")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -71,7 +71,7 @@ length = 0.3
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/path = NodePath("BodyEndboss:frame_coords")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -87,7 +87,7 @@ length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/path = NodePath("BodyEndboss:frame_coords")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -103,7 +103,7 @@ length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/path = NodePath("BodyEndboss:frame_coords")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -119,7 +119,7 @@ length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/path = NodePath("BodyEndboss:frame_coords")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -135,7 +135,7 @@ length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/path = NodePath("BodyEndboss:frame_coords")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -150,7 +150,7 @@ resource_name = "death_bot"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/path = NodePath("BodyEndboss:frame_coords")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -165,7 +165,7 @@ resource_name = "death_left"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/path = NodePath("BodyEndboss:frame_coords")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -180,7 +180,7 @@ resource_name = "death_right"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/path = NodePath("BodyEndboss:frame_coords")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -195,7 +195,7 @@ resource_name = "death_top"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/path = NodePath("BodyEndboss:frame_coords")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -212,7 +212,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/path = NodePath("BodyEndboss:frame_coords")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -228,7 +228,7 @@ length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/path = NodePath("BodyEndboss:frame_coords")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -244,7 +244,7 @@ length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/path = NodePath("BodyEndboss:frame_coords")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -260,7 +260,7 @@ length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/path = NodePath("BodyEndboss:frame_coords")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -276,7 +276,7 @@ length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/path = NodePath("BodyEndboss:frame_coords")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -293,7 +293,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/path = NodePath("BodyEndboss:frame_coords")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -310,7 +310,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/path = NodePath("BodyEndboss:frame_coords")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -327,7 +327,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/path = NodePath("BodyEndboss:frame_coords")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -344,7 +344,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/path = NodePath("BodyEndboss:frame_coords")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -430,7 +430,30 @@ min_space = Vector2(-1, -1.1)
 max_space = Vector2(1, 1.1)
 blend_mode = 1
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_h6bdr"]
+animation = &"death_bot"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_4ssou"]
+animation = &"death_bot"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_wt57v"]
+animation = &"death_left"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_5m4j7"]
+animation = &"death_right"
+
 [sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_xxij1"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_h6bdr")
+blend_point_0/pos = Vector2(0, 1.1)
+blend_point_1/node = SubResource("AnimationNodeAnimation_4ssou")
+blend_point_1/pos = Vector2(0, -1.1)
+blend_point_2/node = SubResource("AnimationNodeAnimation_wt57v")
+blend_point_2/pos = Vector2(-1, 0)
+blend_point_3/node = SubResource("AnimationNodeAnimation_5m4j7")
+blend_point_3/pos = Vector2(1, 0)
+min_space = Vector2(-1, -1.1)
+max_space = Vector2(1, 1.1)
+blend_mode = 1
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_0fbn6"]
 animation = &"idle"
@@ -607,24 +630,26 @@ states/walk/position = Vector2(246, 31)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_mlnoe"), "idle", "attack", SubResource("AnimationNodeStateMachineTransition_k3j2h"), "idle", "walk", SubResource("AnimationNodeStateMachineTransition_l3k4g"), "idle", "death", SubResource("AnimationNodeStateMachineTransition_esjm0"), "idle", "damage", SubResource("AnimationNodeStateMachineTransition_t08df"), "idle", "spell", SubResource("AnimationNodeStateMachineTransition_foks5"), "attack", "idle", SubResource("AnimationNodeStateMachineTransition_ugyc3"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_reyfe"), "damage", "idle", SubResource("AnimationNodeStateMachineTransition_j3ppw"), "spell", "idle", SubResource("AnimationNodeStateMachineTransition_ae4d0"), "walk", "attack", SubResource("AnimationNodeStateMachineTransition_5xjfs"), "walk", "spell", SubResource("AnimationNodeStateMachineTransition_stsa7"), "spell", "walk", SubResource("AnimationNodeStateMachineTransition_x15tu"), "attack", "walk", SubResource("AnimationNodeStateMachineTransition_pys81"), "spell", "death", SubResource("AnimationNodeStateMachineTransition_opm54"), "spell", "damage", SubResource("AnimationNodeStateMachineTransition_jw7g7"), "damage", "spell", SubResource("AnimationNodeStateMachineTransition_i7nyy"), "damage", "death", SubResource("AnimationNodeStateMachineTransition_4aav2"), "attack", "death", SubResource("AnimationNodeStateMachineTransition_n0ski"), "walk", "death", SubResource("AnimationNodeStateMachineTransition_2ofyg"), "attack", "damage", SubResource("AnimationNodeStateMachineTransition_kmepi"), "damage", "walk", SubResource("AnimationNodeStateMachineTransition_cqw56"), "damage", "attack", SubResource("AnimationNodeStateMachineTransition_myncl"), "walk", "damage", SubResource("AnimationNodeStateMachineTransition_0j8i2")]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xq5yl"]
-radius = 178.138
+radius = 96.1301
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_s8uaw"]
-radius = 137.233
+radius = 72.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vlvn4"]
-radius = 25.0
-height = 80.0
+radius = 14.0
+height = 52.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_auald"]
-radius = 79.0063
+radius = 45.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_kcu6w"]
-radius = 16.0312
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8wusg"]
+radius = 13.0
+height = 46.0
 
 [node name="endboss" type="CharacterBody2D"]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="BodyEndboss" type="Sprite2D" parent="."]
+scale = Vector2(0.6, 0.6)
 texture = ExtResource("1_5h4xe")
 hframes = 5
 vframes = 21
@@ -634,7 +659,7 @@ libraries = {
 "": SubResource("AnimationLibrary_kpcoj")
 }
 
-[node name="AnimationTree" type="AnimationTree" parent="."]
+[node name="AnimationTreeEndboss" type="AnimationTree" parent="."]
 tree_root = SubResource("AnimationNodeStateMachine_p1yrh")
 anim_player = NodePath("../AnimationPlayer")
 parameters/conditions/gets_damage = false
@@ -645,8 +670,8 @@ parameters/conditions/is_walking = false
 parameters/conditions/using_spell = false
 parameters/attack/blend_position = Vector2(0.0975293, 0.420833)
 parameters/damage/blend_position = Vector2(-0.182055, 0.6875)
-parameters/death/blend_position = Vector2(0, 0)
-parameters/spell/blend_position = Vector2(-0.473342, 0.216667)
+parameters/death/blend_position = Vector2(-0.00780237, 0.770622)
+parameters/spell/blend_position = Vector2(-0.046814, -0.416384)
 parameters/walk/blend_position = Vector2(0.0286086, 0.745833)
 
 [node name="shooting_area" type="Area2D" parent="."]
@@ -671,10 +696,11 @@ shape = SubResource("CircleShape2D_auald")
 
 [node name="Spell_Timer" type="Timer" parent="."]
 
-[node name="Attack_Timer" type="Timer" parent="."]
+[node name="attack_cooldown" type="Timer" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_kcu6w")
+visible = false
+shape = SubResource("CapsuleShape2D_8wusg")
 
 [connection signal="body_entered" from="shooting_area" to="." method="_on_shooting_area_body_entered"]
 [connection signal="body_exited" from="shooting_area" to="." method="_on_shooting_area_body_exited"]
@@ -682,4 +708,3 @@ shape = SubResource("CircleShape2D_kcu6w")
 [connection signal="body_exited" from="detection_area" to="." method="_on_detection_area_body_exited"]
 [connection signal="body_entered" from="enemy_hitbox" to="." method="_on_enemy_hitbox_body_entered"]
 [connection signal="body_exited" from="enemy_hitbox" to="." method="_on_enemy_hitbox_body_exited"]
-[connection signal="timeout" from="attack_cooldown" to="." method="_on_attack_cooldown_timeout"]
