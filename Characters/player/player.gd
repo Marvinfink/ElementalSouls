@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 
 #playerstats
-var health : int = 2
+var health : int = 20
 var speed:int=100;
 var damage : int =200
 var element =Elements.Element
@@ -32,6 +32,10 @@ var dash_timer : float = 0
 var dash_direction : Vector2 = Vector2.ZERO
 var dash_used :bool = true
 
+#overlay
+@onready var mana_handler: Control = get_node("../Mana_Bars/Control")
+@onready var health_bar = get_node("../Heart_bar/heart_container")
+
 #@onready var animation_tree = $AnimationTree
 @onready var animation_tree1 = $animation_tree
 var element_textures = {
@@ -42,9 +46,9 @@ var element_textures = {
 }
 
 func _ready():
-	element=Elements.Element.FIRE
 	#$Sprite2D.texture=element_textures[element]
 	player_node=get_node(".")
+	health_bar.set_max_hearts(health)
 	
 #Handles the user input
 func _input(event):
@@ -173,6 +177,7 @@ func update_blend_position():
 #take damage from enemy
 func enemy_attack(damage):
 	health = health-damage
+	health_bar.set_heart_bar(health)
 	if health <=0:
 		player_alive=false
 		health=0
@@ -181,6 +186,14 @@ func enemy_attack(damage):
 		await get_tree().create_timer(1,5).timeout
 		get_node("../Game_Over_Overlay").game_over()
 	print(health)
+	
+	
+func set_first_element(e: Elements.Element):
+	element = e
+	print(element)
+	# todo update skin
+	# todo update super attack
+	
 
 func player():
 	pass

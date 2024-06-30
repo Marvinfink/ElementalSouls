@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://cqv434c36lpj2"]
+
+[ext_resource type="Script" path="res://Levels/heart_container.gd" id="1_e41hj"]
+
+[node name="heart_container" type="HBoxContainer"]
+alignment = 1
+script = ExtResource("1_e41hj")

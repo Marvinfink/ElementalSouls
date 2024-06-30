@@ -32,9 +32,9 @@ func _on_button_pressed():
 	if selected_element != -1:
 		get_tree().paused = false
 		self.hide()
-		#set element in player and map
+		get_node("../Player1").set_first_element(selected_element)
 		return 
-	$Error.text = "Bitte wähle ein Element"
+	$Error.text = "Bitte wähle ein Element!"
 
 func menu_button_selected(id): 
 	var selected_text: String
