@@ -42,7 +42,7 @@ var dash_used :bool = true
 var element_textures = {
 	Elements.Element.FIRE: preload("res://Art/mystic_woods_free_2.1/sprites/characters/Fire/Sprite_Fire_Complete_Outlines-Sheet.png"),
 	Elements.Element.WATER: preload("res://Art/mystic_woods_free_2.1/sprites/characters/Water/Sprite_Water_Complete-Sheet.png"),
-	Elements.Element.ELETRICITY: preload("res://Art/mystic_woods_free_2.1/sprites/characters/Electro/Sprite_Electro_Complete-Sheet.png"),
+	Elements.Element.ELECTRICITY: preload("res://Art/mystic_woods_free_2.1/sprites/characters/Electro/Sprite_Electro_Complete-Sheet.png"),
 	Elements.Element.PLANT: preload("res://Art/mystic_woods_free_2.1/sprites/characters/Plant/Sprite_Plant_Complete_Outlines-Sheet.png")
 }
 
