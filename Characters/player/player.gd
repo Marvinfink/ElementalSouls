@@ -35,7 +35,7 @@ var dash_speed : float = 200
 var dash_duration : float = 0.2  # Dash duration in seconds
 var dash_timer : float = 0
 var dash_direction : Vector2 = Vector2.ZERO
-var dash_used :bool = true
+var dash_used :bool = false
 
 #overlay
 @onready var mana_handler: Control = get_node("../Mana_Bars/Control")
@@ -50,7 +50,7 @@ var element_textures = {
 	Elements.Element.PLANT: preload("res://Art/mystic_woods_free_2.1/sprites/characters/Plant/Sprite_Plant_Complete_Outlines-Sheet.png")
 }
 
-const marksman_projectile := preload("res://Characters/projectile/player_projectile.tscn")
+const player_projectile := preload("res://Characters/projectile/player_projectile.tscn")
 
 func _ready():
 	player_node=get_node(".")
@@ -59,13 +59,15 @@ func _ready():
 #Handles the user input
 func _input(event):
 	# handle dash input
-	if Input.is_action_just_pressed("dash") && dash_used:
+	if Input.is_action_just_pressed("dash") and mana_handler.use_dash():
+		dash_used=true
 		dash()
 	# handle swing input
 	if in_attack_range and Input.is_action_just_pressed("swing") and enemy_attack_cooldown == true:
 		attack(damage)
 	# handle special attack input
-	if Input.is_action_just_pressed("special_attack") and special_attack_bar >= 0:
+	if Input.is_action_just_pressed("special_attack") and mana_handler.use_spell():
+		print("yoya")
 		handle_special_attack()
 	#change element
 	if Input.is_action_just_pressed("fire"):
@@ -108,13 +110,15 @@ func _physics_process(delta):
 		walking=false
 		set_walking(walking)
 		
-	handle_dash(delta)
+	if dash_used:
+		handle_dash(delta)
 	move_and_slide()
 	
 	
 # attack functions
 func attack(damage):
-	special_attack_bar +=1
+	mana_handler.load_spell()
+	#special_attack_bar +=1
 	if enemy_attack_cooldown:
 		enemy_attack_cooldown = false
 		$attack_cooldown.start()
@@ -124,7 +128,7 @@ func special_attack(special_damage):
 	enemy.player_attack(special_damage,element)
 	
 func special_attack_range():
-	var projectile := marksman_projectile.instantiate()
+	var projectile := player_projectile.instantiate()
 	owner.add_child(projectile)
 	projectile_direction = (get_global_mouse_position() - global_position).normalized()
 	projectile.position=global_position
@@ -168,24 +172,19 @@ func player_looking():
 	
 # dash functions
 func dash():
-	dash_used=false
 	mouse_position=get_global_mouse_position()
 	dash_direction = (mouse_position - global_position).normalized()
-	is_dashing=true
-	dash_timer=0
-	$dash_timer.start()
+	set_dash(true)
 
 func handle_dash(delta):
-	if is_dashing:
-		dash_timer+=delta
-		if dash_timer>=dash_duration:
-			is_dashing=false
-			dash_timer=0
-			velocity=Vector2.ZERO
-			
-		else:
-			velocity = dash_direction * dash_speed
-		move_and_slide()
+	dash_timer+=delta
+	if dash_timer>=dash_duration:
+		dash_used=false
+		dash_timer=0
+		velocity=Vector2.ZERO
+	else:
+		velocity = dash_direction * dash_speed
+	move_and_slide()
 
 
 # swing animation
@@ -267,6 +266,5 @@ func _on_special_attack_body_exited(body):
 func _on_attack_cooldown_timeout():
 	enemy_attack_cooldown = true
 # special attack cooldown	
-func _on_dash_timer_timeout():
-	dash_used = true
+
 
