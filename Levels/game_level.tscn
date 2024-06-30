@@ -4003,6 +4003,7 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("3_a1stw")
+metadata/_edit_use_anchors_ = true
 
 [node name="Dash_Timer" type="Timer" parent="Mana_Bars/Control"]
 wait_time = 0.1
@@ -4015,6 +4016,7 @@ offset_top = 600.0
 offset_right = 170.0
 offset_bottom = 620.0
 value = 100.0
+metadata/_edit_lock_ = true
 
 [node name="Mana_Bar_Spell" type="TextureProgressBar" parent="Mana_Bars/Control"]
 layout_mode = 0
@@ -4022,6 +4024,7 @@ offset_left = 982.0
 offset_top = 600.0
 offset_right = 1132.0
 offset_bottom = 620.0
+metadata/_edit_lock_ = true
 
 [node name="Label_Dash" type="Label" parent="Mana_Bars"]
 offset_left = 20.0
@@ -4029,6 +4032,7 @@ offset_top = 575.0
 offset_right = 170.0
 offset_bottom = 600.0
 text = "Dash"
+metadata/_edit_lock_ = true
 
 [node name="Label_Spell" type="Label" parent="Mana_Bars"]
 offset_left = 982.0
@@ -4037,12 +4041,14 @@ offset_right = 1132.0
 offset_bottom = 600.0
 text = "Special Attack"
 horizontal_alignment = 2
+metadata/_edit_lock_ = true
 
 [node name="Heart_bar" type="CanvasLayer" parent="."]
 
 [node name="heart_container" parent="Heart_bar" instance=ExtResource("4_wqy8n")]
 offset_right = 1152.0
 offset_bottom = 50.0
+metadata/_edit_use_anchors_ = true
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2(0, -1)

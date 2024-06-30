@@ -503,7 +503,7 @@ graph_offset = Vector2(0, -15.3137)
 radius = 60.0083
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g6nv2"]
-radius = 13.0
+radius = 15.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ggb7a"]
 radius = 6.08276

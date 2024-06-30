@@ -10,7 +10,7 @@ var GETS_DAMAGE: String = "gets_damage"
 
 var IS_WALKING: String = "is_walking"
 
-var USING_SPECIAL_ATTACK: String = "using_special_attack"
+var USING_SPECIAL_ATTACK: String = "using_spell"
 
 var BLEND_DEATH: String = "death"
 
