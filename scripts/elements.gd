@@ -1,5 +1,7 @@
 extends Node
 
+var current_element
+
 enum Element {
 	FIRE,
 	WATER,
@@ -39,3 +41,8 @@ func get_element_multiplier(attacker_element: Element, defender_element: Element
 	var multi = element_multipliers[attacker_element].get(defender_element, 1.0)
 	print(multi)
 	return element_multipliers[attacker_element].get(defender_element, 1.0)
+
+func set_current_element(Element):
+	current_element=Element
+func get_current_element():
+	return current_element
