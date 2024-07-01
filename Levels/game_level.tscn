@@ -1,5 +1,6 @@
-[gd_scene load_steps=25 format=3 uid="uid://bf4wgcyu31x7p"]
+[gd_scene load_steps=27 format=3 uid="uid://bf4wgcyu31x7p"]
 
+[ext_resource type="Script" path="res://Levels/game_level_code.gd" id="1_i4r2k"]
 [ext_resource type="PackedScene" uid="uid://8rnqji34k3af" path="res://Characters/player_1.tscn" id="1_w8loj"]
 [ext_resource type="Texture2D" uid="uid://tau1gknfvjq8" path="res://Art/mystic_woods_free_2.1/sprites/Dungeon Gathering Free Version/Set 1.1 New.png" id="2_srd1t"]
 [ext_resource type="Texture2D" uid="uid://b0l7ha24q06ol" path="res://Art/mystic_woods_free_2.1/sprites/Dungeon Gathering Free Version/Set 1.1.png" id="3_6veiq"]
@@ -14,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://lohw7rnhx3va" path="res://Art/mystic_woods_free_2.1/sprites/Dungeon Gathering Free Version/Set 1.png" id="6_h2r71"]
 [ext_resource type="Texture2D" uid="uid://sxvc02iahmjg" path="res://Art/mystic_woods_free_2.1/sprites/Dungeon Gathering Free Version/Unbenannt.png" id="7_ehwkq"]
 [ext_resource type="Texture2D" uid="uid://dacmu0apfirgi" path="res://Art/mystic_woods_free_2.1/sprites/DG Fire Zone Expansion Free Ver/planttile1.1.png" id="7_nosvp"]
+[ext_resource type="PackedScene" uid="uid://dniawo3hiccuc" path="res://Pause_menu/pause_menu.tscn" id="16_5iee3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qy48l"]
 texture = ExtResource("2_srd1t")
@@ -3886,6 +3888,25 @@ sources/7 = SubResource("TileSetAtlasSource_cpnxa")
 sources/10 = SubResource("TileSetAtlasSource_q84vm")
 
 [node name="GameLevel" type="Node2D"]
+script = ExtResource("1_i4r2k")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(-120, 672)
+scale = Vector2(0.5, 0.5)
+zoom = Vector2(5, 5)
+limit_left = -1945
+limit_top = 0
+limit_right = 1282
+limit_bottom = 2499
+editor_draw_limits = true
+
+[node name="PauseMenu" parent="Camera2D" instance=ExtResource("16_5iee3")]
+visible = false
+offset_left = -72.0
+offset_top = -30.0
+offset_right = -72.0
+offset_bottom = -30.0
+scale = Vector2(0.12, 0.12)
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2(0, -1)
@@ -3925,13 +3946,3 @@ script = ExtResource("5_t2gpe")
 [node name="Enemy-Damage-1" parent="." instance=ExtResource("3_ag7kc")]
 position = Vector2(617, 2063)
 script = ExtResource("6_0r14g")
-
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(-124, 671)
-scale = Vector2(0.5, 0.5)
-zoom = Vector2(5, 5)
-limit_left = -1945
-limit_top = 0
-limit_right = 1282
-limit_bottom = 2499
-editor_draw_limits = true

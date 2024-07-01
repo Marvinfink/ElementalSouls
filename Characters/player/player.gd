@@ -34,6 +34,8 @@ var dash_used :bool = true
 
 #@onready var animation_tree = $AnimationTree
 @onready var animation_tree1 = $animation_tree
+
+@onready var speacial_attack_helper = preload("res://Characters/player/helper/special_attack.gd").new()
 var element_textures = {
 	#Elements.Element.FIRE: preload("res://Art/mystic_woods_free_2.1/sprites/Foozle_2DC0009_Lucifer_Warrior_Pixel_Art/sprite_fire.png"),
 	#Elements.Element.WATER: preload("res://Art/mystic_woods_free_2.1/sprites/Foozle_2DC0009_Lucifer_Warrior_Pixel_Art/sprite_water.png"),
