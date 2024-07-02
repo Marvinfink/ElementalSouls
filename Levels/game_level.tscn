@@ -7,13 +7,17 @@
 [ext_resource type="Texture2D" uid="uid://b0l7ha24q06ol" path="res://Art/mystic_woods_free_2.1/sprites/Dungeon Gathering Free Version/Set 1.1.png" id="3_6veiq"]
 [ext_resource type="Script" path="res://Levels/mana_bars.gd" id="3_a1stw"]
 [ext_resource type="Texture2D" uid="uid://r77xsgaglm4u" path="res://Art/mystic_woods_free_2.1/sprites/DG Fire Zone Expansion Free Ver/All Tiles Free Ver..png" id="3_q67ss"]
+[ext_resource type="Texture2D" uid="uid://dxlbxsiu3cl73" path="res://Art/mystic_woods_free_2.1/overlay/ProgressUnder.png" id="4_0vejb"]
 [ext_resource type="Texture2D" uid="uid://8oatw54a200k" path="res://Art/mystic_woods_free_2.1/sprites/DG Fire Zone Expansion Free Ver/tiles1.1.png" id="4_gt7ua"]
 [ext_resource type="Texture2D" uid="uid://yolvymetgpir" path="res://Art/mystic_woods_free_2.1/sprites/Dungeon Gathering Free Version/Set 4.5.png" id="4_j8yhr"]
 [ext_resource type="PackedScene" uid="uid://cb8h1i7ma4pjt" path="res://Levels/heart_container.tscn" id="4_wqy8n"]
 [ext_resource type="Texture2D" uid="uid://cxwl6i3spnxp7" path="res://Art/mystic_woods_free_2.1/sprites/Dungeon Gathering Free Version/Water.png" id="5_mxu3q"]
+[ext_resource type="Texture2D" uid="uid://bgnn186kj1vu2" path="res://Art/mystic_woods_free_2.1/overlay/ProgressBackground.png" id="5_v21r3"]
 [ext_resource type="Texture2D" uid="uid://lohw7rnhx3va" path="res://Art/mystic_woods_free_2.1/sprites/Dungeon Gathering Free Version/Set 1.png" id="6_h2r71"]
+[ext_resource type="Texture2D" uid="uid://q6kntq5hd3kk" path="res://Art/mystic_woods_free_2.1/overlay/ProgressMana.png" id="6_y3bf6"]
 [ext_resource type="Texture2D" uid="uid://cjc320ub7rjbe" path="res://Art/mystic_woods_free_2.1/sprites/DG Fire Zone Expansion Free Ver/electrotile1.1.png" id="6_s7j0g"]
 [ext_resource type="Texture2D" uid="uid://sxvc02iahmjg" path="res://Art/mystic_woods_free_2.1/sprites/Dungeon Gathering Free Version/Unbenannt.png" id="7_ehwkq"]
+[ext_resource type="Texture2D" uid="uid://7c7awkpvyhsh" path="res://Art/mystic_woods_free_2.1/overlay/ProgressStamina.png" id="7_lksv3"]
 [ext_resource type="Texture2D" uid="uid://dacmu0apfirgi" path="res://Art/mystic_woods_free_2.1/sprites/DG Fire Zone Expansion Free Ver/planttile1.1.png" id="7_nosvp"]
 [ext_resource type="Texture2D" uid="uid://c16b4d60te284" path="res://Art/mystic_woods_free_2.1/sprites/DG Fire Zone Expansion Free Ver/planttile_extention1.1.png" id="10_mmowp"]
 [ext_resource type="PackedScene" uid="uid://2vi1bcr01qel" path="res://enemy/types/marksman.tscn" id="11_xethf"]
@@ -26,6 +30,8 @@
 [ext_resource type="Script" path="res://enemy/types/fire/enemy_fire_marksman.gd" id="18_sk018"]
 [ext_resource type="Script" path="res://enemy/types/water/enemy_water_marksman.gd" id="19_pv3eq"]
 [ext_resource type="Script" path="res://enemy/types/electricity/enemy_electricity_marksman.gd" id="20_bnntl"]
+[ext_resource type="PackedScene" uid="uid://cgba3rwoeuejw" path="res://enemy/endboss/endboss.tscn" id="25_d87ku"]
+[ext_resource type="Script" path="res://enemy/endboss/plant/endboss_plant.gd" id="26_hksux"]
 
 [sub_resource type="Theme" id="Theme_l0axd"]
 
@@ -4612,6 +4618,7 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("3_a1stw")
+metadata/_edit_use_anchors_ = true
 
 [node name="Dash_Timer" type="Timer" parent="Mana_Bars/Control"]
 wait_time = 0.1
@@ -4623,7 +4630,11 @@ offset_left = 20.0
 offset_top = 600.0
 offset_right = 170.0
 offset_bottom = 620.0
+scale = Vector2(0.09, 0.09)
 value = 100.0
+texture_under = ExtResource("4_0vejb")
+texture_over = ExtResource("5_v21r3")
+texture_progress = ExtResource("6_y3bf6")
 
 [node name="Mana_Bar_Spell" type="TextureProgressBar" parent="Mana_Bars/Control"]
 layout_mode = 0
@@ -4631,6 +4642,10 @@ offset_left = 982.0
 offset_top = 600.0
 offset_right = 1132.0
 offset_bottom = 620.0
+scale = Vector2(0.09, 0.09)
+texture_under = ExtResource("4_0vejb")
+texture_over = ExtResource("5_v21r3")
+texture_progress = ExtResource("7_lksv3")
 
 [node name="Label_Dash" type="Label" parent="Mana_Bars"]
 offset_left = 20.0
@@ -4638,6 +4653,7 @@ offset_top = 575.0
 offset_right = 170.0
 offset_bottom = 600.0
 text = "Dash"
+metadata/_edit_lock_ = true
 
 [node name="Label_Spell" type="Label" parent="Mana_Bars"]
 offset_left = 982.0
@@ -4646,12 +4662,14 @@ offset_right = 1132.0
 offset_bottom = 600.0
 text = "Special Attack"
 horizontal_alignment = 2
+metadata/_edit_lock_ = true
 
 [node name="Heart_bar" type="CanvasLayer" parent="."]
 
 [node name="heart_container" parent="Heart_bar" instance=ExtResource("4_wqy8n")]
 offset_right = 1152.0
 offset_bottom = 50.0
+metadata/_edit_use_anchors_ = true
 
 [node name="Player1" parent="." instance=ExtResource("1_w8loj")]
 position = Vector2(-612, 281)
@@ -4691,36 +4709,40 @@ limit_bottom = 2499
 editor_draw_limits = true
 
 [node name="Tank_Plant" parent="." instance=ExtResource("12_fwog5")]
-position = Vector2(-422, 822)
+position = Vector2(-371, 811)
 script = ExtResource("13_mmqso")
 
 [node name="Tank_Fire" parent="." instance=ExtResource("12_fwog5")]
-position = Vector2(-133, 948)
+position = Vector2(-133, 1004)
 script = ExtResource("13_gu6ls")
 
 [node name="Tank_Water" parent="." instance=ExtResource("12_fwog5")]
-position = Vector2(1, 861)
+position = Vector2(99, 828)
 script = ExtResource("14_1lgo5")
 
 [node name="Tank_Electricity" parent="." instance=ExtResource("12_fwog5")]
-position = Vector2(-116, 722)
+position = Vector2(-123, 680)
 script = ExtResource("15_himr5")
 
 [node name="Marksman_Plant" parent="." instance=ExtResource("11_xethf")]
-position = Vector2(-335, 837)
+position = Vector2(-360, 845)
 script = ExtResource("17_8ukml")
 
 [node name="Marksman_Fire" parent="." instance=ExtResource("11_xethf")]
-position = Vector2(-116, 962)
+position = Vector2(-109, 1020)
 script = ExtResource("18_sk018")
 
 [node name="Marksman_Water" parent="." instance=ExtResource("11_xethf")]
-position = Vector2(0, 922)
+position = Vector2(105, 859)
 script = ExtResource("19_pv3eq")
 
 [node name="Marksman_Electricity" parent="." instance=ExtResource("11_xethf")]
-position = Vector2(-151, 721)
+position = Vector2(-142, 672)
 script = ExtResource("20_bnntl")
+
+[node name="Endboss_Plant" parent="." instance=ExtResource("25_d87ku")]
+position = Vector2(-199, 825)
+script = ExtResource("26_hksux")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.306522, 0.44088, 0.482368, 1)

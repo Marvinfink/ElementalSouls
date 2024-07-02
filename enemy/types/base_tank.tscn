@@ -503,10 +503,10 @@ graph_offset = Vector2(0, -15.3137)
 radius = 60.0083
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g6nv2"]
-radius = 13.0
+radius = 15.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ggb7a"]
-radius = 6.08276
+radius = 13.0384
 
 [node name="Tank" type="CharacterBody2D"]
 position = Vector2(0, 8)
@@ -554,8 +554,7 @@ shape = SubResource("CircleShape2D_g6nv2")
 [node name="attack_cooldown" type="Timer" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
-position = Vector2(0, -2)
+position = Vector2(-1, -13)
 shape = SubResource("CircleShape2D_ggb7a")
 
 [connection signal="body_entered" from="detection_area" to="." method="_on_detection_area_body_entered"]

@@ -3,7 +3,6 @@ extends Area2D
 # Eigenschaften für das Projektil
 @export var speed: float
 @export var range: float
-@export var damage: float
 @export var stun_duration: int
 @export var knockback_force: int
 
@@ -26,7 +25,7 @@ func _on_body_entered(body):
 	if body.has_method("enemy"):
 		return
 	elif body.has_method("player"):
-		body.enemy_attack(damage)
+		body.enemy_attack()
 	destroy()
 	
 func destroy():

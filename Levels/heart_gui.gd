@@ -13,9 +13,8 @@ func _process(delta):
 	
 func update(show: int):
 	if sprite.frame != show:
-		$ColorRect.show()
+		sprite.frame = 3
 		await get_tree().create_timer(0.3).timeout
-		$ColorRect.hide()
 		
 	sprite.frame = show
 	

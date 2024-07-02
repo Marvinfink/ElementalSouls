@@ -219,8 +219,8 @@ func update_blend_position():
 
 
 #take damage from enemy
-func enemy_attack(damage):
-	health = health-damage
+func enemy_attack():
+	health -= 1
 	health_bar.set_heart_bar(health)
 	set_damage(true)
 	if health <=0:
@@ -244,8 +244,8 @@ func player():
 
 # check for enemy if in range
 func _on_player_hitbox_body_entered(body):
-	enemy=body
 	if body.has_method("enemy"):
+		enemy=body
 		in_attack_range=true
 # check for enemy if out of range
 func _on_player_hitbox_body_exited(body):

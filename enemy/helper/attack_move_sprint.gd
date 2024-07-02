@@ -44,5 +44,5 @@ func move_sprint(delta: float):
 func attack_player():
 	if base.states[Animations.IS_ATTACKING]:
 		base.set_state(Animations.IDLE)
-		base.player.enemy_attack(base.damage)
+		base.player.enemy_attack()
 		base.start_attack_countdown()

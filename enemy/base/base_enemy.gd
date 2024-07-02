@@ -4,7 +4,6 @@ extends CharacterBody2D
 # variable for each enemy
 @export var health: int
 @export var speed: int
-@export var damage: float
 @export var element: Elements.Element
 @export var cooldown: float
 
@@ -44,7 +43,7 @@ func player_attack(amount: int, enemy_element: Elements.Element):
 	if health <= 0:
 		set_state(Animations.IS_DEAD)
 		set_process(false)
-		await get_tree().create_timer(0.5).timeout
+		await get_tree().create_timer(1).timeout
 		queue_free()
 		return
 	set_state(Animations.GETS_DAMAGE)
@@ -129,6 +128,3 @@ func set_animation(animation: String):
 		animation_tree["parameters/conditions/%s" % a] = false
 	animation_tree["parameters/conditions/%s" % animation] = true
 
-
-
-	

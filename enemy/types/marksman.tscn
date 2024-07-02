@@ -566,8 +566,7 @@ shape = SubResource("CircleShape2D_g6nv2")
 [node name="attack_cooldown" type="Timer" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
-position = Vector2(1, -11)
+position = Vector2(0, -11)
 shape = SubResource("CircleShape2D_ggb7a")
 
 [connection signal="body_entered" from="shooting_area" to="." method="_on_shooting_area_body_entered"]
