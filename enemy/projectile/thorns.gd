@@ -1,6 +1,6 @@
 extends Area2D
 
-var created_by_player
+var created_by_player: bool
 var damage
 var element
 @onready var count = 0
