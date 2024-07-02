@@ -4,7 +4,6 @@ extends "res://enemy/types/marksman.gd"
 func set_data():
 	health = 150
 	speed = 60
-	damage = 0.5
 	cooldown = 3
 	animation_tree = $AnimationTreeMarksman
 

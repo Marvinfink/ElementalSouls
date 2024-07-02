@@ -1,0 +1,102 @@
+[gd_scene load_steps=12 format=3 uid="uid://dgjd5chf7wy0i"]
+
+[ext_resource type="Texture2D" uid="uid://dwodptfhjkxqr" path="res://Art/SpecialAttack/Firetornado Animation-Sheet.png" id="1_a764t"]
+
+[sub_resource type="Animation" id="Animation_t1otx"]
+resource_name = "create"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 0), Vector2i(1, 0), Vector2i(2, 0), Vector2i(3, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_rmr2m"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_pa0bh"]
+resource_name = "fly"
+length = 0.3
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 1), Vector2i(1, 1), Vector2i(2, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_apxve"]
+_data = {
+"RESET": SubResource("Animation_rmr2m"),
+"create": SubResource("Animation_t1otx"),
+"fly": SubResource("Animation_pa0bh")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_g1klb"]
+animation = &"create"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_1al6w"]
+animation = &"fly"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ohee7"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_plbld"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_v7r2v"]
+states/create/node = SubResource("AnimationNodeAnimation_g1klb")
+states/create/position = Vector2(370, 86)
+states/fly/node = SubResource("AnimationNodeAnimation_1al6w")
+states/fly/position = Vector2(626, 97)
+transitions = ["Start", "create", SubResource("AnimationNodeStateMachineTransition_ohee7"), "create", "fly", SubResource("AnimationNodeStateMachineTransition_plbld")]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rs4r2"]
+radius = 18.0
+height = 46.0
+
+[node name="tornado" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_a764t")
+hframes = 4
+vframes = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_apxve")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeStateMachine_v7r2v")
+anim_player = NodePath("../AnimationPlayer")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -2)
+shape = SubResource("CapsuleShape2D_rs4r2")

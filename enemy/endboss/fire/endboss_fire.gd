@@ -19,13 +19,14 @@ func _on_shooting_area_body_entered(body):
 
 
 func _on_shooting_area_body_exited(body):
-	pass
+	if body.has_method("player"):
+		player_in_shooting_range = false
 
 
 func set_data():
 	health = 1000
 	speed = 60
-	cooldown = 1
+	cooldown = 3
 	animation_tree = $AnimationTreeEndboss
 	states[Animations.USING_SPECIAL_ATTACK] = false
 	blends.append(Animations.BLEND_SPECIAL_ATTACK)
@@ -41,10 +42,10 @@ func _physics_process(delta: float) -> void:
 	if states[Animations.IS_DEAD]:
 		return
 	update_blend_position()
-	if spell_ready and not states[Animations.IS_ATTACKING] and player_in_shooting_range:
+	if spell_ready:
 		spell_ready = false
 		use_spell(3)
-	elif enemy_attack_cooldown and player_in_range and not states[Animations.USING_SPECIAL_ATTACK]:
+	elif enemy_attack_cooldown and player_in_range:
 		enemy_attack_cooldown = false
 		attack_player()
 	elif not states[Animations.IS_ATTACKING] and not states[Animations.USING_SPECIAL_ATTACK]:
@@ -52,16 +53,16 @@ func _physics_process(delta: float) -> void:
 		
 		
 func use_spell(times: int):
+	set_state(Animations.USING_SPECIAL_ATTACK)
 	for x in range(times):
-		set_state(Animations.USING_SPECIAL_ATTACK)
 		var position = player.global_position
-		await get_tree().create_timer(0.6).timeout
+		await get_tree().create_timer(0.5).timeout
 		var projectile := thorn_projectile.instantiate()
 		projectile.global_position = position
 		owner.add_child(projectile)
 	start_spell_timer()
-	await get_tree().create_timer(10).timeout
 	set_state(Animations.IDLE)
+	await get_tree().create_timer(2).timeout
 
 		
 func attack_player():

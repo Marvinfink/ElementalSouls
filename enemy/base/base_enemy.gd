@@ -4,7 +4,6 @@ extends CharacterBody2D
 # variable for each enemy
 @export var health: int
 @export var speed: int
-@export var damage: float
 @export var element: Elements.Element
 @export var cooldown: float
 
@@ -129,6 +128,3 @@ func set_animation(animation: String):
 		animation_tree["parameters/conditions/%s" % a] = false
 	animation_tree["parameters/conditions/%s" % animation] = true
 
-
-
-	

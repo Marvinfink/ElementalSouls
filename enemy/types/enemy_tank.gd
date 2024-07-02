@@ -4,7 +4,6 @@ extends "res://enemy/types/fighter.gd"
 func set_data():
 	health = 200
 	speed = 60
-	damage = 0.5
 	cooldown = 3
 	attack_delay = 0.6
 	sprint_speed = 130
