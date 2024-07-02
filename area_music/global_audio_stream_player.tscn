@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://wm18gqrag7bw"]
+
+[ext_resource type="AudioStream" uid="uid://uyuwpc27jgp6" path="res://music/Elemental_Souls_FireArea_Sound.wav" id="1_h23ea"]
+[ext_resource type="Script" path="res://area_music/global_audio_stream_player.gd" id="1_vf7wy"]
+
+[node name="GlobalAudioStreamPlayer" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_h23ea")
+autoplay = true
+script = ExtResource("1_vf7wy")

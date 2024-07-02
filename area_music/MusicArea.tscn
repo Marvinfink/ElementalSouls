@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://bewexu2s5gf6q"]
+
+[ext_resource type="Script" path="res://area_music/MusicArea.gd" id="1_2gjws"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qdw8v"]
+
+[node name="Area2D" type="Area2D"]
+script = ExtResource("1_2gjws")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_qdw8v")

@@ -85,6 +85,7 @@ offset_right = 80.0
 offset_bottom = -16.0
 
 [node name="SkillButton3" parent="." instance=ExtResource("1_pyllb")]
+layout_mode = 0
 offset_left = 416.0
 offset_top = 304.0
 offset_right = 448.0
@@ -120,6 +121,7 @@ offset_right = -16.0
 offset_bottom = -16.0
 
 [node name="SkillButton4" parent="." instance=ExtResource("1_pyllb")]
+layout_mode = 0
 offset_left = 592.0
 offset_top = 448.0
 offset_right = 624.0

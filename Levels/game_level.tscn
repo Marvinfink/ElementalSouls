@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://bf4wgcyu31x7p"]
+[gd_scene load_steps=28 format=3 uid="uid://bf4wgcyu31x7p"]
 
 [ext_resource type="Script" path="res://Levels/game_level_code.gd" id="1_i4r2k"]
 [ext_resource type="PackedScene" uid="uid://8rnqji34k3af" path="res://Characters/player_1.tscn" id="1_w8loj"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://sxvc02iahmjg" path="res://Art/mystic_woods_free_2.1/sprites/Dungeon Gathering Free Version/Unbenannt.png" id="7_ehwkq"]
 [ext_resource type="Texture2D" uid="uid://dacmu0apfirgi" path="res://Art/mystic_woods_free_2.1/sprites/DG Fire Zone Expansion Free Ver/planttile1.1.png" id="7_nosvp"]
 [ext_resource type="PackedScene" uid="uid://dniawo3hiccuc" path="res://Pause_menu/pause_menu.tscn" id="16_5iee3"]
+[ext_resource type="PackedScene" uid="uid://bewexu2s5gf6q" path="res://area_music/MusicArea.tscn" id="17_3vpnf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qy48l"]
 texture = ExtResource("2_srd1t")
@@ -3891,7 +3892,7 @@ sources/10 = SubResource("TileSetAtlasSource_q84vm")
 script = ExtResource("1_i4r2k")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(-120, 672)
+position = Vector2(-124, 671)
 scale = Vector2(0.5, 0.5)
 zoom = Vector2(5, 5)
 limit_left = -1945
@@ -3946,3 +3947,8 @@ script = ExtResource("5_t2gpe")
 [node name="Enemy-Damage-1" parent="." instance=ExtResource("3_ag7kc")]
 position = Vector2(617, 2063)
 script = ExtResource("6_0r14g")
+
+[node name="Area2D" parent="." instance=ExtResource("17_3vpnf")]
+position = Vector2(-264, 1808)
+scale = Vector2(41.4, 70.2)
+music_name = "music1"
