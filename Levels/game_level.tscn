@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=3 uid="uid://bf4wgcyu31x7p"]
+[gd_scene load_steps=64 format=3 uid="uid://bf4wgcyu31x7p"]
 
 [ext_resource type="Script" path="res://Levels/Main_Menu.gd" id="1_5xqtd"]
 [ext_resource type="Script" path="res://Levels/Game_Over_Overlay.gd" id="1_uqqfm"]
@@ -14,8 +14,8 @@
 [ext_resource type="Texture2D" uid="uid://cxwl6i3spnxp7" path="res://Art/mystic_woods_free_2.1/sprites/Dungeon Gathering Free Version/Water.png" id="5_mxu3q"]
 [ext_resource type="Texture2D" uid="uid://bgnn186kj1vu2" path="res://Art/mystic_woods_free_2.1/overlay/ProgressBackground.png" id="5_v21r3"]
 [ext_resource type="Texture2D" uid="uid://lohw7rnhx3va" path="res://Art/mystic_woods_free_2.1/sprites/Dungeon Gathering Free Version/Set 1.png" id="6_h2r71"]
-[ext_resource type="Texture2D" uid="uid://q6kntq5hd3kk" path="res://Art/mystic_woods_free_2.1/overlay/ProgressMana.png" id="6_y3bf6"]
 [ext_resource type="Texture2D" uid="uid://cjc320ub7rjbe" path="res://Art/mystic_woods_free_2.1/sprites/DG Fire Zone Expansion Free Ver/electrotile1.1.png" id="6_s7j0g"]
+[ext_resource type="Texture2D" uid="uid://q6kntq5hd3kk" path="res://Art/mystic_woods_free_2.1/overlay/ProgressMana.png" id="6_y3bf6"]
 [ext_resource type="Texture2D" uid="uid://sxvc02iahmjg" path="res://Art/mystic_woods_free_2.1/sprites/Dungeon Gathering Free Version/Unbenannt.png" id="7_ehwkq"]
 [ext_resource type="Texture2D" uid="uid://7c7awkpvyhsh" path="res://Art/mystic_woods_free_2.1/overlay/ProgressStamina.png" id="7_lksv3"]
 [ext_resource type="Texture2D" uid="uid://dacmu0apfirgi" path="res://Art/mystic_woods_free_2.1/sprites/DG Fire Zone Expansion Free Ver/planttile1.1.png" id="7_nosvp"]
