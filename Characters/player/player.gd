@@ -52,7 +52,7 @@ var element_textures = {
 
 const player_projectile := preload("res://Characters/projectile/player_projectile.tscn")
 const thorn_projectile := preload("res://enemy/projectile/thorns.tscn")
-
+const fire_projectile := preload("res://enemy/projectile/thorns.tscn")
 func _ready():
 	player_node=get_node(".")
 	health_bar.set_max_hearts(health)
@@ -126,13 +126,13 @@ func attack(damage):
 func special_attack(element):
 	enemy.player_attack(special_damage,element)
 	
-func special_attack_range(element):
-	var projectile := player_projectile.instantiate()
+func special_attack_range(element,projectile_scene):
+	var projectile = projectile_scene.instantiate()
 	owner.add_child(projectile)
 	projectile.element=element
 	projectile_direction = (get_global_mouse_position() - global_position).normalized()
 	projectile.position=global_position
-	projectile.rotation = self.global_position.direction_to(get_global_mouse_position()).angle()
+	#projectile.rotation = self.global_position.direction_to(get_global_mouse_position()).angle()
 	
 func special_attack_close(element,projectile_scene):
 	#if special_in_range:
@@ -140,12 +140,14 @@ func special_attack_close(element,projectile_scene):
 		var projectile = projectile_scene.instantiate()
 		projectile.global_position = position
 		projectile.created_by_player=true
+		projectile.create(damage,element)
 		owner.add_child(projectile)
 
 func handle_special_attack():
 	match element:
 		Elements.Element.FIRE:
 			print("Fire special")
+			#special_attack_range(element,fire_projectile)
 			#special_attack_range(element,)
 			#special_attack_close()
 		Elements.Element.WATER:
