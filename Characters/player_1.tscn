@@ -1,7 +1,8 @@
-[gd_scene load_steps=130 format=3 uid="uid://8rnqji34k3af"]
+[gd_scene load_steps=131 format=3 uid="uid://8rnqji34k3af"]
 
 [ext_resource type="Script" path="res://Characters/player/player.gd" id="1_7ffcy"]
 [ext_resource type="Texture2D" uid="uid://dk3ahnhsnr8cv" path="res://Art/mystic_woods_free_2.1/sprites/characters/Fire/Sprite_Fire_Complete_Outlines-Sheet.png" id="2_wxjvv"]
+[ext_resource type="Texture2D" uid="uid://nt0sp0ixx22h" path="res://Art/mystic_woods_free_2.1/sprites/particles/light.png" id="3_e0rvw"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_q54ym"]
 
@@ -1577,8 +1578,10 @@ wait_time = 0.7
 
 [node name="special_attack_cooldown" type="Timer" parent="."]
 
-[node name="dash_timer" type="Timer" parent="."]
-wait_time = 3.0
+[node name="PointLight2D" type="PointLight2D" parent="."]
+energy = 0.5
+shadow_enabled = true
+texture = ExtResource("3_e0rvw")
 
 [connection signal="body_entered" from="special_attack" to="." method="_on_special_attack_body_entered"]
 [connection signal="body_exited" from="special_attack" to="." method="_on_special_attack_body_exited"]
@@ -1587,4 +1590,3 @@ wait_time = 3.0
 [connection signal="body_shape_entered" from="player_hitbox" to="." method="_on_player_hitbox_body_shape_entered"]
 [connection signal="timeout" from="attack_cooldown" to="." method="_on_attack_cooldown_timeout"]
 [connection signal="timeout" from="special_attack_cooldown" to="." method="_on_special_attack_cooldown_timeout"]
-[connection signal="timeout" from="dash_timer" to="." method="_on_dash_timer_timeout"]

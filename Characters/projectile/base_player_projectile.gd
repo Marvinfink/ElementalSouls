@@ -9,7 +9,7 @@ extends Area2D
 
 # Interna
 var distance_travelled: float = 0.0
-
+var element
 # Referenzen
 @onready var hitbox = $Hitbox
 
@@ -25,7 +25,7 @@ func _on_body_entered(body):
 	if body.has_method("player"):
 		return
 	elif body.has_method("enemy"):
-		body.player_attack(damage,Elements.get_current_element())
+		body.player_attack(damage,element)
 	destroy()
 	
 func destroy():
