@@ -30,5 +30,5 @@ func use_spell() -> bool:
 
 
 func load_spell():
-	$Mana_Bar_Spell.value += 10
+	$Mana_Bar_Spell.value += 15
 	print($Mana_Bar_Spell.value)

@@ -23,8 +23,8 @@ func _on_shooting_area_body_exited(body):
 
 
 func set_data():
-	health = 1000
-	speed = 60
+	health = 500
+	speed = 40
 	cooldown = 1
 	animation_tree = $AnimationTreeEndboss
 	states[Animations.USING_SPECIAL_ATTACK] = false
@@ -57,10 +57,13 @@ func use_spell(times: int):
 		var position = player.global_position
 		await get_tree().create_timer(0.6).timeout
 		var projectile := thorn_projectile.instantiate()
+		projectile.created_by_player = false
 		projectile.global_position = position
 		owner.add_child(projectile)
 	start_spell_timer()
-	await get_tree().create_timer(10).timeout
+	set_physics_process(false)
+	await get_tree().create_timer(2).timeout
+	set_physics_process(true)
 	set_state(Animations.IDLE)
 
 		
