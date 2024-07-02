@@ -1,6 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://dgjd5chf7wy0i"]
+[gd_scene load_steps=13 format=3 uid="uid://dgjd5chf7wy0i"]
 
 [ext_resource type="Texture2D" uid="uid://dwodptfhjkxqr" path="res://Art/SpecialAttack/Firetornado Animation-Sheet.png" id="1_a764t"]
+[ext_resource type="Script" path="res://enemy/projectile/fire_tornado.gd" id="1_np6cv"]
 
 [sub_resource type="Animation" id="Animation_rmr2m"]
 length = 0.001
@@ -78,12 +79,14 @@ states/fly/position = Vector2(626, 97)
 transitions = ["Start", "create", SubResource("AnimationNodeStateMachineTransition_ohee7"), "create", "fly", SubResource("AnimationNodeStateMachineTransition_plbld")]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rs4r2"]
-radius = 18.0
-height = 46.0
+radius = 8.0
+height = 22.0
 
 [node name="tornado" type="Area2D"]
+script = ExtResource("1_np6cv")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_a764t")
 hframes = 4
 vframes = 2
@@ -98,5 +101,12 @@ tree_root = SubResource("AnimationNodeStateMachine_v7r2v")
 anim_player = NodePath("../AnimationPlayer")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -2)
+position = Vector2(0, -1)
 shape = SubResource("CapsuleShape2D_rs4r2")
+
+[node name="death_timer" type="Timer" parent="."]
+wait_time = 10.0
+autostart = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="death_timer" to="." method="_on_death_timer_timeout"]
