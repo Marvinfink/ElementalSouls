@@ -1,0 +1,109 @@
+[gd_scene load_steps=13 format=3 uid="uid://daua0c7y8buor"]
+
+[ext_resource type="Script" path="res://enemy/projectile/marksman_projectile.gd" id="1_66nyf"]
+[ext_resource type="Texture2D" uid="uid://bkhy52xbn10nx" path="res://Art/SpecialAttack/Fireball Animation-Sheet.png" id="2_b0lpy"]
+
+[sub_resource type="Animation" id="Animation_3kxo0"]
+resource_name = "create"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 1), Vector2i(1, 1), Vector2i(2, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_aurqc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_n4uc7"]
+resource_name = "fly"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 0), Vector2i(1, 0), Vector2i(2, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_u7xov"]
+_data = {
+"RESET": SubResource("Animation_aurqc"),
+"create": SubResource("Animation_3kxo0"),
+"fly": SubResource("Animation_n4uc7")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_y3de1"]
+animation = &"create"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_3b6u3"]
+animation = &"fly"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_27g8u"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_x8nad"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_2qteh"]
+states/create/node = SubResource("AnimationNodeAnimation_y3de1")
+states/create/position = Vector2(367, 100)
+states/fly/node = SubResource("AnimationNodeAnimation_3b6u3")
+states/fly/position = Vector2(540, 100)
+transitions = ["Start", "create", SubResource("AnimationNodeStateMachineTransition_27g8u"), "create", "fly", SubResource("AnimationNodeStateMachineTransition_x8nad")]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_as6kd"]
+radius = 3.0
+height = 10.0
+
+[node name="marksman_projectile" type="Area2D"]
+script = ExtResource("1_66nyf")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_b0lpy")
+hframes = 3
+vframes = 2
+frame = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_u7xov")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeStateMachine_2qteh")
+anim_player = NodePath("../AnimationPlayer")
+
+[node name="hit_box" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 0)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_as6kd")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
