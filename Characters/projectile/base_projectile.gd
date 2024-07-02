@@ -26,7 +26,7 @@ func _on_body_entered(body):
 		return
 	elif body.has_method("player"):
 		body.enemy_attack(damage)
-	destroy()
+	#destroy()
 	
 func destroy():
 	queue_free()

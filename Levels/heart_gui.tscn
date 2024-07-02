@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://dnxj3xi1cdjed"]
+[gd_scene load_steps=3 format=3 uid="uid://bh4plbfxfvg3e"]
 
 [ext_resource type="Script" path="res://Levels/heart_gui.gd" id="1_5hwhw"]
 [ext_resource type="Texture2D" uid="uid://br4tcdwdfiayx" path="res://Art/mystic_woods_free_2.1/overlay/hearts.png" id="1_oijia"]
