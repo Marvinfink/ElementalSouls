@@ -21,6 +21,7 @@ config/icon="res://icon.svg"
 Global="*res://scripts/global.gd"
 Elements="*res://scripts/elements.gd"
 Animations="*res://scripts/animations.gd"
+LighningArea="*res://LightningAreaMusic/lighning_area.tscn"
 
 [display]
 
