@@ -42,8 +42,8 @@ func player_attack(amount: int, enemy_element: Elements.Element):
 	health -=  round(amount * Elements.get_element_multiplier(enemy_element, element))
 	if health <= 0:
 		set_state(Animations.IS_DEAD)
-		set_process(false)
-		await get_tree().create_timer(1).timeout
+		set_physics_process(false)
+		await get_tree().create_timer(1.5).timeout
 		queue_free()
 		return
 	set_state(Animations.GETS_DAMAGE)
@@ -119,12 +119,6 @@ func _on_enemy_hitbox_body_exited(body):
 func set_state(state: String):
 	for a in states:
 		states[a] = false
-	states[state] = true
-	set_animation(state)
-
-
-func set_animation(animation: String):
-	for a in states:
 		animation_tree["parameters/conditions/%s" % a] = false
-	animation_tree["parameters/conditions/%s" % animation] = true
-
+	states[state] = true
+	animation_tree["parameters/conditions/%s" % state] = true

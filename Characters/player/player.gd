@@ -117,7 +117,7 @@ func _physics_process(delta):
 # attack functions
 func attack(damage):
 	mana_handler.load_spell()
-	if enemy_attack_cooldown:
+	if enemy_attack_cooldown and enemy.has_method("enemy"):
 		enemy_attack_cooldown = false
 		$attack_cooldown.start()
 		enemy.player_attack(damage,element)	
@@ -237,6 +237,11 @@ func set_first_element(e: Elements.Element):
 	element = e
 	$Sprite2D2.texture=element_textures[element]
 	# todo update super attack
+	
+	
+func endboss_killed(el: Elements.Element):
+	# add special attack
+	health = 10
 	
 
 func player():

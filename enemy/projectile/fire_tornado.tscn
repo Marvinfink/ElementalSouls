@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dgjd5chf7wy0i"]
+[gd_scene load_steps=12 format=3 uid="uid://dgjd5chf7wy0i"]
 
 [ext_resource type="Texture2D" uid="uid://dwodptfhjkxqr" path="res://Art/SpecialAttack/Firetornado Animation-Sheet.png" id="1_a764t"]
 [ext_resource type="Script" path="res://enemy/projectile/fire_tornado.gd" id="1_np6cv"]
@@ -78,10 +78,6 @@ states/fly/node = SubResource("AnimationNodeAnimation_1al6w")
 states/fly/position = Vector2(626, 97)
 transitions = ["Start", "create", SubResource("AnimationNodeStateMachineTransition_ohee7"), "create", "fly", SubResource("AnimationNodeStateMachineTransition_plbld")]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rs4r2"]
-radius = 8.0
-height = 22.0
-
 [node name="tornado" type="Area2D"]
 script = ExtResource("1_np6cv")
 
@@ -100,9 +96,9 @@ libraries = {
 tree_root = SubResource("AnimationNodeStateMachine_v7r2v")
 anim_player = NodePath("../AnimationPlayer")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -1)
-shape = SubResource("CapsuleShape2D_rs4r2")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+scale = Vector2(0.5, 0.5)
+polygon = PackedVector2Array(-2, 16, 2, 16, 12, -14, -12, -14)
 
 [node name="death_timer" type="Timer" parent="."]
 wait_time = 10.0
