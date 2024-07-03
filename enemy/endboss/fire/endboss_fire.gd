@@ -24,7 +24,7 @@ func _on_shooting_area_body_exited(body):
 
 
 func set_data():
-	health = 500
+	health = 50
 	speed = 40
 	cooldown = 1
 	animation_tree = $AnimationTreeEndboss
@@ -33,7 +33,7 @@ func set_data():
 
 
 func set_type():
-	$BodyEndboss.texture = preload("res://Art/mystic_woods_free_2.1/enemies/plant_boss.png")
+	$BodyEndboss.texture = preload("res://Art/mystic_woods_free_2.1/enemies/fire_boss.png")
 	element = Elements.Element.FIRE
 
 

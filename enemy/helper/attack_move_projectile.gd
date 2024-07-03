@@ -11,6 +11,7 @@ func shoot():
 		
 		# Erstellen und hinzufügen des Projektils
 		var projectile := marksman_projectile.instantiate()
+		projectile.set_element(base.element)
 		projectile.global_position = base.global_position
 		projectile.rotation = base.global_position.direction_to(base.player.global_position).angle()
 		projectile.direction = base.player.global_position - base.global_position # Zielposition für das Projektil

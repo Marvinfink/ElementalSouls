@@ -41,9 +41,9 @@ func move_position(delta: float):
 func player_attack(amount: int, enemy_element: Elements.Element):
 	health -=  round(amount * Elements.get_element_multiplier(enemy_element, element))
 	if health <= 0:
+		set_physics_process(false)
 		set_state(Animations.IS_DEAD)
-		set_process(false)
-		await get_tree().create_timer(1).timeout
+		await get_tree().create_timer(1.5).timeout
 		queue_free()
 		return
 	set_state(Animations.GETS_DAMAGE)

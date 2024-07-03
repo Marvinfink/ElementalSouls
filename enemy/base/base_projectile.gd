@@ -26,5 +26,16 @@ func _on_body_entered(body):
 		body.enemy_attack()
 	destroy()
 	
+func set_element(element: Elements.Element):
+	match element:
+		Elements.Element.FIRE:
+			$Sprite2D.texture = preload("res://Art/SpecialAttack/fire_bullet.png")
+		Elements.Element.WATER:
+			$Sprite2D.texture = preload("res://Art/SpecialAttack/water_bullet.png")
+		Elements.Element.PLANT:
+			$Sprite2D.texture = preload("res://Art/SpecialAttack/plant_bullet.png")
+		Elements.Element.ELECTRICITY:
+			$Sprite2D.texture = preload("res://Art/SpecialAttack/fire_bullet.png")
+	
 func destroy():
 	queue_free()

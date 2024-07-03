@@ -117,7 +117,7 @@ func _physics_process(delta):
 # attack functions
 func attack(damage):
 	mana_handler.load_spell()
-	if enemy_attack_cooldown:
+	if enemy_attack_cooldown and enemy.has_method("enemy"):
 		enemy_attack_cooldown = false
 		$attack_cooldown.start()
 		enemy.player_attack(damage,element)	
