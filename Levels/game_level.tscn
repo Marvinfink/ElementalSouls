@@ -1,4 +1,4 @@
-[gd_scene load_steps=71 format=3 uid="uid://bf4wgcyu31x7p"]
+[gd_scene load_steps=72 format=3 uid="uid://bf4wgcyu31x7p"]
 
 [ext_resource type="Script" path="res://Levels/Main_Menu.gd" id="1_5xqtd"]
 [ext_resource type="Script" path="res://Levels/Game_Over_Overlay.gd" id="1_uqqfm"]
@@ -25,6 +25,7 @@
 [ext_resource type="Texture2D" uid="uid://cw1kbcmxal5ec" path="res://Art/mystic_woods_free_2.1/overlay/Elektro_Element.png" id="7_fh6ml"]
 [ext_resource type="Texture2D" uid="uid://7c7awkpvyhsh" path="res://Art/mystic_woods_free_2.1/overlay/ProgressStamina.png" id="7_lksv3"]
 [ext_resource type="Texture2D" uid="uid://dacmu0apfirgi" path="res://Art/mystic_woods_free_2.1/sprites/DG Fire Zone Expansion Free Ver/planttile1.1.png" id="7_nosvp"]
+[ext_resource type="Texture2D" uid="uid://bgknafukl4vcs" path="res://Art/mystic_woods_free_2.1/overlay/GameOverTitle.png" id="9_wljlc"]
 [ext_resource type="Texture2D" uid="uid://c16b4d60te284" path="res://Art/mystic_woods_free_2.1/sprites/DG Fire Zone Expansion Free Ver/planttile_extention1.1.png" id="10_mmowp"]
 [ext_resource type="PackedScene" uid="uid://2vi1bcr01qel" path="res://enemy/types/marksman.tscn" id="11_xethf"]
 [ext_resource type="PackedScene" uid="uid://dc01d5k5ii4sp" path="res://enemy/types/base_tank.tscn" id="12_fwog5"]
@@ -4602,24 +4603,23 @@ script = ExtResource("1_uqqfm")
 offset_right = 1152.0
 offset_bottom = 648.0
 
-[node name="Label" type="Label" parent="Game_Over_Overlay"]
-offset_top = 50.0
-offset_right = 1152.0
-offset_bottom = 350.0
-theme_override_colors/font_color = Color(0.819608, 0, 0, 1)
-theme_override_font_sizes/font_size = 80
-text = "GAME OVER!"
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="Button_Main_Menu" type="Button" parent="Game_Over_Overlay"]
 custom_minimum_size = Vector2(300, 100)
-offset_left = 428.0
-offset_top = 381.0
-offset_right = 728.0
-offset_bottom = 481.0
+offset_left = 445.0
+offset_top = 392.0
+offset_right = 745.0
+offset_bottom = 492.0
 theme_override_font_sizes/font_size = 40
 text = "Main Menu"
+
+[node name="TextureRect" type="TextureRect" parent="Game_Over_Overlay"]
+offset_left = 142.0
+offset_top = 120.0
+offset_right = 3038.0
+offset_bottom = 632.0
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("9_wljlc")
+metadata/_edit_lock_ = true
 
 [node name="Mana_Bars" type="CanvasLayer" parent="."]
 
@@ -4751,7 +4751,7 @@ position = Vector2(-142, 672)
 script = ExtResource("20_bnntl")
 
 [node name="Endboss_Plant" parent="." instance=ExtResource("25_d87ku")]
-position = Vector2(727, 13)
+position = Vector2(746, -8)
 script = ExtResource("26_hksux")
 
 [node name="Endboss_Fire" parent="." instance=ExtResource("25_d87ku")]
