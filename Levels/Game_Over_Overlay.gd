@@ -19,8 +19,3 @@ func game_over():
 func _on_button_main_menu_pressed():
 	self.hide()
 	get_node("../Main_Menu").show_main_menu()
-
-
-func _on_button_restart_pressed():
-	get_tree().paused = false
-	get_tree().reload_current_scene()
