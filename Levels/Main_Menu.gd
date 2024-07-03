@@ -10,6 +10,9 @@ extends CanvasLayer
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	get_tree().paused = true
+	get_node("../Heart_bar").hide()
+	get_node("../Mana_Bars").hide()
+	selected_element = -1
 	self.show()
 
 
@@ -23,6 +26,8 @@ func show_main_menu():
 	get_tree().reload_current_scene()
 	selected_element = -1
 	reset_button_position()
+	get_node("../Heart_bar").hide()
+	get_node("../Mana_Bars").hide()
 	self.show()
 
 
@@ -31,23 +36,10 @@ func _on_button_pressed():
 		get_tree().paused = false
 		self.hide()
 		get_node("../Player1").set_first_element(selected_element)
+		get_node("../Heart_bar").show()
+		get_node("../Mana_Bars").show()
 		return 
 	$Error.text = "Bitte wähle ein Element!"
-
-func menu_button_selected(id): 
-	var selected_text: String
-	match id:
-		Elements.Element.FIRE:
-			selected_text = "Feuer"
-		Elements.Element.WATER:
-			selected_text = "Wasser"
-		Elements.Element.PLANT:
-			selected_text = "Pflanze"
-		Elements.Element.ELECTRICITY:
-			selected_text = "Elektro"
-	$MenuButton.text = selected_text
-	$Error.text = ""
-	selected_element = id
 
 
 func _on_button_button_down():
@@ -59,6 +51,7 @@ func _on_button_button_up():
 
 func reset_button_position():
 	var position = 340
+	$Error.text = ""
 	$Water_Button.position.y = position
 	$Fire_Button.position.y = position
 	$Plant_Button.position.y = position
@@ -86,3 +79,4 @@ func _on_electricity_button_pressed():
 	reset_button_position()
 	$Electricity_Button.position.y -= 30
 	selected_element = Elements.Element.ELECTRICITY
+

@@ -1,4 +1,4 @@
-[gd_scene load_steps=72 format=3 uid="uid://bf4wgcyu31x7p"]
+[gd_scene load_steps=77 format=3 uid="uid://bf4wgcyu31x7p"]
 
 [ext_resource type="Script" path="res://Levels/Main_Menu.gd" id="1_5xqtd"]
 [ext_resource type="Script" path="res://Levels/Game_Over_Overlay.gd" id="1_uqqfm"]
@@ -25,15 +25,20 @@
 [ext_resource type="Texture2D" uid="uid://cw1kbcmxal5ec" path="res://Art/mystic_woods_free_2.1/overlay/Elektro_Element.png" id="7_fh6ml"]
 [ext_resource type="Texture2D" uid="uid://7c7awkpvyhsh" path="res://Art/mystic_woods_free_2.1/overlay/ProgressStamina.png" id="7_lksv3"]
 [ext_resource type="Texture2D" uid="uid://dacmu0apfirgi" path="res://Art/mystic_woods_free_2.1/sprites/DG Fire Zone Expansion Free Ver/planttile1.1.png" id="7_nosvp"]
+[ext_resource type="Texture2D" uid="uid://bji0itwhd7ab8" path="res://Art/mystic_woods_free_2.1/overlay/BackNotSelected.png" id="9_ttiev"]
 [ext_resource type="Texture2D" uid="uid://bgknafukl4vcs" path="res://Art/mystic_woods_free_2.1/overlay/GameOverTitle.png" id="9_wljlc"]
 [ext_resource type="Texture2D" uid="uid://c16b4d60te284" path="res://Art/mystic_woods_free_2.1/sprites/DG Fire Zone Expansion Free Ver/planttile_extention1.1.png" id="10_mmowp"]
+[ext_resource type="Script" path="res://Levels/Pause_Overlay.gd" id="11_cvst5"]
 [ext_resource type="PackedScene" uid="uid://2vi1bcr01qel" path="res://enemy/types/marksman.tscn" id="11_xethf"]
 [ext_resource type="PackedScene" uid="uid://dc01d5k5ii4sp" path="res://enemy/types/base_tank.tscn" id="12_fwog5"]
+[ext_resource type="Texture2D" uid="uid://c51oss3rs0n41" path="res://Art/mystic_woods_free_2.1/overlay/PauseTitle.png" id="12_ljsuh"]
 [ext_resource type="Script" path="res://enemy/types/fire/enemy_fire_tank.gd" id="13_gu6ls"]
 [ext_resource type="Script" path="res://enemy/types/plant/enemy_plant_tank.gd" id="13_mmqso"]
 [ext_resource type="Script" path="res://enemy/types/water/enemy_water_tank.gd" id="14_1lgo5"]
 [ext_resource type="Script" path="res://enemy/types/electricity/enemy_electricity_tank.gd" id="15_himr5"]
+[ext_resource type="Texture2D" uid="uid://gx2wipqf51mt" path="res://Art/mystic_woods_free_2.1/overlay/SpecialTitle.png" id="16_djm5d"]
 [ext_resource type="Script" path="res://enemy/types/plant/enemy_plant_marksman.gd" id="17_8ukml"]
+[ext_resource type="Texture2D" uid="uid://b0331saia28ee" path="res://Art/mystic_woods_free_2.1/overlay/DashTitle.png" id="17_53v4r"]
 [ext_resource type="Script" path="res://enemy/types/fire/enemy_fire_marksman.gd" id="18_sk018"]
 [ext_resource type="Script" path="res://enemy/types/water/enemy_water_marksman.gd" id="19_pv3eq"]
 [ext_resource type="Script" path="res://enemy/types/electricity/enemy_electricity_marksman.gd" id="20_bnntl"]
@@ -4552,6 +4557,7 @@ offset_bottom = 1020.0
 scale = Vector2(0.2, 0.2)
 theme_override_font_sizes/font_size = 40
 icon = ExtResource("2_oborh")
+metadata/_edit_lock_ = true
 
 [node name="Error" type="Label" parent="Main_Menu"]
 offset_left = 423.0
@@ -4562,6 +4568,7 @@ theme_override_colors/font_color = Color(0.819608, 0, 0, 1)
 theme_override_font_sizes/font_size = 15
 horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_lock_ = true
 
 [node name="Water_Button" type="Button" parent="Main_Menu"]
 offset_left = 626.0
@@ -4570,6 +4577,7 @@ offset_right = 1146.0
 offset_bottom = 860.0
 scale = Vector2(0.2, 0.2)
 icon = ExtResource("4_8r0mk")
+metadata/_edit_lock_ = true
 
 [node name="Fire_Button" type="Button" parent="Main_Menu"]
 offset_left = 830.0
@@ -4578,6 +4586,7 @@ offset_right = 1350.0
 offset_bottom = 860.0
 scale = Vector2(0.2, 0.2)
 icon = ExtResource("5_0v61k")
+metadata/_edit_lock_ = true
 
 [node name="Plant_Button" type="Button" parent="Main_Menu"]
 offset_left = 422.0
@@ -4586,6 +4595,7 @@ offset_right = 942.0
 offset_bottom = 860.0
 scale = Vector2(0.2, 0.2)
 icon = ExtResource("6_1i63k")
+metadata/_edit_lock_ = true
 
 [node name="Electricity_Button" type="Button" parent="Main_Menu"]
 offset_left = 218.0
@@ -4594,23 +4604,28 @@ offset_right = 738.0
 offset_bottom = 860.0
 scale = Vector2(0.2, 0.2)
 icon = ExtResource("7_fh6ml")
+metadata/_edit_lock_ = true
 
 [node name="Game_Over_Overlay" type="CanvasLayer" parent="."]
 process_mode = 3
+visible = false
 script = ExtResource("1_uqqfm")
 
 [node name="Panel" type="Panel" parent="Game_Over_Overlay"]
 offset_right = 1152.0
 offset_bottom = 648.0
+metadata/_edit_lock_ = true
 
 [node name="Button_Main_Menu" type="Button" parent="Game_Over_Overlay"]
 custom_minimum_size = Vector2(300, 100)
-offset_left = 445.0
-offset_top = 392.0
-offset_right = 745.0
-offset_bottom = 492.0
+offset_left = 442.0
+offset_top = 400.0
+offset_right = 1986.0
+offset_bottom = 920.0
+scale = Vector2(0.2, 0.2)
 theme_override_font_sizes/font_size = 40
-text = "Main Menu"
+icon = ExtResource("9_ttiev")
+metadata/_edit_lock_ = true
 
 [node name="TextureRect" type="TextureRect" parent="Game_Over_Overlay"]
 offset_left = 142.0
@@ -4621,7 +4636,45 @@ scale = Vector2(0.3, 0.3)
 texture = ExtResource("9_wljlc")
 metadata/_edit_lock_ = true
 
+[node name="Pause_Overlay" type="CanvasLayer" parent="."]
+process_mode = 3
+visible = false
+script = ExtResource("11_cvst5")
+
+[node name="Panel" type="Panel" parent="Pause_Overlay"]
+offset_right = 1152.0
+offset_bottom = 648.0
+metadata/_edit_lock_ = true
+
+[node name="TextureRect" type="TextureRect" parent="Pause_Overlay"]
+offset_left = 247.0
+offset_top = 100.0
+offset_right = 1895.0
+offset_bottom = 612.0
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("12_ljsuh")
+metadata/_edit_lock_ = true
+
+[node name="Back_Button" type="Button" parent="Pause_Overlay"]
+offset_left = 167.0
+offset_top = 400.0
+offset_right = 1711.0
+offset_bottom = 920.0
+scale = Vector2(0.2, 0.2)
+icon = ExtResource("9_ttiev")
+metadata/_edit_lock_ = true
+
+[node name="Menu_Button" type="Button" parent="Pause_Overlay"]
+offset_left = 676.0
+offset_top = 400.0
+offset_right = 2220.0
+offset_bottom = 920.0
+scale = Vector2(0.2, 0.2)
+icon = ExtResource("2_oborh")
+metadata/_edit_lock_ = true
+
 [node name="Mana_Bars" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="Control" type="Control" parent="Mana_Bars"]
 layout_mode = 3
@@ -4646,6 +4699,7 @@ value = 100.0
 texture_under = ExtResource("4_0vejb")
 texture_over = ExtResource("5_v21r3")
 texture_progress = ExtResource("6_y3bf6")
+metadata/_edit_lock_ = true
 
 [node name="Mana_Bar_Spell" type="TextureProgressBar" parent="Mana_Bars/Control"]
 layout_mode = 0
@@ -4657,30 +4711,34 @@ scale = Vector2(0.09, 0.09)
 texture_under = ExtResource("4_0vejb")
 texture_over = ExtResource("5_v21r3")
 texture_progress = ExtResource("7_lksv3")
-
-[node name="Label_Dash" type="Label" parent="Mana_Bars"]
-offset_left = 20.0
-offset_top = 575.0
-offset_right = 170.0
-offset_bottom = 600.0
-text = "Dash"
 metadata/_edit_lock_ = true
 
-[node name="Label_Spell" type="Label" parent="Mana_Bars"]
-offset_left = 982.0
-offset_top = 575.0
-offset_right = 1132.0
-offset_bottom = 600.0
-text = "Special Attack"
-horizontal_alignment = 2
+[node name="Spell_Text" type="TextureRect" parent="Mana_Bars"]
+offset_left = 1000.0
+offset_top = 565.0
+offset_right = 2264.0
+offset_bottom = 1077.0
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("16_djm5d")
+metadata/_edit_lock_ = true
+
+[node name="Dash_Text" type="TextureRect" parent="Mana_Bars"]
+offset_left = 13.0
+offset_top = 565.0
+offset_right = 1549.0
+offset_bottom = 1077.0
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("17_53v4r")
 metadata/_edit_lock_ = true
 
 [node name="Heart_bar" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="heart_container" parent="Heart_bar" instance=ExtResource("4_wqy8n")]
 offset_right = 1152.0
 offset_bottom = 50.0
 metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
 
 [node name="Player1" parent="." instance=ExtResource("1_w8loj")]
 position = Vector2(-367, 2236)
@@ -4768,5 +4826,13 @@ color = Color(0.306522, 0.44088, 0.482368, 1)
 [connection signal="pressed" from="Main_Menu/Fire_Button" to="Main_Menu" method="_on_fire_button_pressed"]
 [connection signal="pressed" from="Main_Menu/Plant_Button" to="Main_Menu" method="_on_plant_button_pressed"]
 [connection signal="pressed" from="Main_Menu/Electricity_Button" to="Main_Menu" method="_on_electricity_button_pressed"]
+[connection signal="button_down" from="Game_Over_Overlay/Button_Main_Menu" to="Game_Over_Overlay" method="_on_button_main_menu_button_down"]
+[connection signal="button_up" from="Game_Over_Overlay/Button_Main_Menu" to="Game_Over_Overlay" method="_on_button_main_menu_button_up"]
 [connection signal="pressed" from="Game_Over_Overlay/Button_Main_Menu" to="Game_Over_Overlay" method="_on_button_main_menu_pressed"]
+[connection signal="button_down" from="Pause_Overlay/Back_Button" to="Pause_Overlay" method="_on_back_button_button_down"]
+[connection signal="button_up" from="Pause_Overlay/Back_Button" to="Pause_Overlay" method="_on_back_button_button_up"]
+[connection signal="pressed" from="Pause_Overlay/Back_Button" to="Pause_Overlay" method="_on_back_button_pressed"]
+[connection signal="button_down" from="Pause_Overlay/Menu_Button" to="Pause_Overlay" method="_on_menu_button_button_down"]
+[connection signal="button_up" from="Pause_Overlay/Menu_Button" to="Pause_Overlay" method="_on_menu_button_button_up"]
+[connection signal="pressed" from="Pause_Overlay/Menu_Button" to="Pause_Overlay" method="_on_menu_button_pressed"]
 [connection signal="timeout" from="Mana_Bars/Control/Dash_Timer" to="Mana_Bars/Control" method="_on_dash_timer_timeout"]
