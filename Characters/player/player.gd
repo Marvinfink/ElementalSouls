@@ -238,6 +238,11 @@ func set_first_element(e: Elements.Element):
 	$Sprite2D2.texture=element_textures[element]
 	# todo update super attack
 	
+	
+func endboss_killed(el: Elements.Element):
+	# add special attack
+	health = 10
+	
 
 func player():
 	pass
