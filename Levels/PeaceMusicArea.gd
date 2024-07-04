@@ -1,6 +1,8 @@
 extends Area2D
 @onready var peace_music = $PeaceMusic
+@onready var areaLeave = $changeAreaSound
 var volume = -25
+
 
 
 func _on_ready():
@@ -23,3 +25,4 @@ func _on_body_entered(body):
 func _on_body_exited(body):
 	if body.has_method("player"):
 		peace_music.stop()
+		areaLeave.play()
