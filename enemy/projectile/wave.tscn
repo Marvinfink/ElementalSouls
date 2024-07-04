@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://c2m45gnjo4yom"]
+[gd_scene load_steps=13 format=3 uid="uid://c2m45gnjo4yom"]
 
 [ext_resource type="Texture2D" uid="uid://cjjhx3x4ylev1" path="res://Art/SpecialAttack/WasserWelleAnimation.png" id="1_tou57"]
 [ext_resource type="Script" path="res://enemy/projectile/wave.gd" id="1_yyoj8"]
+[ext_resource type="AudioStream" uid="uid://vnac52rym0me" path="res://enemy/projectile/projectileSounds/waveAttack.mp3" id="3_8im61"]
 
 [sub_resource type="Animation" id="Animation_yjgf7"]
 length = 0.001
@@ -100,5 +101,9 @@ anim_player = NodePath("../AnimationPlayer")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 position = Vector2(0, 4)
 polygon = PackedVector2Array(-12, 2, -1, -13, 10, -13, 5, -4, 11, 2)
+
+[node name="waveAttackSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_8im61")
+volume_db = 6.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

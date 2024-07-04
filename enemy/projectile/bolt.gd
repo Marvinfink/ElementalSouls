@@ -6,9 +6,11 @@ var damage
 var element
 var bodies = []
 @onready var count = 0
+@onready var boltSound = $boltSound
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	boltSound.play()
 	element = Elements.Element.ELECTRICITY
 	stage_one = false
 
