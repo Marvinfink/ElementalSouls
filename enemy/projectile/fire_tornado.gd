@@ -12,8 +12,12 @@ var distance_travelled: float = 0.0
 var direction: Vector2 = Vector2.ZERO
 var element
 
+# Sounds
+@onready var fireTornadoSound = $fireTornadoSound
+
 
 func _ready():
+	fireTornadoSound.play()
 	speed = 60
 	range = randi_range(50, 150)
 	element = Elements.Element.FIRE
