@@ -1,7 +1,6 @@
-[gd_scene load_steps=137 format=3 uid="uid://8rnqji34k3af"]
+[gd_scene load_steps=136 format=3 uid="uid://8rnqji34k3af"]
 
 [ext_resource type="Script" path="res://Characters/player/player.gd" id="1_7ffcy"]
-[ext_resource type="Texture2D" uid="uid://dk3ahnhsnr8cv" path="res://Art/mystic_woods_free_2.1/sprites/characters/Fire/Sprite_Fire_Complete_Outlines-Sheet.png" id="2_wxjvv"]
 [ext_resource type="Texture2D" uid="uid://nt0sp0ixx22h" path="res://Art/mystic_woods_free_2.1/sprites/particles/light.png" id="3_e0rvw"]
 [ext_resource type="AudioStream" uid="uid://cxm3xaapueg28" path="res://Characters/player/sounds/WalkingSounds.mp3" id="4_4iopd"]
 [ext_resource type="AudioStream" uid="uid://bvl52r8w2gfg" path="res://Characters/player/sounds/swingSound.wav" id="4_7b0lq"]
@@ -1544,7 +1543,6 @@ collision_layer = 3
 script = ExtResource("1_7ffcy")
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
-texture = ExtResource("2_wxjvv")
 hframes = 8
 vframes = 25
 
@@ -1599,8 +1597,14 @@ wait_time = 0.7
 [node name="special_attack_cooldown" type="Timer" parent="."]
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
-energy = 0.5
 shadow_enabled = true
+shadow_filter = 1
+shadow_filter_smooth = 3.0
+texture = ExtResource("3_e0rvw")
+
+[node name="PointLight2D2" type="PointLight2D" parent="."]
+energy = 1.5
+blend_mode = 2
 texture = ExtResource("3_e0rvw")
 
 [node name="SwingSound" type="AudioStreamPlayer2D" parent="."]
