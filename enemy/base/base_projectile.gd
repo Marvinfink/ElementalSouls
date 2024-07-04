@@ -11,6 +11,7 @@ var direction: Vector2 = Vector2.ZERO
 # Referenzen
 @onready var hitbox = $Hitbox
 
+
 func _physics_process(delta):
 	if distance_travelled > range:
 		queue_free()

@@ -124,6 +124,7 @@ func _physics_process(delta):
 	
 	else:
 		if walking:
+			#walkingSound.volume_db(0,15)
 			walkingSound.stop()
 		walking=false
 		set_walking(walking)

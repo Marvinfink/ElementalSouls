@@ -1626,7 +1626,6 @@ volume_db = 15.459
 
 [node name="WalkingSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_4iopd")
-volume_db = 8.0
 
 [connection signal="body_entered" from="special_attack" to="." method="_on_special_attack_body_entered"]
 [connection signal="body_exited" from="special_attack" to="." method="_on_special_attack_body_exited"]
