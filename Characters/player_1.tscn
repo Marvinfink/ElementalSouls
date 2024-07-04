@@ -1,8 +1,14 @@
-[gd_scene load_steps=131 format=3 uid="uid://8rnqji34k3af"]
+[gd_scene load_steps=137 format=3 uid="uid://8rnqji34k3af"]
 
 [ext_resource type="Script" path="res://Characters/player/player.gd" id="1_7ffcy"]
 [ext_resource type="Texture2D" uid="uid://dk3ahnhsnr8cv" path="res://Art/mystic_woods_free_2.1/sprites/characters/Fire/Sprite_Fire_Complete_Outlines-Sheet.png" id="2_wxjvv"]
 [ext_resource type="Texture2D" uid="uid://nt0sp0ixx22h" path="res://Art/mystic_woods_free_2.1/sprites/particles/light.png" id="3_e0rvw"]
+[ext_resource type="AudioStream" uid="uid://cxm3xaapueg28" path="res://Characters/player/sounds/WalkingSounds.mp3" id="4_4iopd"]
+[ext_resource type="AudioStream" uid="uid://bvl52r8w2gfg" path="res://Characters/player/sounds/swingSound.wav" id="4_7b0lq"]
+[ext_resource type="AudioStream" uid="uid://kghu0mmlhoaw" path="res://Characters/player/sounds/DashSound.mp3" id="6_p7y8a"]
+[ext_resource type="AudioStream" uid="uid://wrxkkkhss6of" path="res://Characters/player/sounds/deathSound2.mp3" id="7_nd0tq"]
+[ext_resource type="AudioStream" uid="uid://dt1dhl7v0wlkw" path="res://Characters/player/sounds/hittingEnemySound.wav" id="8_vryod"]
+[ext_resource type="AudioStream" uid="uid://40h0l0gcdhcr" path="res://Characters/player/sounds/swingSoundCharacter.mp3" id="9_owj7y"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_q54ym"]
 
@@ -606,6 +612,20 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [Vector2i(0, 0)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_play_walkingSound"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_m4yqh"]
@@ -1513,7 +1533,7 @@ states/idle/position = Vector2(307, 291)
 states/walk/node = SubResource("AnimationNodeBlendSpace2D_1ng5e")
 states/walk/position = Vector2(514, 129)
 transitions = ["idle", "attack", SubResource("AnimationNodeStateMachineTransition_7mibe"), "idle", "walk", SubResource("AnimationNodeStateMachineTransition_s0rox"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_kfua7"), "Start", "idle", SubResource("AnimationNodeStateMachineTransition_8260i"), "walk", "1_death", SubResource("AnimationNodeStateMachineTransition_bpiwo"), "idle", "dash", SubResource("AnimationNodeStateMachineTransition_68ngr"), "dash", "idle", SubResource("AnimationNodeStateMachineTransition_fcmnc"), "walk", "dash", SubResource("AnimationNodeStateMachineTransition_3tdud"), "dash", "walk", SubResource("AnimationNodeStateMachineTransition_w8606"), "attack", "idle", SubResource("AnimationNodeStateMachineTransition_w132c"), "idle", "damage", SubResource("AnimationNodeStateMachineTransition_dhpdk"), "walk", "damage", SubResource("AnimationNodeStateMachineTransition_sbi18"), "damage", "idle", SubResource("AnimationNodeStateMachineTransition_abg1t"), "damage", "walk", SubResource("AnimationNodeStateMachineTransition_txmso"), "attack", "walk", SubResource("AnimationNodeStateMachineTransition_0b5ge"), "idle", "1_death", SubResource("AnimationNodeStateMachineTransition_t1qli"), "walk", "attack", SubResource("AnimationNodeStateMachineTransition_8a6mr")]
-graph_offset = Vector2(-323.34, -1.85102)
+graph_offset = Vector2(-468.78, 106.719)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ckt42"]
 radius = 99.0
@@ -1582,6 +1602,31 @@ wait_time = 0.7
 energy = 0.5
 shadow_enabled = true
 texture = ExtResource("3_e0rvw")
+
+[node name="SwingSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_7b0lq")
+volume_db = 10.896
+
+[node name="DashSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_p7y8a")
+volume_db = 5.0
+pitch_scale = 1.46
+
+[node name="dearhSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_nd0tq")
+volume_db = 24.0
+
+[node name="hittingEnemySound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_vryod")
+volume_db = 3.748
+
+[node name="swingSoundCharacter" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_owj7y")
+volume_db = 15.459
+
+[node name="WalkingSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_4iopd")
+volume_db = 8.0
 
 [connection signal="body_entered" from="special_attack" to="." method="_on_special_attack_body_entered"]
 [connection signal="body_exited" from="special_attack" to="." method="_on_special_attack_body_exited"]

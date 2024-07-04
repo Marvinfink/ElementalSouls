@@ -16,6 +16,7 @@ func _on_body_entered(body):
 		monitoring = true
 		AudioServer.set_bus_volume_db(0,volume)
 		peace_music.play()
+		
 
 
 

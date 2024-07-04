@@ -42,6 +42,14 @@ var dash_used :bool = false
 @onready var mana_handler: Control = get_node("../Mana_Bars/Control")
 @onready var health_bar = get_node("../Heart_bar/heart_container")
 
+#sounds
+@onready var walkingSound = $WalkingSound
+@onready var swingSound = $SwingSound
+@onready var dashSound = $DashSound
+@onready var deathSound = $dearhSound
+@onready var enemyHitSound = $hittingEnemySound
+@onready var swingSoundCharacter = $swingSoundCharacter
+
 #@onready var animation_tree = $AnimationTree
 @onready var animation_tree1 = $animation_tree
 var element_textures = {
@@ -63,9 +71,12 @@ func _input(event):
 	if Input.is_action_just_pressed("dash") and mana_handler.use_dash():
 		dash_used=true
 		dash()
+		dashSound.play()
 	# handle swing input
 	if in_attack_range and Input.is_action_just_pressed("swing") and enemy_attack_cooldown == true:
 		attack(damage)
+		swingSound.play()
+		
 	# handle special attack input
 	if Input.is_action_just_pressed("special_attack") and mana_handler.use_spell():
 		handle_special_attack()
@@ -86,6 +97,8 @@ func _input(event):
 	#swing while walking
 	if Input.is_action_just_pressed("swing"):# and walking:
 		set_swing(true)
+		swingSoundCharacter.play()
+		
 
 		
 	
@@ -103,16 +116,24 @@ func _physics_process(delta):
 		velocity = Vector2.ZERO
 	
 	if direction != Vector2.ZERO and not swing:
+		if not walking:
+			walkingSound.play()
 		walking =true
 		set_walking(walking)
 		update_blend_position()
+		
+	
 	else:
+		if walking:
+			walkingSound.stop()
 		walking=false
 		set_walking(walking)
 		
 	if dash_used:
 		handle_dash(delta)
 	move_and_slide()
+	
+	
 	
 	
 # attack functions
@@ -142,6 +163,7 @@ func handle_special_attack():
 	if element == 0:
 		print("Fire special")
 		special_attack_close()
+		deathSound.play()
 	elif element == 1:
 		print("water special")
 		special_attack_range()
@@ -194,15 +216,18 @@ func set_swing(value = false):
 	set_physics_process(false)
 	await get_tree().create_timer(0.35).timeout
 	set_physics_process(true)
+	
 
 # walking animation
 func set_walking(value):
 	animation_tree1["parameters/conditions/walk"]=value
 	animation_tree1["parameters/conditions/idle"]=not value
-
+	
 #dash animation
 func set_dash(value = false):
 	animation_tree1["parameters/conditions/dash"]=value
+	
+		
 
 #damage animation
 func set_damage(value = false):
@@ -210,6 +235,8 @@ func set_damage(value = false):
 	set_physics_process(false)
 	await get_tree().create_timer(0.35).timeout
 	set_physics_process(true)
+	enemyHitSound.play()
+	
 # set animation direction
 func update_blend_position():
 	animation_tree1["parameters/attack/blend_position"] = player_direction
@@ -221,15 +248,17 @@ func update_blend_position():
 
 #take damage from enemy
 func enemy_attack():
+	swingSound.play()
 	health -= 1
 	health_bar.set_heart_bar(health)
 	set_damage(true)
 	if health <=0:
+		deathSound.play()
 		player_alive=false
 		health=0
 		print("player is died")
 		animation_tree1["parameters/conditions/death"]=true
-		await get_tree().create_timer(1,5).timeout
+		await get_tree().create_timer(3.0).timeout
 		get_node("../Game_Over_Overlay").game_over()
 	print(health)
 	
