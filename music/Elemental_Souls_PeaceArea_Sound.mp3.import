@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/Elemental_Souls_PeaceArea_Sound.mp3-5cff549f2
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0

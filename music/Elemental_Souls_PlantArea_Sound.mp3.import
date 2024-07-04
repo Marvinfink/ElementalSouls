@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/Elemental_Souls_PlantArea_Sound.mp3-44e8707b7
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0

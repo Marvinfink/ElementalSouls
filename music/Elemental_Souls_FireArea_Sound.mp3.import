@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/Elemental_Souls_FireArea_Sound.mp3-9f3682474a
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0

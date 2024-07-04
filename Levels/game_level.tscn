@@ -61,19 +61,19 @@
 [ext_resource type="Script" path="res://enemy/endboss/fire/endboss_fire.gd" id="33_vjh61"]
 [ext_resource type="Script" path="res://Levels/FireMusicArea.gd" id="34_473c7"]
 [ext_resource type="Texture2D" uid="uid://cv7kgtstn6mvg" path="res://Art/mystic_woods_free_2.1/sprites/DG Fire Zone Expansion Free Ver/firetiles1.2.png" id="34_o1h1o"]
-[ext_resource type="AudioStream" uid="uid://dvd0hvej3lypl" path="res://music/Elemental_Souls_FireArea_Sound.wav" id="35_8d1mk"]
 [ext_resource type="Texture2D" uid="uid://bny2nlpnx26s" path="res://Art/mystic_woods_free_2.1/sprites/DG Fire Zone Expansion Free Ver/electrotiles_extention1.1.png" id="35_8skf4"]
 [ext_resource type="Texture2D" uid="uid://cbkvr4rj7ylbt" path="res://Art/mystic_woods_free_2.1/overlay/ProgressHealth.png" id="35_xl7sa"]
 [ext_resource type="Script" path="res://Levels/WaterMusicArea.gd" id="36_dlp5d"]
-[ext_resource type="AudioStream" uid="uid://d1qg2cimy0vr3" path="res://music/Elemental_Souls_WaterArea_Sound.wav" id="37_xw781"]
 [ext_resource type="Script" path="res://Levels/LightningMusicArea.gd" id="38_ekc4a"]
-[ext_resource type="AudioStream" uid="uid://dsx4jelth7t7i" path="res://music/Elemental_Souls_ThunderArea_Sound.wav" id="39_rqox3"]
 [ext_resource type="Script" path="res://Levels/PlantMusicArea.gd" id="40_armv4"]
 [ext_resource type="Script" path="res://Levels/PeaceMusicArea.gd" id="41_6xs2t"]
-[ext_resource type="AudioStream" uid="uid://cfga4tm13ae4" path="res://music/Elemental_Souls_PlantArea_Sound.wav" id="41_nj40u"]
-[ext_resource type="AudioStream" uid="uid://dibmqsynf4wdd" path="res://music/Elemental_Souls_PeaceArea_Sound.wav" id="43_vmlt0"]
 [ext_resource type="Script" path="res://enemy/endboss/water/endboss_water.gd" id="46_1n5wm"]
 [ext_resource type="Script" path="res://enemy/endboss/electricity/endboss_electricity.gd" id="47_qt4ns"]
+[ext_resource type="AudioStream" uid="uid://do14kjln38f5j" path="res://music/Elemental_Souls_FireArea_Sound.mp3" id="66_8r5ul"]
+[ext_resource type="AudioStream" uid="uid://cltud384i3065" path="res://music/Elemental_Souls_WaterArea_Sound.mp3" id="68_8tbiw"]
+[ext_resource type="AudioStream" uid="uid://c0ii56euqiheg" path="res://music/Elemental_Souls_ThunderArea_Sound.mp3" id="70_qh7pg"]
+[ext_resource type="AudioStream" uid="uid://dn32k82moaprg" path="res://music/Elemental_Souls_PlantArea_Sound.mp3" id="72_qwxel"]
+[ext_resource type="AudioStream" uid="uid://qwfxgvq1swab" path="res://music/Elemental_Souls_PeaceArea_Sound.mp3" id="74_asdbj"]
 [ext_resource type="AudioStream" uid="uid://h1pgmjrd1tn4" path="res://music/newAreaSound.mp3" id="75_ykdvt"]
 
 [sub_resource type="Theme" id="Theme_l0axd"]
@@ -5807,7 +5807,7 @@ script = ExtResource("34_473c7")
 polygon = PackedVector2Array(-393, 854, -380, -288, 122, -560, 219, -560, 443, -291, 465, 654)
 
 [node name="FireMusic" type="AudioStreamPlayer" parent="FireMusicArea"]
-stream = ExtResource("35_8d1mk")
+stream = ExtResource("66_8r5ul")
 
 [node name="WaterMusicArea" type="Area2D" parent="."]
 visible = false
@@ -5818,7 +5818,7 @@ script = ExtResource("36_dlp5d")
 polygon = PackedVector2Array(85, 729, 191, 734, 534, 398, 529, -265, 298, -359, 134, -676, -302, -676, -477, -570, -518, 443)
 
 [node name="WaterMusic" type="AudioStreamPlayer" parent="WaterMusicArea"]
-stream = ExtResource("37_xw781")
+stream = ExtResource("68_8tbiw")
 
 [node name="LightningMusicArea" type="Area2D" parent="."]
 visible = false
@@ -5829,7 +5829,7 @@ script = ExtResource("38_ekc4a")
 polygon = PackedVector2Array(791, 94, 789, -7, 639, -182, 230, -193, -15, -474, -469, -472, -511, -195, -791, -151, -794, 207, -387, 596, -98, 599, 114, 411, 272, 150)
 
 [node name="LightningMusic" type="AudioStreamPlayer" parent="LightningMusicArea"]
-stream = ExtResource("39_rqox3")
+stream = ExtResource("70_qh7pg")
 
 [node name="PlantMusicArea" type="Area2D" parent="."]
 visible = false
@@ -5840,7 +5840,7 @@ script = ExtResource("40_armv4")
 polygon = PackedVector2Array(-803, 132, -809, 258, -510, 356, -438, 509, 230, 599, 589, 354, 587, 156, 363, -726, 144, -786, -272, -775, -342, -445, -449, -273, -629, -16)
 
 [node name="PlantMusic" type="AudioStreamPlayer" parent="PlantMusicArea"]
-stream = ExtResource("41_nj40u")
+stream = ExtResource("72_qwxel")
 
 [node name="PeaceMusicArea" type="Area2D" parent="."]
 visible = false
@@ -5851,7 +5851,7 @@ script = ExtResource("41_6xs2t")
 polygon = PackedVector2Array(-38, -131, -156, -33, -156, 67, -50, 166, 60, 169, 148, 61, 153, -38, 69, -127)
 
 [node name="PeaceMusic" type="AudioStreamPlayer" parent="PeaceMusicArea"]
-stream = ExtResource("43_vmlt0")
+stream = ExtResource("74_asdbj")
 volume_db = -10.0
 
 [node name="changeAreaSound" type="AudioStreamPlayer2D" parent="PeaceMusicArea"]
