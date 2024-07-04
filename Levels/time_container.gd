@@ -11,9 +11,8 @@ func _process(delta):
 	
 	
 func set_time_bar(current_time: int):
-	var current_digits = get_children()
 	var current_time_string = str(current_time)
-	if current_time_string.length() != current_digits.size():
+	while current_time_string.length() != get_children().size():
 		var digit = time_gui.instantiate()
 		add_child(digit)
 	var count = 0

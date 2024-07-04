@@ -14,8 +14,8 @@ var element
 
 
 func _ready():
-	speed = 1.5
-	range = randi_range(50, 100)
+	speed = 60
+	range = randi_range(50, 150)
 	element = Elements.Element.FIRE
 
 
@@ -33,7 +33,6 @@ func set_direction(d: Vector2):
 func _physics_process(delta):
 	if distance_travelled > range:
 		self.scale *= 1.001
-		$CollisionShape2D.scale *= 1.001
 	else:
 		var step = speed * delta * direction
 		distance_travelled += step.length()
