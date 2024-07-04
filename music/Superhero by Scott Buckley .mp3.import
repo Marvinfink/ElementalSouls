@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bkg3q7hf6j24w"
+path="res://.godot/imported/Superhero by Scott Buckley .mp3-6d67dc64d1b720f28ecf0c56e214c9ef.mp3str"
+
+[deps]
+
+source_file="res://music/Superhero by Scott Buckley .mp3"
+dest_files=["res://.godot/imported/Superhero by Scott Buckley .mp3-6d67dc64d1b720f28ecf0c56e214c9ef.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

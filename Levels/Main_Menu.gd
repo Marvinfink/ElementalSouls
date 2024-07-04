@@ -11,7 +11,7 @@ extends CanvasLayer
 @onready var waterClickSound = $waterClickSound
 @onready var lightningClickSound = $lightningClickSound
 @onready var plantClickSound = $plantClickSound
-@onready var menuMusic = $menuMusic
+@onready var menuMusic = $titelMusic
 @onready var playButtonSound = $playButtonSound
 # Called when the node enters the scene tree for the first time.
 func _ready():
