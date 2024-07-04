@@ -129,3 +129,12 @@ func set_state(state: String):
 		animation_tree["parameters/conditions/%s" % a] = false
 	states[state] = true
 	animation_tree["parameters/conditions/%s" % state] = true
+	#set_sound(state)
+
+
+#func set_sound(state:String):
+	#pass
+	#walingEnemySound.stop()
+	#match state:
+		#Animations.IS_WALKING:
+		#	walkingEnemySound.play()
