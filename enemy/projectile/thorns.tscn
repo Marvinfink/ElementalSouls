@@ -1,7 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://b6txvnsn14lwp"]
+[gd_scene load_steps=14 format=3 uid="uid://b6txvnsn14lwp"]
 
 [ext_resource type="Script" path="res://enemy/projectile/thorns.gd" id="1_8fu7m"]
 [ext_resource type="Texture2D" uid="uid://cs27ygih5yps5" path="res://Art/SpecialAttack/DornenAnimation.png" id="1_vssje"]
+[ext_resource type="AudioStream" uid="uid://cxfwq0mk7tq1b" path="res://enemy/projectile/projectileSounds/thornSound.mp3" id="3_j16ln"]
 
 [sub_resource type="Animation" id="Animation_c2jrw"]
 length = 0.001
@@ -108,6 +109,10 @@ shape = SubResource("RectangleShape2D_864od")
 [node name="death_timer" type="Timer" parent="."]
 wait_time = 15.0
 autostart = true
+
+[node name="thornsSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_j16ln")
+volume_db = 8.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="death_timer" to="." method="_on_death_timer_timeout"]

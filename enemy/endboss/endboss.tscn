@@ -1,7 +1,11 @@
-[gd_scene load_steps=81 format=3 uid="uid://cgba3rwoeuejw"]
+[gd_scene load_steps=85 format=3 uid="uid://cgba3rwoeuejw"]
 
 [ext_resource type="Script" path="res://enemy/base/base_enemy.gd" id="1_dgapf"]
 [ext_resource type="Texture2D" uid="uid://cygkmy6odmqvr" path="res://Art/mystic_woods_free_2.1/enemies/fire_boss.png" id="2_obycy"]
+[ext_resource type="AudioStream" uid="uid://hfda5vkigoku" path="res://enemy/EnemySounds/bossAttack.mp3" id="3_1hsqt"]
+[ext_resource type="AudioStream" uid="uid://bxhape3f5ytim" path="res://enemy/EnemySounds/bossWalk.mp3" id="3_xfqhx"]
+[ext_resource type="AudioStream" uid="uid://dmiu4pagidc54" path="res://enemy/EnemySounds/bossDeath.mp3" id="5_yvrbr"]
+[ext_resource type="AudioStream" uid="uid://bi23s0hnicitf" path="res://enemy/EnemySounds/bossDamage.mp3" id="6_tx1j6"]
 
 [sub_resource type="Animation" id="Animation_fi830"]
 length = 0.001
@@ -699,6 +703,23 @@ autostart = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
 shape = SubResource("CapsuleShape2D_8wusg")
+
+[node name="bossWalk" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_xfqhx")
+volume_db = 6.0
+pitch_scale = 1.23
+
+[node name="bossAttack" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_1hsqt")
+volume_db = 6.0
+
+[node name="bossDeath" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_yvrbr")
+volume_db = 6.0
+
+[node name="bossDamage" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_tx1j6")
+volume_db = 6.0
 
 [connection signal="body_entered" from="shooting_area" to="." method="_on_shooting_area_body_entered"]
 [connection signal="body_exited" from="shooting_area" to="." method="_on_shooting_area_body_exited"]

@@ -42,22 +42,27 @@
 [ext_resource type="Script" path="res://enemy/types/plant/enemy_plant_tank.gd" id="13_mmqso"]
 [ext_resource type="Script" path="res://enemy/types/water/enemy_water_tank.gd" id="14_1lgo5"]
 [ext_resource type="Script" path="res://Levels/Winning_Overlay.gd" id="14_x83so"]
+[ext_resource type="Texture2D" uid="uid://bdnhcdly1us0s" path="res://Art/mystic_woods_free_2.1/overlay/YouWonTitle.png" id="15_fhoxx"]
 [ext_resource type="Script" path="res://enemy/types/electricity/enemy_electricity_tank.gd" id="15_himr5"]
 [ext_resource type="PackedScene" path="res://Levels/time_container.tscn" id="15_or1c2"]
+[ext_resource type="Texture2D" uid="uid://c6nxiebogyk3g" path="res://Art/mystic_woods_free_2.1/overlay/inText.png" id="16_4e4aq"]
 [ext_resource type="Texture2D" uid="uid://gx2wipqf51mt" path="res://Art/mystic_woods_free_2.1/overlay/SpecialTitle.png" id="16_djm5d"]
 [ext_resource type="Script" path="res://enemy/types/plant/enemy_plant_marksman.gd" id="17_8ukml"]
 [ext_resource type="Texture2D" uid="uid://b0331saia28ee" path="res://Art/mystic_woods_free_2.1/overlay/DashTitle.png" id="17_53v4r"]
+[ext_resource type="Texture2D" uid="uid://d3fqrvfnjexr3" path="res://Art/mystic_woods_free_2.1/overlay/secondsText.png" id="18_bujaq"]
 [ext_resource type="Script" path="res://enemy/types/fire/enemy_fire_marksman.gd" id="18_sk018"]
 [ext_resource type="Script" path="res://enemy/types/water/enemy_water_marksman.gd" id="19_pv3eq"]
+[ext_resource type="Texture2D" uid="uid://c5g8m03hlfkao" path="res://Art/mystic_woods_free_2.1/overlay/NewSpecialAvailable.png" id="20_27glb"]
 [ext_resource type="Script" path="res://enemy/types/electricity/enemy_electricity_marksman.gd" id="20_bnntl"]
 [ext_resource type="Script" path="res://Levels/Ability_Added.gd" id="22_6x380"]
 [ext_resource type="PackedScene" uid="uid://cgba3rwoeuejw" path="res://enemy/endboss/endboss.tscn" id="25_d87ku"]
+[ext_resource type="Script" path="res://Levels/Enboss_Health.gd" id="25_fy7y8"]
 [ext_resource type="Script" path="res://enemy/endboss/plant/endboss_plant.gd" id="26_hksux"]
 [ext_resource type="Script" path="res://enemy/endboss/fire/endboss_fire.gd" id="33_vjh61"]
 [ext_resource type="Script" path="res://Levels/FireMusicArea.gd" id="34_473c7"]
 [ext_resource type="Texture2D" uid="uid://cv7kgtstn6mvg" path="res://Art/mystic_woods_free_2.1/sprites/DG Fire Zone Expansion Free Ver/firetiles1.2.png" id="34_o1h1o"]
-[ext_resource type="AudioStream" uid="uid://dvd0hvej3lypl" path="res://music/Elemental_Souls_FireArea_Sound.wav" id="35_8d1mk"]
 [ext_resource type="Texture2D" uid="uid://bny2nlpnx26s" path="res://Art/mystic_woods_free_2.1/sprites/DG Fire Zone Expansion Free Ver/electrotiles_extention1.1.png" id="35_8skf4"]
+[ext_resource type="Texture2D" uid="uid://cbkvr4rj7ylbt" path="res://Art/mystic_woods_free_2.1/overlay/ProgressHealth.png" id="35_xl7sa"]
 [ext_resource type="Script" path="res://Levels/WaterMusicArea.gd" id="36_dlp5d"]
 [ext_resource type="Texture2D" uid="uid://dwev7kgoj5rlp" path="res://Art/mystic_woods_free_2.1/sprites/particles/txtraven.png" id="36_nrrrd"]
 [ext_resource type="Texture2D" uid="uid://cmngs483lr86k" path="res://Art/mystic_woods_free_2.1/sprites/particles/small_Glowstone-Sheet.png" id="37_r0sa3"]
@@ -79,6 +84,12 @@
 [ext_resource type="PackedScene" uid="uid://ohni5eeg48us" path="res://Levels/firepoller.tscn" id="76_8w0wu"]
 [ext_resource type="PackedScene" uid="uid://bumxxnoykojbr" path="res://Levels/plantpoller.tscn" id="77_kyoto"]
 [ext_resource type="PackedScene" uid="uid://dolmydqld7037" path="res://Levels/waterpoller.tscn" id="78_tnfva"]
+[ext_resource type="AudioStream" uid="uid://do14kjln38f5j" path="res://music/Elemental_Souls_FireArea_Sound.mp3" id="66_8r5ul"]
+[ext_resource type="AudioStream" uid="uid://cltud384i3065" path="res://music/Elemental_Souls_WaterArea_Sound.mp3" id="68_8tbiw"]
+[ext_resource type="AudioStream" uid="uid://c0ii56euqiheg" path="res://music/Elemental_Souls_ThunderArea_Sound.mp3" id="70_qh7pg"]
+[ext_resource type="AudioStream" uid="uid://dn32k82moaprg" path="res://music/Elemental_Souls_PlantArea_Sound.mp3" id="72_qwxel"]
+[ext_resource type="AudioStream" uid="uid://qwfxgvq1swab" path="res://music/Elemental_Souls_PeaceArea_Sound.mp3" id="74_asdbj"]
+[ext_resource type="AudioStream" uid="uid://h1pgmjrd1tn4" path="res://music/newAreaSound.mp3" id="75_ykdvt"]
 
 [sub_resource type="Theme" id="Theme_l0axd"]
 
@@ -5706,29 +5717,50 @@ offset_right = 1152.0
 offset_bottom = 648.0
 metadata/_edit_lock_ = true
 
-[node name="TextureRect" type="TextureRect" parent="Winning_Overlay/Winning_Overlay"]
+[node name="You_Won" type="TextureRect" parent="Winning_Overlay/Winning_Overlay"]
 layout_mode = 0
-offset_left = 247.0
-offset_top = 100.0
-offset_right = 1895.0
-offset_bottom = 612.0
-scale = Vector2(0.4, 0.4)
-texture = ExtResource("12_ljsuh")
+offset_left = 240.0
+offset_top = 60.0
+offset_right = 2480.0
+offset_bottom = 572.0
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("15_fhoxx")
 metadata/_edit_lock_ = true
+
+[node name="In" type="TextureRect" parent="Winning_Overlay/Winning_Overlay"]
+layout_mode = 0
+offset_left = 394.0
+offset_top = 302.0
+offset_right = 1418.0
+offset_bottom = 814.0
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("16_4e4aq")
 
 [node name="time_container" parent="Winning_Overlay/Winning_Overlay" instance=ExtResource("15_or1c2")]
 layout_mode = 0
-offset_left = 476.0
-offset_top = 330.0
-offset_right = 676.0
-offset_bottom = 380.0
+offset_left = 528.0
+offset_top = 284.0
+offset_right = 728.0
+offset_bottom = 334.0
+scale = Vector2(1.6, 1.6)
+alignment = 0
+
+[node name="Seconds" type="TextureRect" parent="Winning_Overlay/Winning_Overlay"]
+layout_mode = 0
+offset_left = 419.0
+offset_top = 375.0
+offset_right = 3555.0
+offset_bottom = 887.0
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("18_bujaq")
+metadata/_edit_lock_ = true
 
 [node name="Back_Button" type="Button" parent="Winning_Overlay/Winning_Overlay"]
 layout_mode = 0
 offset_left = 167.0
-offset_top = 400.0
+offset_top = 450.0
 offset_right = 1711.0
-offset_bottom = 920.0
+offset_bottom = 970.0
 scale = Vector2(0.2, 0.2)
 icon = ExtResource("9_ttiev")
 metadata/_edit_lock_ = true
@@ -5736,26 +5768,31 @@ metadata/_edit_lock_ = true
 [node name="Menu_Button" type="Button" parent="Winning_Overlay/Winning_Overlay"]
 layout_mode = 0
 offset_left = 676.0
-offset_top = 400.0
+offset_top = 450.0
 offset_right = 2220.0
-offset_bottom = 920.0
+offset_bottom = 970.0
 scale = Vector2(0.2, 0.2)
 icon = ExtResource("13_0u156")
 metadata/_edit_lock_ = true
 
 [node name="Timer_Overlay" type="Panel" parent="Winning_Overlay"]
-visible = false
+self_modulate = Color(1, 1, 1, 0)
 offset_left = 5.0
 offset_top = 5.0
 offset_right = 205.0
 offset_bottom = 55.0
 
 [node name="time_container" parent="Winning_Overlay/Timer_Overlay" instance=ExtResource("15_or1c2")]
-layout_mode = 0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.025
+anchor_top = -0.101
+anchor_right = -0.025
+anchor_bottom = -0.101
 offset_left = 5.0
-offset_top = 5.0
+offset_top = 5.05
 offset_right = 205.0
-offset_bottom = 55.0
+offset_bottom = 55.05
 
 [node name="game_timer" type="Timer" parent="Winning_Overlay"]
 process_mode = 1
@@ -5764,22 +5801,13 @@ process_mode = 1
 visible = false
 script = ExtResource("22_6x380")
 
-[node name="Panel" type="Panel" parent="Ability_Added"]
-offset_left = 226.0
-offset_top = 200.0
-offset_right = 926.0
-offset_bottom = 300.0
-
-[node name="Label" type="Label" parent="Ability_Added"]
-custom_minimum_size = Vector2(700, 0)
-offset_left = 226.0
-offset_top = 200.0
-offset_right = 926.0
-offset_bottom = 300.0
-theme_override_font_sizes/font_size = 50
-text = "New Ability available!"
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="TextureRect" type="TextureRect" parent="Ability_Added"]
+offset_left = 287.0
+offset_top = 100.0
+offset_right = 6065.0
+offset_bottom = 612.0
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("20_27glb")
 
 [node name="Mana_Bars" type="CanvasLayer" parent="."]
 visible = false
@@ -5816,6 +5844,7 @@ offset_top = 600.0
 offset_right = 2530.0
 offset_bottom = 1112.0
 scale = Vector2(0.09, 0.09)
+value = 100.0
 texture_under = ExtResource("4_0vejb")
 texture_over = ExtResource("5_v21r3")
 texture_progress = ExtResource("7_lksv3")
@@ -5843,10 +5872,35 @@ metadata/_edit_lock_ = true
 visible = false
 
 [node name="heart_container" parent="Heart_bar" instance=ExtResource("4_wqy8n")]
+offset_top = 580.0
 offset_right = 1152.0
-offset_bottom = 50.0
+offset_bottom = 630.0
 metadata/_edit_use_anchors_ = true
+
+[node name="Enboss_Health" type="CanvasLayer" parent="."]
+visible = false
+script = ExtResource("25_fy7y8")
+
+[node name="Panel" type="Panel" parent="Enboss_Health"]
+self_modulate = Color(1, 1, 1, 0)
+offset_left = 345.0
+offset_right = 806.0
+offset_bottom = 51.0
 metadata/_edit_lock_ = true
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="Enboss_Health"]
+offset_left = 345.0
+offset_right = 1881.0
+offset_bottom = 512.0
+scale = Vector2(0.3, 0.1)
+max_value = 500.0
+texture_under = ExtResource("4_0vejb")
+texture_over = ExtResource("5_v21r3")
+texture_progress = ExtResource("35_xl7sa")
+metadata/_edit_lock_ = true
+
+[node name="Timer" type="Timer" parent="Enboss_Health"]
+wait_time = 20.0
 
 [node name="Player1" parent="." instance=ExtResource("1_w8loj")]
 position = Vector2(16, 837)
@@ -5952,7 +6006,7 @@ script = ExtResource("34_473c7")
 polygon = PackedVector2Array(-393, 854, -380, -288, 122, -560, 219, -560, 443, -291, 465, 654)
 
 [node name="FireMusic" type="AudioStreamPlayer" parent="FireMusicArea"]
-stream = ExtResource("35_8d1mk")
+stream = ExtResource("66_8r5ul")
 
 [node name="WaterMusicArea" type="Area2D" parent="."]
 visible = false
@@ -5963,7 +6017,7 @@ script = ExtResource("36_dlp5d")
 polygon = PackedVector2Array(85, 729, 191, 734, 534, 398, 529, -265, 298, -359, 134, -676, -302, -676, -477, -570, -518, 443)
 
 [node name="WaterMusic" type="AudioStreamPlayer" parent="WaterMusicArea"]
-stream = ExtResource("37_xw781")
+stream = ExtResource("68_8tbiw")
 
 [node name="LightningMusicArea" type="Area2D" parent="."]
 visible = false
@@ -5974,7 +6028,7 @@ script = ExtResource("38_ekc4a")
 polygon = PackedVector2Array(791, 94, 789, -7, 639, -182, 230, -193, -15, -474, -469, -472, -511, -195, -791, -151, -794, 207, -387, 596, -98, 599, 114, 411, 272, 150)
 
 [node name="LightningMusic" type="AudioStreamPlayer" parent="LightningMusicArea"]
-stream = ExtResource("39_rqox3")
+stream = ExtResource("70_qh7pg")
 
 [node name="PlantMusicArea" type="Area2D" parent="."]
 visible = false
@@ -5985,7 +6039,7 @@ script = ExtResource("40_armv4")
 polygon = PackedVector2Array(-803, 132, -809, 258, -510, 356, -438, 509, 230, 599, 589, 354, 587, 156, 363, -726, 144, -786, -272, -775, -342, -445, -449, -273, -629, -16)
 
 [node name="PlantMusic" type="AudioStreamPlayer" parent="PlantMusicArea"]
-stream = ExtResource("41_nj40u")
+stream = ExtResource("72_qwxel")
 
 [node name="PeaceMusicArea" type="Area2D" parent="."]
 visible = false
@@ -5996,8 +6050,12 @@ script = ExtResource("41_6xs2t")
 polygon = PackedVector2Array(-38, -131, -156, -33, -156, 67, -50, 166, 60, 169, 148, 61, 153, -38, 69, -127)
 
 [node name="PeaceMusic" type="AudioStreamPlayer" parent="PeaceMusicArea"]
-stream = ExtResource("43_vmlt0")
-volume_db = -80.0
+stream = ExtResource("74_asdbj")
+volume_db = -10.0
+
+[node name="changeAreaSound" type="AudioStreamPlayer2D" parent="PeaceMusicArea"]
+stream = ExtResource("75_ykdvt")
+volume_db = 10.0
 
 [node name="teslatower" parent="." instance=ExtResource("76_8vyxr")]
 position = Vector2(-393, 831)
@@ -6035,6 +6093,7 @@ position = Vector2(-128, 648)
 [connection signal="pressed" from="Winning_Overlay/Winning_Overlay/Menu_Button" to="Winning_Overlay" method="_on_menu_button_pressed"]
 [connection signal="timeout" from="Winning_Overlay/game_timer" to="Winning_Overlay" method="_on_game_timer_timeout"]
 [connection signal="timeout" from="Mana_Bars/Control/Dash_Timer" to="Mana_Bars/Control" method="_on_dash_timer_timeout"]
+[connection signal="timeout" from="Enboss_Health/Timer" to="Enboss_Health" method="_on_timer_timeout"]
 [connection signal="body_entered" from="FireMusicArea" to="FireMusicArea" method="_on_body_entered"]
 [connection signal="body_exited" from="FireMusicArea" to="FireMusicArea" method="_on_body_exited"]
 [connection signal="ready" from="FireMusicArea" to="FireMusicArea" method="_on_ready"]

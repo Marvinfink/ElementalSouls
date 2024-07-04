@@ -1,7 +1,11 @@
-[gd_scene load_steps=63 format=3 uid="uid://2vi1bcr01qel"]
+[gd_scene load_steps=67 format=3 uid="uid://2vi1bcr01qel"]
 
 [ext_resource type="Script" path="res://enemy/types/enemy_marksman.gd" id="1_tjw1w"]
 [ext_resource type="Texture2D" uid="uid://cuml37prg4fr4" path="res://Art/mystic_woods_free_2.1/enemies/elektroRanged.png" id="2_ax3jv"]
+[ext_resource type="AudioStream" uid="uid://ccysfsgwnptd3" path="res://enemy/EnemySounds/marksmanDamage.mp3" id="3_wcfut"]
+[ext_resource type="AudioStream" uid="uid://1w7qgileqxlf" path="res://enemy/EnemySounds/marksmanFly.mp3" id="4_aku4n"]
+[ext_resource type="AudioStream" uid="uid://bee834uyex6ta" path="res://enemy/EnemySounds/marksmanDeath.mp3" id="4_m05sk"]
+[ext_resource type="AudioStream" uid="uid://4r1jjs5btv0m" path="res://enemy/EnemySounds/marksmanAttack.mp3" id="4_odjg1"]
 
 [sub_resource type="Animation" id="Animation_jv01g"]
 length = 0.001
@@ -568,6 +572,24 @@ shape = SubResource("CircleShape2D_g6nv2")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -11)
 shape = SubResource("CircleShape2D_ggb7a")
+
+[node name="marksmanDamage" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(0, -11)
+scale = Vector2(0.5, 0.5)
+stream = ExtResource("3_wcfut")
+volume_db = 6.0
+
+[node name="marksmanFly" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_aku4n")
+volume_db = 8.0
+
+[node name="marksmanAttack" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_odjg1")
+volume_db = 8.432
+
+[node name="marksmanDeath" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_m05sk")
+volume_db = 6.0
 
 [connection signal="body_entered" from="shooting_area" to="." method="_on_shooting_area_body_entered"]
 [connection signal="body_exited" from="shooting_area" to="." method="_on_shooting_area_body_exited"]

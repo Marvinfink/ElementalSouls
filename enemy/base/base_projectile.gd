@@ -9,6 +9,7 @@ var distance_travelled: float = 0.0
 var direction: Vector2 = Vector2.ZERO
 
 
+
 func _physics_process(delta):
 	if distance_travelled > range:
 		queue_free()

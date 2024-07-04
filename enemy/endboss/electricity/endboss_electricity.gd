@@ -3,7 +3,7 @@ extends "res://enemy/base/base_endboss.gd"
 const thorn_projectile := preload("res://enemy/projectile/bolt.tscn")
 
 func set_data():
-	health = 50
+	health = 500
 	speed = 40
 	cooldown = 1
 	animation_tree = $AnimationTreeEndboss
@@ -12,7 +12,7 @@ func set_data():
 
 
 func set_type():
-	$BodyEndboss.texture = preload("res://Art/mystic_woods_free_2.1/enemies/plant_boss.png")
+	$BodyEndboss.texture = preload("res://Art/mystic_woods_free_2.1/enemies/ElectroBossSheet.png")
 	element = Elements.Element.ELECTRICITY
 
 
@@ -37,7 +37,7 @@ func use_spell(times: int):
 		set_state(Animations.USING_SPECIAL_ATTACK)
 		var projectile := thorn_projectile.instantiate()
 		var position = self.global_position
-		var half_width = 50
+		var half_width = 60
 		var offset = Vector2(half_width, 0).rotated(angle)
 		projectile.rotation = angle
 		projectile.global_position = position + offset

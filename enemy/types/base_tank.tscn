@@ -1,7 +1,11 @@
-[gd_scene load_steps=62 format=3 uid="uid://dc01d5k5ii4sp"]
+[gd_scene load_steps=66 format=3 uid="uid://dc01d5k5ii4sp"]
 
 [ext_resource type="Script" path="res://enemy/types/enemy_tank.gd" id="1_2ky5o"]
 [ext_resource type="Texture2D" uid="uid://lr36brdi7emp" path="res://Art/mystic_woods_free_2.1/enemies/elektro_tank.png" id="1_i506q"]
+[ext_resource type="AudioStream" uid="uid://bhmwuie62pewa" path="res://enemy/EnemySounds/tankStomp.mp3" id="3_2u5hy"]
+[ext_resource type="AudioStream" uid="uid://rfwkxi6frpyy" path="res://enemy/EnemySounds/tankAttack.mp3" id="3_cccqm"]
+[ext_resource type="AudioStream" uid="uid://r8o757kfhmkr" path="res://enemy/EnemySounds/tankDeath.mp3" id="4_aqemf"]
+[ext_resource type="AudioStream" uid="uid://vlpa37oxm0x1" path="res://enemy/EnemySounds/tankDamage.mp3" id="5_apy0v"]
 
 [sub_resource type="Animation" id="Animation_ymrl7"]
 length = 0.001
@@ -556,6 +560,23 @@ shape = SubResource("CircleShape2D_g6nv2")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, -13)
 shape = SubResource("CircleShape2D_ggb7a")
+
+[node name="tankAttack" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(0, -8)
+stream = ExtResource("3_cccqm")
+volume_db = 10.0
+
+[node name="tankStomp" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_2u5hy")
+volume_db = 15.0
+
+[node name="tankDeath" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_aqemf")
+volume_db = 18.0
+
+[node name="tankDamage" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_apy0v")
+volume_db = 15.0
 
 [connection signal="body_entered" from="detection_area" to="." method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="detection_area" to="." method="_on_detection_area_body_exited"]

@@ -5,11 +5,17 @@ extends Area2D
 @export var range: float = 200
 var element: Elements.Element = Elements.Element.WATER
 
+# sound
+@onready var waveSound = $waveAttackSound
+
 # Interna
 var distance_travelled: int = 0.0
 var direction: Vector2 = Vector2.ZERO
 var created_by_player: bool
 var damage
+
+func _ready():
+	waveSound.play()
 
 func create(damage: int, created_by_player: bool):
 	self.damage = damage

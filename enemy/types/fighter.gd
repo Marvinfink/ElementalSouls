@@ -10,3 +10,4 @@ var attack_delay: float
 
 func set_helper():
 	charging_helper.set_node(self)
+
