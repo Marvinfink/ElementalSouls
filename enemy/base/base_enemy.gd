@@ -16,7 +16,11 @@ var states: Dictionary
 var blends: Array = []
 
 @onready var animation_tree
-@onready var stompSound = $stompSound
+
+@onready var bossWalk= $bossWalk
+@onready var bossAttack = $bossAttack
+@onready var bossDeath = $marksmanDeath
+@onready var bossDamage = $marksmanDamage
 
 
 func _ready():
@@ -131,6 +135,24 @@ func set_animation(animation: String):
 	animation_tree["parameters/conditions/%s" % animation] = true
 
 func set_sound(state:String):
-	pass
+	
+	match state: 
 		
-					
+		Animations.IS_WALKING:
+			if not bossWalk.playing:
+				bossWalk.play()
+			
+		Animations.IDLE:
+			bossWalk.stop()
+			
+			bossDeath.stop()	
+			bossDamage.stop()
+		
+		Animations.IS_DEAD:
+			bossDeath.play()
+		
+		Animations.GETS_DAMAGE:
+			bossDamage.play()	
+		
+		Animations.IS_ATTACKING:
+			bossAttack.play()
