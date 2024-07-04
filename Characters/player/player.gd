@@ -44,10 +44,8 @@ var dash_used :bool = false
 
 #sounds
 @onready var walkingSound = $WalkingSound
-@onready var swingSound = $SwingSound
 @onready var dashSound = $DashSound
 @onready var deathSound = $dearhSound
-@onready var enemyHitSound = $hittingEnemySound
 @onready var swingSoundCharacter = $swingSoundCharacter
 
 #@onready var animation_tree = $AnimationTree
@@ -75,7 +73,7 @@ func _input(event):
 	# handle swing input
 	if in_attack_range and Input.is_action_just_pressed("swing") and enemy_attack_cooldown == true:
 		attack(damage)
-		swingSound.play()
+		
 		
 	# handle special attack input
 	if Input.is_action_just_pressed("special_attack") and mana_handler.use_spell():
@@ -123,6 +121,7 @@ func _physics_process(delta):
 		update_blend_position()	
 	else:
 		if walking:
+			#walkingSound.volume_db(0,15)
 			walkingSound.stop()
 		walking=false
 		set_walking(walking)
@@ -233,7 +232,7 @@ func set_damage(value = false):
 	set_physics_process(false)
 	await get_tree().create_timer(0.35).timeout
 	set_physics_process(true)
-	enemyHitSound.play()
+	
 	
 # set animation direction
 func update_blend_position():
@@ -246,7 +245,7 @@ func update_blend_position():
 
 #take damage from enemy
 func enemy_attack():
-	swingSound.play()
+	
 	health -= 1
 	health_bar.set_heart_bar(health)
 	set_damage(true)
