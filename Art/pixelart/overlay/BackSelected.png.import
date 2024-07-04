@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://t4rig4x2mevl"
-path="res://.godot/imported/BackSelected.png-0b9342816ce15cdb00b4da71c7bc353e.ctex"
+path="res://.godot/imported/BackSelected.png-83efdea1ca81af56d53f7cf6a259e6a9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/mystic_woods_free_2.1/overlay/BackSelected.png"
-dest_files=["res://.godot/imported/BackSelected.png-0b9342816ce15cdb00b4da71c7bc353e.ctex"]
+source_file="res://Art/pixelart/overlay/BackSelected.png"
+dest_files=["res://.godot/imported/BackSelected.png-83efdea1ca81af56d53f7cf6a259e6a9.ctex"]
 
 [params]
 

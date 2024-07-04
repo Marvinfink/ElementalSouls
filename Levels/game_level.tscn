@@ -1,10 +1,8 @@
-[gd_scene load_steps=93 format=3 uid="uid://bf4wgcyu31x7p"]
-
+[gd_scene load_steps=104 format=3 uid="uid://bf4wgcyu31x7p"]
 
 [ext_resource type="Script" path="res://Levels/Main_Menu.gd" id="1_5xqtd"]
 [ext_resource type="Script" path="res://Levels/Game_Over_Overlay.gd" id="1_uqqfm"]
 [ext_resource type="PackedScene" uid="uid://8rnqji34k3af" path="res://Characters/player_1.tscn" id="1_w8loj"]
-
 [ext_resource type="Texture2D" uid="uid://cnklu06be4nti" path="res://Art/pixelart/overlay/TitleMainMenu.png" id="2_mqqa4"]
 [ext_resource type="Texture2D" uid="uid://dx2hmegxypt1i" path="res://Art/pixelart/overlay/PlayNotSelected.png" id="2_oborh"]
 [ext_resource type="Texture2D" uid="uid://tau1gknfvjq8" path="res://Art/pixelart/sprites/Dungeon Gathering Free Version/Set 1.1 New.png" id="2_srd1t"]
@@ -5110,9 +5108,7 @@ metadata/_edit_use_anchors_ = true
 metadata/_edit_lock_ = true
 
 [node name="Player1" parent="." instance=ExtResource("1_w8loj")]
-
 position = Vector2(-1647, 816)
-
 scale = Vector2(0.5, 0.5)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player1"]
@@ -5140,7 +5136,6 @@ layer_3/tile_data = PackedInt32Array(-196650, 327685, 1, 983001, 262149, 1, -36,
 [node name="Camera2D" type="Camera2D" parent="."]
 
 position = Vector2(-1647, 816)
-
 scale = Vector2(0.5, 0.5)
 zoom = Vector2(5, 5)
 limit_left = -1945
