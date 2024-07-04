@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://c72fxhan8keh6"]
+
+[ext_resource type="Texture2D" uid="uid://dljrs2m0o2q71" path="res://Art/mystic_woods_free_2.1/sprites/particles/Tesla.png" id="1_h63kd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8xav6"]
+size = Vector2(29, 33)
+
+[node name="teslatower" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_h63kd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, -0.5)
+shape = SubResource("RectangleShape2D_8xav6")

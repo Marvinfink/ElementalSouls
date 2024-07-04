@@ -23,6 +23,7 @@ func _ready():
 	self.show()
 
 
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
@@ -48,6 +49,25 @@ func _on_button_pressed():
 		get_node("../Heart_bar").show()
 		get_node("../Mana_Bars").show()
 		get_node("../Winning_Overlay").start_timer()
+		match selected_element:
+			Elements.Element.ELECTRICITY:
+				$"../firepoller".queue_free()
+				$"../plantpoller".queue_free()
+				$"../waterpoller".queue_free()
+			Elements.Element.FIRE:
+				$"../teslatower".queue_free()
+				$"../plantpoller".queue_free()
+				$"../waterpoller".queue_free()
+			Elements.Element.PLANT:
+				$"../teslatower".queue_free()
+				$"../firepoller".queue_free()
+				$"../waterpoller".queue_free()
+			Elements.Element.WATER:
+				$"../teslatower".queue_free()
+				$"../firepoller".queue_free()
+				$"../plantpoller".queue_free()
+
+			
 		return 
 	$Error.text = "Bitte wähle ein Element!"
 

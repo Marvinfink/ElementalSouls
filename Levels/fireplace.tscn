@@ -1,0 +1,51 @@
+[gd_scene load_steps=7 format=3 uid="uid://byvlthu1rhciw"]
+
+[ext_resource type="Texture2D" uid="uid://ptrjx43nl7na" path="res://Art/mystic_woods_free_2.1/sprites/particles/fireplace.png" id="1_vy8gd"]
+[ext_resource type="Texture2D" uid="uid://nt0sp0ixx22h" path="res://Art/mystic_woods_free_2.1/sprites/particles/light.png" id="2_8bdtw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m1maf"]
+atlas = ExtResource("1_vy8gd")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_04u18"]
+atlas = ExtResource("1_vy8gd")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lc4c4"]
+atlas = ExtResource("1_vy8gd")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0qi3j"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m1maf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_04u18")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lc4c4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[node name="fireplace" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_0qi3j")
+frame_progress = 0.206501
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+color = Color(0.898039, 0, 0.0392157, 1)
+texture = ExtResource("2_8bdtw")
+texture_scale = 0.5
+
+[node name="PointLight2D2" type="PointLight2D" parent="."]
+energy = 0.6
+texture = ExtResource("2_8bdtw")
+texture_scale = 0.3
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="PointLight2D3" type="PointLight2D" parent="."]

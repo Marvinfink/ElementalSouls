@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bumxxnoykojbr"]
+
+[ext_resource type="Texture2D" uid="uid://bvqdde53ui3oh" path="res://Art/mystic_woods_free_2.1/sprites/DG Fire Zone Expansion Free Ver/plants.png" id="1_rox7l"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ykqgs"]
+size = Vector2(35, 38)
+
+[node name="plantpoller" type="CharacterBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_rox7l")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, -1)
+shape = SubResource("RectangleShape2D_ykqgs")

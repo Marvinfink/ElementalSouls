@@ -43,8 +43,10 @@ var dash_used :bool = false
 
 #sounds
 @onready var walkingSound = $WalkingSound
+@onready var swingSound = $SwingSound
 @onready var dashSound = $DashSound
 @onready var deathSound = $dearhSound
+@onready var enemyHitSound = $hittingEnemySound
 @onready var swingSoundCharacter = $swingSoundCharacter
 
 #@onready var animation_tree = $AnimationTree
@@ -76,6 +78,8 @@ func _input(event):
 	# handle swing input
 	if in_attack_range and Input.is_action_just_pressed("swing") and enemy_attack_cooldown == true:
 		attack(damage)
+		swingSound.play()
+		
 	# handle special attack input
 	if Input.is_action_just_pressed("special_attack"):
 		handle_special_attack()
@@ -84,13 +88,13 @@ func _input(event):
 		set_swing(true)
 		swingSoundCharacter.play()
 	#change element
-	if Input.is_action_just_pressed("fire"):
+	if Input.is_action_just_pressed("fire")and spells_available[Elements.Element.FIRE]:
 		element=Elements.Element.FIRE
-	elif Input.is_action_just_pressed("water"):
+	elif Input.is_action_just_pressed("water")and spells_available[Elements.Element.WATER]:
 		element=Elements.Element.WATER
-	elif Input.is_action_just_pressed("electro"):
+	elif Input.is_action_just_pressed("electro")and spells_available[Elements.Element.ELECTRICITY]:
 		element=Elements.Element.ELECTRICITY
-	elif Input.is_action_just_pressed("plant"):
+	elif Input.is_action_just_pressed("plant")and spells_available[Elements.Element.PLANT]:
 		element=Elements.Element.PLANT
 	$Sprite2D2.texture = element_textures[element]
 
@@ -252,7 +256,7 @@ func set_damage(value = false):
 	set_physics_process(false)
 	await get_tree().create_timer(0.35).timeout
 	set_physics_process(true)
-
+	enemyHitSound.play()
 
 # set animation direction
 func update_blend_position():
@@ -266,6 +270,7 @@ func update_blend_position():
 
 #take damage from enemy
 func enemy_attack():
+	swingSound.play()
 	health -= 1
 	health_bar.set_heart_bar(health)
 	set_damage(true)
@@ -287,6 +292,8 @@ func set_first_element(e: Elements.Element):
 	for elem in Elements.Element.values():
 		spells_available[elem] = false
 	spells_available[e] = true
+
+
 
 
 func endboss_killed(el: Elements.Element):
@@ -331,7 +338,9 @@ func _on_special_attack_body_exited(body):
 		special_in_range = false
 
 
-# attack cooldown	
+# attack cooldown
 func _on_attack_cooldown_timeout():
 	enemy_attack_cooldown = true
 # special attack cooldown	
+
+
