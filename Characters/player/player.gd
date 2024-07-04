@@ -47,6 +47,7 @@ var dash_used :bool = false
 @onready var dashSound = $DashSound
 @onready var deathSound = $dearhSound
 @onready var enemyHitSound = $hittingEnemySound
+@onready var swingSoundCharacter = $swingSoundCharacter
 
 #@onready var animation_tree = $AnimationTree
 @onready var animation_tree1 = $animation_tree
@@ -95,7 +96,7 @@ func _input(event):
 	#swing while walking
 	if Input.is_action_just_pressed("swing"):# and walking:
 		set_swing(true)
-		swingSound.play()
+		swingSoundCharacter.play()
 		
 
 		
@@ -114,16 +115,18 @@ func _physics_process(delta):
 		velocity = Vector2.ZERO
 	
 	if direction != Vector2.ZERO and not swing:
+		if not walking:
+			walkingSound.play()
 		walking =true
 		set_walking(walking)
 		update_blend_position()
 		
-		
+	
 	else:
+		if walking:
+			walkingSound.stop()
 		walking=false
 		set_walking(walking)
-		
-		
 		
 	if dash_used:
 		handle_dash(delta)
@@ -218,7 +221,7 @@ func set_swing(value = false):
 func set_walking(value):
 	animation_tree1["parameters/conditions/walk"]=value
 	animation_tree1["parameters/conditions/idle"]=not value
-
+	
 #dash animation
 func set_dash(value = false):
 	animation_tree1["parameters/conditions/dash"]=value

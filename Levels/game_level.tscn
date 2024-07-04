@@ -1,4 +1,4 @@
-[gd_scene load_steps=87 format=3 uid="uid://bf4wgcyu31x7p"]
+[gd_scene load_steps=92 format=3 uid="uid://bf4wgcyu31x7p"]
 
 [ext_resource type="Script" path="res://Levels/Main_Menu.gd" id="1_5xqtd"]
 [ext_resource type="Script" path="res://Levels/Game_Over_Overlay.gd" id="1_uqqfm"]
@@ -25,9 +25,14 @@
 [ext_resource type="Texture2D" uid="uid://cw1kbcmxal5ec" path="res://Art/mystic_woods_free_2.1/overlay/Elektro_Element.png" id="7_fh6ml"]
 [ext_resource type="Texture2D" uid="uid://7c7awkpvyhsh" path="res://Art/mystic_woods_free_2.1/overlay/ProgressStamina.png" id="7_lksv3"]
 [ext_resource type="Texture2D" uid="uid://dacmu0apfirgi" path="res://Art/mystic_woods_free_2.1/sprites/DG Fire Zone Expansion Free Ver/planttile1.1.png" id="7_nosvp"]
+[ext_resource type="AudioStream" uid="uid://c0ag3070mkbvw" path="res://Characters/player/sounds/fireBallSound.wav" id="8_2nsn6"]
+[ext_resource type="AudioStream" uid="uid://or5jh6klydqx" path="res://Characters/player/sounds/waveSound.wav" id="8_jrcci"]
+[ext_resource type="AudioStream" uid="uid://u7iean44d28f" path="res://Characters/player/sounds/playButtonSound.wav" id="9_4gvtf"]
 [ext_resource type="Texture2D" uid="uid://bji0itwhd7ab8" path="res://Art/mystic_woods_free_2.1/overlay/BackNotSelected.png" id="9_ttiev"]
 [ext_resource type="Texture2D" uid="uid://bgknafukl4vcs" path="res://Art/mystic_woods_free_2.1/overlay/GameOverTitle.png" id="9_wljlc"]
 [ext_resource type="Texture2D" uid="uid://c16b4d60te284" path="res://Art/mystic_woods_free_2.1/sprites/DG Fire Zone Expansion Free Ver/planttile_extention1.1.png" id="10_mmowp"]
+[ext_resource type="AudioStream" uid="uid://cf0vab6o475u2" path="res://Characters/player/sounds/electroButtonSound.wav" id="10_vfmq5"]
+[ext_resource type="AudioStream" uid="uid://cmgve1ud14v1u" path="res://Characters/player/sounds/plantButtonSound.wav" id="11_7lt72"]
 [ext_resource type="Script" path="res://Levels/Pause_Overlay.gd" id="11_cvst5"]
 [ext_resource type="PackedScene" uid="uid://2vi1bcr01qel" path="res://enemy/types/marksman.tscn" id="11_xethf"]
 [ext_resource type="PackedScene" uid="uid://dc01d5k5ii4sp" path="res://enemy/types/base_tank.tscn" id="12_fwog5"]
@@ -4616,6 +4621,27 @@ scale = Vector2(0.2, 0.2)
 icon = ExtResource("7_fh6ml")
 metadata/_edit_lock_ = true
 
+[node name="waterClickSound" type="AudioStreamPlayer2D" parent="Main_Menu"]
+stream = ExtResource("8_jrcci")
+
+[node name="fireClickSound" type="AudioStreamPlayer2D" parent="Main_Menu"]
+stream = ExtResource("8_2nsn6")
+volume_db = 8.0
+
+[node name="lightningClickSound" type="AudioStreamPlayer2D" parent="Main_Menu"]
+stream = ExtResource("10_vfmq5")
+volume_db = 2.0
+
+[node name="plantClickSound" type="AudioStreamPlayer2D" parent="Main_Menu"]
+stream = ExtResource("11_7lt72")
+volume_db = 1.0
+
+[node name="menuMusic" type="AudioStreamPlayer2D" parent="Main_Menu"]
+
+[node name="playButtonSound" type="AudioStreamPlayer2D" parent="Main_Menu"]
+stream = ExtResource("9_4gvtf")
+volume_db = 15.0
+
 [node name="Game_Over_Overlay" type="CanvasLayer" parent="."]
 process_mode = 3
 visible = false
@@ -4834,7 +4860,7 @@ position = Vector2(-299, 1553)
 script = ExtResource("34_473c7")
 
 [node name="FireCollisionPolygon" type="CollisionPolygon2D" parent="FireMusicArea"]
-polygon = PackedVector2Array(-393, 854, -380, -288, 100, -533, 249, -535, 443, -291, 465, 654)
+polygon = PackedVector2Array(-393, 854, -380, -288, 122, -560, 219, -560, 443, -291, 465, 654)
 
 [node name="FireMusic" type="AudioStreamPlayer" parent="FireMusicArea"]
 stream = ExtResource("35_8d1mk")
@@ -4844,7 +4870,7 @@ position = Vector2(-265, -46)
 script = ExtResource("36_dlp5d")
 
 [node name="WaterCollisionPolygon2D" type="CollisionPolygon2D" parent="WaterMusicArea"]
-polygon = PackedVector2Array(70, 620, 325, 598, 534, 398, 529, -265, 298, -359, 134, -676, -302, -676, -477, -570, -518, 443)
+polygon = PackedVector2Array(85, 729, 191, 734, 534, 398, 529, -265, 298, -359, 134, -676, -302, -676, -477, -570, -518, 443)
 
 [node name="WaterMusic" type="AudioStreamPlayer" parent="WaterMusicArea"]
 stream = ExtResource("37_xw781")
@@ -4854,7 +4880,7 @@ position = Vector2(-1089, 791)
 script = ExtResource("38_ekc4a")
 
 [node name="LightningCollisionPolygon2D" type="CollisionPolygon2D" parent="LightningMusicArea"]
-polygon = PackedVector2Array(688, 108, 687, -54, 639, -182, 230, -193, -15, -474, -469, -472, -511, -195, -791, -151, -794, 207, -387, 596, -98, 599, 114, 411, 272, 150)
+polygon = PackedVector2Array(791, 94, 789, -7, 639, -182, 230, -193, -15, -474, -469, -472, -511, -195, -791, -151, -794, 207, -387, 596, -98, 599, 114, 411, 272, 150)
 
 [node name="LightningMusic" type="AudioStreamPlayer" parent="LightningMusicArea"]
 stream = ExtResource("39_rqox3")
@@ -4864,7 +4890,7 @@ position = Vector2(829, 642)
 script = ExtResource("40_armv4")
 
 [node name="PlantCollisionPolygon2D" type="CollisionPolygon2D" parent="PlantMusicArea"]
-polygon = PackedVector2Array(-749, 124, -747, 287, -510, 356, -438, 509, 230, 599, 589, 354, 587, 156, 363, -726, 144, -786, -272, -775, -342, -445, -449, -273, -629, -16)
+polygon = PackedVector2Array(-803, 132, -809, 258, -510, 356, -438, 509, 230, 599, 589, 354, 587, 156, 363, -726, 144, -786, -272, -775, -342, -445, -449, -273, -629, -16)
 
 [node name="PlantMusic" type="AudioStreamPlayer" parent="PlantMusicArea"]
 stream = ExtResource("41_nj40u")
@@ -4874,10 +4900,11 @@ position = Vector2(-133, 820)
 script = ExtResource("41_6xs2t")
 
 [node name="PeaceCollisionPolygon2D" type="CollisionPolygon2D" parent="PeaceMusicArea"]
-polygon = PackedVector2Array(-33, -237, -255, -40, -257, 76, -66, 188, 79, 185, 201, 80, 199, -57, 49, -241)
+polygon = PackedVector2Array(-38, -131, -156, -33, -156, 67, -50, 166, 60, 169, 148, 61, 153, -38, 69, -127)
 
 [node name="PeaceMusic" type="AudioStreamPlayer" parent="PeaceMusicArea"]
 stream = ExtResource("43_vmlt0")
+volume_db = -80.0
 
 [connection signal="button_down" from="Main_Menu/Button" to="Main_Menu" method="_on_button_button_down"]
 [connection signal="button_up" from="Main_Menu/Button" to="Main_Menu" method="_on_button_button_up"]

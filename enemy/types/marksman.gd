@@ -16,3 +16,11 @@ func _on_shooting_area_body_entered(body):
 func _on_shooting_area_body_exited(body):
 	if body.has_method("player"):
 		player_in_shooting_range = false
+
+#func set_sound(state:String):
+#	pass
+	#walingMarksmanEnemySound.stop()
+#	match state:
+#		Animations.IS_WALKING:
+	#		walkingEnemySound.play()
+	

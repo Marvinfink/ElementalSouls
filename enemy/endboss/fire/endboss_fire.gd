@@ -89,3 +89,4 @@ func _on_attack_body_entered(body):
 
 func _on_attack_body_exited(body):
 	pass
+
