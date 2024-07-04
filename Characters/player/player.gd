@@ -8,7 +8,10 @@ var damage : int =50
 var special_damage : int = 100
 var element =Elements.Element
 var player_alive : bool = true
-
+var fire_lock = true
+var water_lock = true
+var plant_lock = true
+var electro_lock = true
 # set in base
 var in_attack_range : bool = false
 var enemy_attack_cooldown :bool = true
@@ -81,18 +84,14 @@ func _input(event):
 	if Input.is_action_just_pressed("special_attack") and mana_handler.use_spell():
 		handle_special_attack()
 	#change element
-	if Input.is_action_just_pressed("fire"):
-		element=Elements.Element.FIRE
-		change_element()
-	elif Input.is_action_just_pressed("water"):
-		element=Elements.Element.WATER
-		change_element()
-	elif Input.is_action_just_pressed("electro"):
-		element=Elements.Element.ELECTRICITY
-		change_element()
-	elif Input.is_action_just_pressed("plant"):
-		element=Elements.Element.PLANT
-		change_element()
+	if Input.is_action_just_pressed("fire") and spells_available[Elements.Element.FIRE]:
+		change_element(Elements.Element.FIRE)
+	elif Input.is_action_just_pressed("water")and spells_available[Elements.Element.WATER]:
+		change_element(Elements.Element.WATER)
+	elif Input.is_action_just_pressed("electro")and spells_available[Elements.Element.ELECTRICITY]:
+		change_element(Elements.Element.ELECTRICITY)
+	elif Input.is_action_just_pressed("plant")and spells_available[Elements.Element.PLANT]:
+		change_element(Elements.Element.PLANT)
 
 	#swing while walking
 	if Input.is_action_just_pressed("swing"):# and walking:
@@ -176,7 +175,8 @@ func handle_special_attack():
 		#start animation
 
 # Change element and sprite texture
-func change_element():
+func change_element(next_element):
+	element=next_element
 	$Sprite2D2.texture = element_textures[element]
 
 # Changes player direction to mouse position
@@ -266,9 +266,9 @@ func set_first_element(e: Elements.Element):
 	spells_available.resize(Elements.Element.size())
 	$Sprite2D2.texture=element_textures[element]
 	for elem in Elements.Element.values():
-		spells_available[elem] = true
+		spells_available[elem] = false
 	spells_available[e] = true
-	
+
 	
 func endboss_killed(el: Elements.Element):
 	spells_available[el] = true

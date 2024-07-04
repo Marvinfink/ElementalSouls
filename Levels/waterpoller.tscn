@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dolmydqld7037"]
+
+[ext_resource type="Texture2D" uid="uid://cxpyvj3n7pcu6" path="res://Art/mystic_woods_free_2.1/sprites/DG Fire Zone Expansion Free Ver/Structure.png" id="1_bdm5d"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d5bdw"]
+size = Vector2(32, 30)
+
+[node name="waterpoller" type="CharacterBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_bdm5d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_d5bdw")

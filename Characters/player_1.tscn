@@ -1,4 +1,4 @@
-[gd_scene load_steps=136 format=3 uid="uid://8rnqji34k3af"]
+[gd_scene load_steps=137 format=3 uid="uid://8rnqji34k3af"]
 
 [ext_resource type="Script" path="res://Characters/player/player.gd" id="1_7ffcy"]
 [ext_resource type="Texture2D" uid="uid://nt0sp0ixx22h" path="res://Art/mystic_woods_free_2.1/sprites/particles/light.png" id="3_e0rvw"]
@@ -1287,6 +1287,9 @@ tracks/0/keys = {
 length = 0.2
 loop_mode = 1
 
+[sub_resource type="Animation" id="Animation_gnpgj"]
+resource_name = "fireplace"
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_kukve"]
 _data = {
 "1.attack_up": SubResource("Animation_6dyp4"),
@@ -1309,6 +1312,7 @@ _data = {
 "fight_left1": SubResource("Animation_7f2c2"),
 "fight_right1": SubResource("Animation_ma722"),
 "fight_up1": SubResource("Animation_q4pvt"),
+"fireplace": SubResource("Animation_gnpgj"),
 "idle_down": SubResource("Animation_qqhw6"),
 "idle_down1": SubResource("Animation_f6qty"),
 "idle_left": SubResource("Animation_8ntxq"),
@@ -1603,7 +1607,6 @@ shadow_filter_smooth = 3.0
 texture = ExtResource("3_e0rvw")
 
 [node name="PointLight2D2" type="PointLight2D" parent="."]
-energy = 1.5
 blend_mode = 2
 texture = ExtResource("3_e0rvw")
 
