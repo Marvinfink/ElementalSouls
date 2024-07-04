@@ -3,6 +3,11 @@ extends "res://enemy/base/base_enemy.gd"
 var player_in_shooting_range: bool
 var spell_ready: bool
 
+@onready var bossWalk= $bossWalk
+@onready var bossAttack = $bossAttack
+@onready var bossDeath = $bossDeath
+@onready var bossDamage = $bossDamage
+
 
 func destroy():
 	get_node("../Enboss_Health").hide_endboss_healthbar()
@@ -40,3 +45,23 @@ func start_spell_timer():
 
 func set_health_bar():
 	get_node("../Enboss_Health").show_endboss_healthbar(health)
+
+
+func set_sound(state:String):
+	match state: 
+		Animations.IS_WALKING:
+			if not bossWalk.playing:
+				bossWalk.play()
+		Animations.IDLE:
+			bossWalk.stop()
+		Animations.IS_DEAD:
+			bossDeath.play()
+			bossWalk.stop()
+		Animations.GETS_DAMAGE:
+			bossDamage.play()	
+			bossWalk.stop()
+		Animations.IS_ATTACKING:
+			bossAttack.play()
+			bossWalk.stop()
+		Animations.USING_SPECIAL_ATTACK:
+			bossWalk.stop()

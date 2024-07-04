@@ -17,11 +17,6 @@ var blends: Array = []
 
 @onready var animation_tree
 
-@onready var bossWalk= $bossWalk
-@onready var bossAttack = $bossAttack
-@onready var bossDeath = $marksmanDeath
-@onready var bossDamage = $marksmanDamage
-
 
 func _ready():
 	set_data()
@@ -138,18 +133,5 @@ func set_state(state: String):
 
 
 func set_sound(state:String):
-	match state: 
-		Animations.IS_WALKING:
-			if not bossWalk.playing:
-				bossWalk.play()
-		Animations.IDLE:
-			bossWalk.stop()
-			bossDeath.stop()	
-			bossDamage.stop()
-		Animations.IS_DEAD:
-			bossDeath.play()
-		Animations.GETS_DAMAGE:
-			bossDamage.play()	
-		Animations.IS_ATTACKING:
-			bossAttack.play()
+	pass
 
