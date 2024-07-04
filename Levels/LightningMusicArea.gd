@@ -1,6 +1,6 @@
 extends Area2D
 @onready var lightning_music = $LightningMusic
-var volume = -20
+var volume = -15
 
 
 

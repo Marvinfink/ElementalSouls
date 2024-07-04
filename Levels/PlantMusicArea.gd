@@ -1,6 +1,6 @@
 extends Area2D
 @onready var plant_music = $PlantMusic
-var volume = -25 
+var volume = -15 
 
 func _on_ready():
 	plant_music.stop()
