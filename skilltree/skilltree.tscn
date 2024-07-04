@@ -1,0 +1,157 @@
+[gd_scene load_steps=3 format=3 uid="uid://dgykfqb5fl5a7"]
+
+[ext_resource type="Script" path="res://skilltree/skilltree_code.gd" id="1_fjiw0"]
+[ext_resource type="PackedScene" uid="uid://kf3b65ngyoid" path="res://skilltree/skillbutton.tscn" id="1_pyllb"]
+
+[node name="Skilltree" type="Control" groups=["SkillTree"]]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fjiw0")
+
+[node name="SkillButton" parent="." instance=ExtResource("1_pyllb")]
+layout_mode = 0
+offset_left = 592.0
+offset_top = 160.0
+offset_right = 624.0
+offset_bottom = 192.0
+SkillName = "Fireball"
+
+[node name="SkillButton" parent="SkillButton" instance=ExtResource("1_pyllb")]
+layout_mode = 0
+offset_left = 48.0
+offset_top = -48.0
+offset_right = 80.0
+offset_bottom = -16.0
+
+[node name="SkillButton" parent="SkillButton/SkillButton" instance=ExtResource("1_pyllb")]
+layout_mode = 0
+offset_left = 48.0
+offset_top = -48.0
+offset_right = 80.0
+offset_bottom = -16.0
+
+[node name="SkillButton2" parent="SkillButton" instance=ExtResource("1_pyllb")]
+layout_mode = 0
+offset_left = -48.0
+offset_top = -48.0
+offset_right = -16.0
+offset_bottom = -16.0
+
+[node name="SkillButton" parent="SkillButton/SkillButton2" instance=ExtResource("1_pyllb")]
+layout_mode = 0
+offset_left = -48.0
+offset_top = -48.0
+offset_right = -16.0
+offset_bottom = -16.0
+
+[node name="SkillButton2" parent="." instance=ExtResource("1_pyllb")]
+layout_mode = 0
+offset_left = 776.0
+offset_top = 304.0
+offset_right = 808.0
+offset_bottom = 336.0
+SkillName = "Firetornado"
+
+[node name="SkillButton" parent="SkillButton2" instance=ExtResource("1_pyllb")]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 48.0
+offset_right = 80.0
+offset_bottom = 80.0
+
+[node name="SkillButton" parent="SkillButton2/SkillButton" instance=ExtResource("1_pyllb")]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 48.0
+offset_right = 80.0
+offset_bottom = 80.0
+
+[node name="SkillButton2" parent="SkillButton2" instance=ExtResource("1_pyllb")]
+layout_mode = 0
+offset_left = 48.0
+offset_top = -48.0
+offset_right = 80.0
+offset_bottom = -16.0
+
+[node name="SkillButton" parent="SkillButton2/SkillButton2" instance=ExtResource("1_pyllb")]
+layout_mode = 0
+offset_left = 48.0
+offset_top = -48.0
+offset_right = 80.0
+offset_bottom = -16.0
+
+[node name="SkillButton3" parent="." instance=ExtResource("1_pyllb")]
+layout_mode = 0
+offset_left = 416.0
+offset_top = 304.0
+offset_right = 448.0
+offset_bottom = 336.0
+SkillName = "Plant_attack1"
+
+[node name="SkillButton" parent="SkillButton3" instance=ExtResource("1_pyllb")]
+layout_mode = 0
+offset_left = -48.0
+offset_top = 48.0
+offset_right = -16.0
+offset_bottom = 80.0
+
+[node name="SkillButton" parent="SkillButton3/SkillButton" instance=ExtResource("1_pyllb")]
+layout_mode = 0
+offset_left = -48.0
+offset_top = 48.0
+offset_right = -16.0
+offset_bottom = 80.0
+
+[node name="SkillButton2" parent="SkillButton3" instance=ExtResource("1_pyllb")]
+layout_mode = 0
+offset_left = -48.0
+offset_top = -48.0
+offset_right = -16.0
+offset_bottom = -16.0
+
+[node name="SkillButton" parent="SkillButton3/SkillButton2" instance=ExtResource("1_pyllb")]
+layout_mode = 0
+offset_left = -48.0
+offset_top = -48.0
+offset_right = -16.0
+offset_bottom = -16.0
+
+[node name="SkillButton4" parent="." instance=ExtResource("1_pyllb")]
+layout_mode = 0
+offset_left = 592.0
+offset_top = 448.0
+offset_right = 624.0
+offset_bottom = 480.0
+SkillName = "Plant_attack2"
+
+[node name="SkillButton" parent="SkillButton4" instance=ExtResource("1_pyllb")]
+layout_mode = 0
+offset_left = -48.0
+offset_top = 48.0
+offset_right = -16.0
+offset_bottom = 80.0
+
+[node name="SkillButton" parent="SkillButton4/SkillButton" instance=ExtResource("1_pyllb")]
+layout_mode = 0
+offset_left = -48.0
+offset_top = 48.0
+offset_right = -16.0
+offset_bottom = 80.0
+
+[node name="SkillButton2" parent="SkillButton4" instance=ExtResource("1_pyllb")]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 48.0
+offset_right = 80.0
+offset_bottom = 80.0
+
+[node name="SkillButton" parent="SkillButton4/SkillButton2" instance=ExtResource("1_pyllb")]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 48.0
+offset_right = 80.0
+offset_bottom = 80.0
