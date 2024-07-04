@@ -160,7 +160,6 @@ func handle_special_attack():
 	if element == 0:
 		print("Fire special")
 		special_attack_close()
-		deathSound.play()
 	elif element == 1:
 		print("water special")
 		special_attack_range()
