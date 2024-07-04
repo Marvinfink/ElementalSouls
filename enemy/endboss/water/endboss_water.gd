@@ -1,6 +1,6 @@
 extends "res://enemy/base/base_endboss.gd"
 
-const fire_projectile := preload("res://enemy/projectile/fire_tornado.tscn")
+const wave_projectile := preload("res://enemy/projectile/wave.tscn")
 
 func set_data():
 	health = 50
@@ -12,8 +12,8 @@ func set_data():
 
 
 func set_type():
-	$BodyEndboss.texture = preload("res://Art/mystic_woods_free_2.1/enemies/fire_boss.png")
-	element = Elements.Element.FIRE
+	$BodyEndboss.texture = preload("res://Art/mystic_woods_free_2.1/enemies/water_boss.png")
+	element = Elements.Element.WATER
 
 
 # für physikalische Berechnungen und Logik, die präzise Synchronisation erfordert, wie Bewegungen und Kollisionen
@@ -35,9 +35,13 @@ func use_spell(times: int):
 	for x in range(times):
 		set_state(Animations.USING_SPECIAL_ATTACK)
 		await get_tree().create_timer(0.6).timeout
-		var projectile := fire_projectile.instantiate()
+		var projectile := wave_projectile.instantiate()
 		projectile.global_position = self.global_position
 		projectile.set_direction(player.global_position - global_position)
+		var angle = global_position.direction_to(player.global_position).angle()
+		if abs(angle) >= PI/2 :
+			projectile.scale.y = -1
+		projectile.rotation = angle
 		projectile.created_by_player = false
 		owner.add_child(projectile)
 	start_spell_timer()

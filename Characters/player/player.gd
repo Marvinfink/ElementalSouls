@@ -23,11 +23,12 @@ var direction : Vector2 = Vector2.ZERO
 var mouse_position : Vector2 = Vector2.ZERO
 var player_direction : Vector2 = Vector2.ZERO
 var swing : bool = false
-var walking : bool=false
+var walking : bool = false
 
 #special attack
 var projectile_direction
 var special_in_range : bool = false
+var spells_available = []
 
 #Dash variables
 var is_dashing : bool = false
@@ -138,7 +139,7 @@ func _physics_process(delta):
 # attack functions
 func attack(damage):
 	mana_handler.load_spell()
-	if enemy_attack_cooldown:
+	if enemy_attack_cooldown and enemy.has_method("enemy"):
 		enemy_attack_cooldown = false
 		$attack_cooldown.start()
 		enemy.player_attack(damage,element)	
@@ -264,8 +265,23 @@ func enemy_attack():
 	
 func set_first_element(e: Elements.Element):
 	element = e
+	spells_available.resize(Elements.Element.size())
 	$Sprite2D2.texture=element_textures[element]
-	# todo update super attack
+	for elem in Elements.Element.values():
+		spells_available[elem] = true
+	spells_available[e] = true
+	
+	
+func endboss_killed(el: Elements.Element):
+	spells_available[el] = true
+	var check = false
+	for elem in Elements.Element.values():
+		if not spells_available[elem]:
+			get_node("../Ability_Added").show_new_ability()
+			health = 10
+			health_bar.set_heart_bar(health)
+			return
+	get_node("../Winning_Overlay").show_winning_screen()
 	
 
 func player():

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bkhy52xbn10nx"
-path="res://.godot/imported/Fireball Animation-Sheet.png-95c2ea799e3e5b40fc98884ec7deede0.ctex"
+uid="uid://c6wc4yyyvbelr"
+path="res://.godot/imported/electricity_bullet.png-9721390c669192082b3b9128bc899767.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/SpecialAttack/Fireball Animation-Sheet.png"
-dest_files=["res://.godot/imported/Fireball Animation-Sheet.png-95c2ea799e3e5b40fc98884ec7deede0.ctex"]
+source_file="res://Art/SpecialAttack/electricity_bullet.png"
+dest_files=["res://.godot/imported/electricity_bullet.png-9721390c669192082b3b9128bc899767.ctex"]
 
 [params]
 
