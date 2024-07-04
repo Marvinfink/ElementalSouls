@@ -137,15 +137,19 @@ func handle_special_attack():
 		Elements.Element.FIRE:
 			if spells_available[Elements.Element.FIRE] and mana_handler.use_spell():
 				use_fire_spell()
+				set_spell(true)
 		Elements.Element.WATER:
 			if spells_available[Elements.Element.WATER] and mana_handler.use_spell():
 				use_water_spell()
+				set_spell(true)
 		Elements.Element.ELECTRICITY:
 			if spells_available[Elements.Element.ELECTRICITY] and mana_handler.use_spell():
 				use_electricity_spell()
+				set_spell(true)
 		Elements.Element.PLANT:
 			if spells_available[Elements.Element.PLANT] and mana_handler.use_spell():
 				use_plant_spell()
+				set_spell(true)
 
 
 func use_fire_spell():
@@ -239,6 +243,9 @@ func set_dash(value = false):
 	animation_tree1["parameters/conditions/dash"]=value
 
 
+func set_spell(value = false):
+	animation_tree1["parameters/conditions/spell"]=value
+
 #damage animation
 func set_damage(value = false):
 	animation_tree1["parameters/conditions/damage"]=value
@@ -254,6 +261,7 @@ func update_blend_position():
 	animation_tree1["parameters/idle/blend_position"] = player_direction
 	animation_tree1["parameters/dash/blend_position"] = player_direction
 	animation_tree1["parameters/damage/blend_position"] = player_direction
+	animation_tree1["parameters/spell/blend_position"] = player_direction
 
 
 #take damage from enemy
