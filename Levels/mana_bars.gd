@@ -1,7 +1,7 @@
 extends Control
 
-@onready var under_normal := preload("res://Art/mystic_woods_free_2.1/overlay/ProgressUnder.png")
-@onready var under_light_up := preload("res://Art/mystic_woods_free_2.1/overlay/ProgressMana.png")
+@onready var under_normal := preload("res://Art/mystic_woods_free_2.1/overlay/ProgressBackground.png")
+@onready var under_light_up := preload("res://Art/mystic_woods_free_2.1/overlay/ProgressBackgroundRed.png")
 
 func _ready():
 	pass
@@ -32,15 +32,15 @@ func use_spell() -> bool:
 
 
 func light_up_mana_bar_dash():
-	$Mana_Bar_Dash.texture_under = under_light_up
+	$Mana_Bar_Dash.texture_over = under_light_up
 	await get_tree().create_timer(0.1).timeout
-	$Mana_Bar_Dash.texture_under = under_normal
+	$Mana_Bar_Dash.texture_over = under_normal
 
 
 func light_up_mana_bar_spell():
-	$Mana_Bar_Spell.texture_under = under_light_up
+	$Mana_Bar_Spell.texture_over = under_light_up
 	await get_tree().create_timer(0.1).timeout
-	$Mana_Bar_Spell.texture_under = under_normal
+	$Mana_Bar_Spell.texture_over = under_normal
 
 func load_spell():
 	$Mana_Bar_Spell.value += 15
