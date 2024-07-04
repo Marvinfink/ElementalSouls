@@ -3,7 +3,7 @@ extends "res://enemy/base/base_endboss.gd"
 const thorn_projectile := preload("res://enemy/projectile/bolt.tscn")
 
 func set_data():
-	health = 50
+	health = 500
 	speed = 40
 	cooldown = 1
 	animation_tree = $AnimationTreeEndboss
