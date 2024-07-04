@@ -29,10 +29,10 @@ func _physics_process(delta: float) -> void:
 		attack_player()
 	elif not states[Animations.IS_ATTACKING] and not states[Animations.USING_SPECIAL_ATTACK]:
 		move_position(delta)
-		
-		
+
+
 func use_spell(times: int):
-	var angle = global_position.direction_to(player.global_position).angle()
+	var angle = randi_range(0, 2 * PI)
 	for x in range(times):
 		set_state(Animations.USING_SPECIAL_ATTACK)
 		var projectile := thorn_projectile.instantiate()
@@ -44,10 +44,9 @@ func use_spell(times: int):
 		projectile.created_by_player = false
 		owner.add_child(projectile)
 		angle += PI / 3
-		await get_tree().create_timer(0.3).timeout
 	start_spell_timer()
 	set_physics_process(false)
-	await get_tree().create_timer(2).timeout
+	await get_tree().create_timer(3).timeout
 	set_physics_process(true)
 	set_state(Animations.IDLE)
 

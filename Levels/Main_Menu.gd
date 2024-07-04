@@ -38,6 +38,7 @@ func _on_button_pressed():
 		get_node("../Player1").set_first_element(selected_element)
 		get_node("../Heart_bar").show()
 		get_node("../Mana_Bars").show()
+		get_node("../Winning_Overlay").start_timer()
 		return 
 	$Error.text = "Bitte wähle ein Element!"
 
