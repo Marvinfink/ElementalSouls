@@ -1,4 +1,4 @@
-[gd_scene load_steps=124 format=3 uid="uid://bf4wgcyu31x7p"]
+[gd_scene load_steps=125 format=3 uid="uid://bf4wgcyu31x7p"]
 
 [ext_resource type="Script" path="res://Levels/Main_Menu.gd" id="1_5xqtd"]
 [ext_resource type="Script" path="res://Levels/Game_Over_Overlay.gd" id="1_uqqfm"]
@@ -58,6 +58,7 @@
 [ext_resource type="Script" path="res://Levels/Ability_Added.gd" id="22_6x380"]
 [ext_resource type="PackedScene" uid="uid://cgba3rwoeuejw" path="res://enemy/endboss/endboss.tscn" id="25_d87ku"]
 [ext_resource type="Script" path="res://Levels/Enboss_Health.gd" id="25_fy7y8"]
+[ext_resource type="AudioStream" uid="uid://dacva1dv2t8pt" path="res://music/sweetVicotry.mp3" id="25_wg5be"]
 [ext_resource type="Script" path="res://enemy/endboss/plant/endboss_plant.gd" id="26_hksux"]
 [ext_resource type="Script" path="res://enemy/endboss/fire/endboss_fire.gd" id="33_vjh61"]
 [ext_resource type="Script" path="res://Levels/FireMusicArea.gd" id="34_473c7"]
@@ -5608,6 +5609,10 @@ offset_bottom = 55.05
 
 [node name="game_timer" type="Timer" parent="Winning_Overlay"]
 process_mode = 1
+
+[node name="victoryMusic" type="AudioStreamPlayer" parent="Winning_Overlay"]
+stream = ExtResource("25_wg5be")
+volume_db = -15.0
 
 [node name="Ability_Added" type="CanvasLayer" parent="."]
 visible = false

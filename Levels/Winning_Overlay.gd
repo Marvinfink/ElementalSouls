@@ -6,9 +6,10 @@ var time_in_seconds: int
 @onready var back_button_not_pressed := preload("res://Art/mystic_woods_free_2.1/overlay/BackNotSelected.png")
 @onready var menu_button_pressed := preload("res://Art/mystic_woods_free_2.1/overlay/MenuSelected.png")
 @onready var menu_button_not_pressed := preload("res://Art/mystic_woods_free_2.1/overlay/MenuNotSelected.png")
-
+@onready var victoryMusic = $victoryMusic
 
 func _ready():
+	
 	$Winning_Overlay.hide()
 	$Timer_Overlay.hide()
 	time_in_seconds = 0
@@ -21,6 +22,7 @@ func start_timer():
 	
 	
 func show_winning_screen():
+	victoryMusic.play()
 	get_tree().paused = true
 	$Timer_Overlay.hide()
 	$Winning_Overlay.show()
