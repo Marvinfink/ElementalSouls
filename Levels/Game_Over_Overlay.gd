@@ -1,8 +1,8 @@
 extends CanvasLayer
 
 
-@onready var back_button_pressed := preload("res://Art/mystic_woods_free_2.1/overlay/BackSelected.png")
-@onready var back_button_not_pressed := preload("res://Art/mystic_woods_free_2.1/overlay/BackNotSelected.png")
+@onready var back_button_pressed := preload("res://Art/mystic_woods_free_2.1/overlay/MenuSelected.png")
+@onready var back_button_not_pressed := preload("res://Art/mystic_woods_free_2.1/overlay/MenuNotSelected.png")
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	self.hide()

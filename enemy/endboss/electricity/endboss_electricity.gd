@@ -1,6 +1,6 @@
 extends "res://enemy/base/base_endboss.gd"
 
-const wave_projectile := preload("res://enemy/projectile/wave.tscn")
+const thorn_projectile := preload("res://enemy/projectile/bolt.tscn")
 
 func set_data():
 	health = 50
@@ -12,8 +12,8 @@ func set_data():
 
 
 func set_type():
-	$BodyEndboss.texture = preload("res://Art/mystic_woods_free_2.1/enemies/water_boss.png")
-	element = Elements.Element.WATER
+	$BodyEndboss.texture = preload("res://Art/mystic_woods_free_2.1/enemies/plant_boss.png")
+	element = Elements.Element.ELECTRICITY
 
 
 # für physikalische Berechnungen und Logik, die präzise Synchronisation erfordert, wie Bewegungen und Kollisionen
@@ -23,7 +23,7 @@ func _physics_process(delta: float) -> void:
 	update_blend_position()
 	if spell_ready and not states[Animations.IS_ATTACKING] and player_in_shooting_range:
 		spell_ready = false
-		use_spell(3)
+		use_spell(5)
 	elif enemy_attack_cooldown and player_in_range and not states[Animations.USING_SPECIAL_ATTACK]:
 		enemy_attack_cooldown = false
 		attack_player()
@@ -32,23 +32,25 @@ func _physics_process(delta: float) -> void:
 		
 		
 func use_spell(times: int):
+	var angle = global_position.direction_to(player.global_position).angle()
 	for x in range(times):
 		set_state(Animations.USING_SPECIAL_ATTACK)
-		await get_tree().create_timer(0.6).timeout
-		var projectile := wave_projectile.instantiate()
-		projectile.global_position = self.global_position
-		projectile.set_direction(player.global_position - global_position)
-		var angle = global_position.direction_to(player.global_position).angle()
-		if abs(angle) >= PI/2 :
-			projectile.scale.y = -1
+		var projectile := thorn_projectile.instantiate()
+		var position = self.global_position
+		var half_width = 50
+		var offset = Vector2(half_width, 0).rotated(angle)
 		projectile.rotation = angle
+		projectile.global_position = position + offset
 		projectile.created_by_player = false
 		owner.add_child(projectile)
+		angle += PI / 3
+		await get_tree().create_timer(0.3).timeout
 	start_spell_timer()
 	set_physics_process(false)
 	await get_tree().create_timer(2).timeout
 	set_physics_process(true)
 	set_state(Animations.IDLE)
+
 
 # für nicht-physikalische Logik wie Animationen, UI-Updates, nicht-physikbasierte Bewegungen
 func _process(delta: float) -> void:

@@ -44,12 +44,15 @@ func player_attack(amount: int, enemy_element: Elements.Element):
 		set_state(Animations.IS_DEAD)
 		set_physics_process(false)
 		await get_tree().create_timer(1.5).timeout
-		queue_free()
+		destroy()
 		return
 	set_state(Animations.GETS_DAMAGE)
 	await get_tree().create_timer(0.5).timeout
 	set_state(Animations.IDLE)
 
+
+func destroy():
+	queue_free()
 
 func start_attack_countdown():
 	$attack_cooldown.start()
