@@ -239,7 +239,7 @@ func set_first_element(e: Elements.Element):
 	spells_available.resize(Elements.Element.size())
 	$Sprite2D2.texture=element_textures[element]
 	for elem in Elements.Element.values():
-		spells_available[elem] = true
+		spells_available[elem] = false
 	spells_available[e] = true
 	
 	

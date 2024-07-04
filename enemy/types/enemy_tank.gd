@@ -5,7 +5,7 @@ func set_data():
 	health = 200
 	speed = 60
 	cooldown = 3
-	attack_delay = 0.6
+	attack_delay = 0.5
 	sprint_speed = 130
 	sprint_distance = 50
 	animation_tree = $AnimationTreeTank

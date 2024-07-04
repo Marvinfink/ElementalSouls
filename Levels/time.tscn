@@ -1,17 +1,18 @@
 [gd_scene load_steps=3 format=3 uid="uid://chuhdlwuk5g0v"]
 
 [ext_resource type="Script" path="res://Levels/time.gd" id="1_p42rb"]
-[ext_resource type="Texture2D" uid="uid://ce7vdf6y1biqi" path="res://Art/mystic_woods_free_2.1/overlay/09.jpg" id="2_gfoki"]
+[ext_resource type="Texture2D" uid="uid://dx7lkjeefwd2u" path="res://Art/mystic_woods_free_2.1/overlay/NumbersPixeled.png" id="2_ejp52"]
 
 [node name="Time" type="Panel"]
-custom_minimum_size = Vector2(32, 46)
-offset_right = 32.0
-offset_bottom = 46.0
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(35, 43)
+offset_right = 35.0
+offset_bottom = 43.0
 script = ExtResource("1_p42rb")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(16, 23)
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("2_gfoki")
+position = Vector2(18, 21)
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("2_ejp52")
 hframes = 10
 frame = 9
