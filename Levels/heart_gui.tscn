@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bh4plbfxfvg3e"]
 
 [ext_resource type="Script" path="res://Levels/heart_gui.gd" id="1_5hwhw"]
-[ext_resource type="Texture2D" uid="uid://br4tcdwdfiayx" path="res://Art/mystic_woods_free_2.1/overlay/hearts.png" id="2_x8n4q"]
+[ext_resource type="Texture2D" uid="uid://br4tcdwdfiayx" path="res://Art/mystic_woods_free_2.1/overlay/hearts.png" id="2_h55fw"]
 
 [node name="heartGui" type="Panel"]
 self_modulate = Color(1, 1, 1, 0)
@@ -19,8 +19,8 @@ offset_right = 27.0
 offset_bottom = 74.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.2, 0.196)
-texture = ExtResource("2_x8n4q")
+scale = Vector2(0.1, 0.098)
+texture = ExtResource("2_h55fw")
 centered = false
 hframes = 4
 frame = 2

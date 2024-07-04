@@ -3,7 +3,7 @@ extends "res://enemy/base/base_endboss.gd"
 const fire_projectile := preload("res://enemy/projectile/fire_tornado.tscn")
 
 func set_data():
-	health = 50
+	health = 500
 	speed = 40
 	cooldown = 1
 	animation_tree = $AnimationTreeEndboss
@@ -16,25 +16,24 @@ func set_type():
 	element = Elements.Element.FIRE
 
 
-# für physikalische Berechnungen und Logik, die präzise Synchronisation erfordert, wie Bewegungen und Kollisionen
 func _physics_process(delta: float) -> void:
 	if states[Animations.IS_DEAD]:
 		return
 	update_blend_position()
 	if spell_ready and not states[Animations.IS_ATTACKING] and player_in_shooting_range:
 		spell_ready = false
-		use_spell(3)
+		use_spell(randi_range(3, 6))
 	elif enemy_attack_cooldown and player_in_range and not states[Animations.USING_SPECIAL_ATTACK]:
 		enemy_attack_cooldown = false
 		attack_player()
 	elif not states[Animations.IS_ATTACKING] and not states[Animations.USING_SPECIAL_ATTACK]:
 		move_position(delta)
-		
-		
+
+
 func use_spell(times: int):
 	for x in range(times):
 		set_state(Animations.USING_SPECIAL_ATTACK)
-		await get_tree().create_timer(0.6).timeout
+		await get_tree().create_timer(0.5).timeout
 		var projectile := fire_projectile.instantiate()
 		projectile.global_position = self.global_position
 		projectile.set_direction(player.global_position - global_position)
@@ -46,6 +45,6 @@ func use_spell(times: int):
 	set_physics_process(true)
 	set_state(Animations.IDLE)
 
-# für nicht-physikalische Logik wie Animationen, UI-Updates, nicht-physikbasierte Bewegungen
+
 func _process(delta: float) -> void:
 	pass

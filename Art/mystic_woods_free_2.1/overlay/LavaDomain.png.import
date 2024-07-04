@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ce7vdf6y1biqi"
-path="res://.godot/imported/09.jpg-7cdd54cd2a4fa085ff68a57c3e0affc3.ctex"
+uid="uid://c23mhc620yk47"
+path="res://.godot/imported/LavaDomain.png-555eb12147142e732c4014874b89fa78.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/mystic_woods_free_2.1/overlay/09.jpg"
-dest_files=["res://.godot/imported/09.jpg-7cdd54cd2a4fa085ff68a57c3e0affc3.ctex"]
+source_file="res://Art/mystic_woods_free_2.1/overlay/LavaDomain.png"
+dest_files=["res://.godot/imported/LavaDomain.png-555eb12147142e732c4014874b89fa78.ctex"]
 
 [params]
 
