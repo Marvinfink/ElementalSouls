@@ -1,4 +1,4 @@
-[gd_scene load_steps=137 format=3 uid="uid://8rnqji34k3af"]
+[gd_scene load_steps=106 format=3 uid="uid://8rnqji34k3af"]
 
 [ext_resource type="Script" path="res://Characters/player/player.gd" id="1_7ffcy"]
 [ext_resource type="Texture2D" uid="uid://cmg6030hbtgg5" path="res://Art/mystic_woods_free_2.1/sprites/characters/Electro/Sprite_Electro_Complete-Sheet.png" id="2_l5s36"]

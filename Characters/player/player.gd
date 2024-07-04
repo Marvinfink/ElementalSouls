@@ -256,7 +256,7 @@ func set_damage(value = false):
 	set_physics_process(false)
 	await get_tree().create_timer(0.35).timeout
 	set_physics_process(true)
-    enemyHitSound.play()
+	enemyHitSound.play()
 
 # set animation direction
 func update_blend_position():
