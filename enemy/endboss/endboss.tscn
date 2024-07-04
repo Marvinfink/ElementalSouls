@@ -1,6 +1,6 @@
 [gd_scene load_steps=82 format=3 uid="uid://cgba3rwoeuejw"]
 
-[ext_resource type="Texture2D" uid="uid://bupo4t18ya38f" path="res://Art/mystic_woods_free_2.1/enemies/plant_boss.png" id="1_5h4xe"]
+[ext_resource type="Texture2D" uid="uid://bupo4t18ya38f" path="res://Art/pixelart/enemies/plant_boss.png" id="1_5h4xe"]
 [ext_resource type="Script" path="res://enemy/base/base_enemy.gd" id="1_dgapf"]
 
 [sub_resource type="Animation" id="Animation_fi830"]

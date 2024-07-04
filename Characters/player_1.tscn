@@ -1,8 +1,8 @@
 [gd_scene load_steps=131 format=3 uid="uid://8rnqji34k3af"]
 
 [ext_resource type="Script" path="res://Characters/player/player.gd" id="1_7ffcy"]
-[ext_resource type="Texture2D" uid="uid://dk3ahnhsnr8cv" path="res://Art/mystic_woods_free_2.1/sprites/characters/Fire/Sprite_Fire_Complete_Outlines-Sheet.png" id="2_wxjvv"]
-[ext_resource type="Texture2D" uid="uid://nt0sp0ixx22h" path="res://Art/mystic_woods_free_2.1/sprites/particles/light.png" id="3_e0rvw"]
+[ext_resource type="Texture2D" uid="uid://dk3ahnhsnr8cv" path="res://Art/pixelart/characters/Fire/Sprite_Fire_Complete_Outlines-Sheet.png" id="2_wxjvv"]
+[ext_resource type="Texture2D" uid="uid://nt0sp0ixx22h" path="res://Art/pixelart/sprites/particles/light.png" id="3_e0rvw"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_q54ym"]
 
@@ -1581,6 +1581,14 @@ wait_time = 0.7
 [node name="PointLight2D" type="PointLight2D" parent="."]
 energy = 0.5
 shadow_enabled = true
+shadow_filter = 1
+shadow_filter_smooth = 1.0
+texture = ExtResource("3_e0rvw")
+
+[node name="PointLight2D2" type="PointLight2D" parent="."]
+blend_mode = 2
+shadow_filter = 1
+shadow_filter_smooth = 1.0
 texture = ExtResource("3_e0rvw")
 
 [connection signal="body_entered" from="special_attack" to="." method="_on_special_attack_body_entered"]

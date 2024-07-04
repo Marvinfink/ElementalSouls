@@ -44,15 +44,15 @@ var dash_used :bool = false
 #@onready var animation_tree = $AnimationTree
 @onready var animation_tree1 = $animation_tree
 var element_textures = {
-	Elements.Element.FIRE: preload("res://Art/mystic_woods_free_2.1/sprites/characters/Fire/Sprite_Fire_Complete_Outlines-Sheet.png"),
-	Elements.Element.WATER: preload("res://Art/mystic_woods_free_2.1/sprites/characters/Water/Sprite_Water_Complete-Sheet.png"),
-	Elements.Element.ELECTRICITY: preload("res://Art/mystic_woods_free_2.1/sprites/characters/Electro/Sprite_Electro_Complete-Sheet.png"),
-	Elements.Element.PLANT: preload("res://Art/mystic_woods_free_2.1/sprites/characters/Plant/Sprite_Plant_Complete_Outlines-Sheet.png")
+	Elements.Element.FIRE: preload("res://Art/pixelart/characters/Fire/Sprite_Fire_Complete_Outlines-Sheet.png"),
+	Elements.Element.WATER: preload("res://Art/pixelart/characters/Water/Sprite_Water_Complete-Sheet.png"),
+	Elements.Element.ELECTRICITY: preload("res://Art/pixelart/characters/Electro/Sprite_Electro_Complete-Sheet.png"),
+	Elements.Element.PLANT: preload("res://Art/pixelart/characters/Plant/Sprite_Plant_Complete_Outlines-Sheet.png")
 }
 
 const player_projectile := preload("res://Characters/projectile/player_projectile.tscn")
 const thorn_projectile := preload("res://enemy/projectile/thorns.tscn")
-const fire_projectile := preload("res://enemy/projectile/thorns.tscn")
+const fire_projectile := preload("res://enemy/projectile/fire_tornado.tscn")
 func _ready():
 	player_node=get_node(".")
 	health_bar.set_max_hearts(health)
@@ -128,10 +128,14 @@ func special_attack(element):
 	
 func special_attack_range(element,projectile_scene):
 	var projectile = projectile_scene.instantiate()
+	#projectile.created_by_player=true
+	#projectile.element=element
+	projectile_direction = (get_global_mouse_position() - global_position)
+	projectile.global_position=self.global_position
+	projectile.direction = projectile_direction
+	projectile.create(damage,true)
 	owner.add_child(projectile)
-	projectile.element=element
-	projectile_direction = (get_global_mouse_position() - global_position).normalized()
-	projectile.position=global_position
+	#projectile.position=global_position
 	#projectile.rotation = self.global_position.direction_to(get_global_mouse_position()).angle()
 	
 func special_attack_close(element,projectile_scene):
@@ -139,15 +143,15 @@ func special_attack_close(element,projectile_scene):
 		var position = get_global_mouse_position()
 		var projectile = projectile_scene.instantiate()
 		projectile.global_position = position
-		projectile.created_by_player=true
-		projectile.create(damage,element)
+		#projectile.created_by_player=true
+		projectile.create(damage,true)
 		owner.add_child(projectile)
 
 func handle_special_attack():
 	match element:
 		Elements.Element.FIRE:
 			print("Fire special")
-			#special_attack_range(element,fire_projectile)
+			special_attack_range(element,fire_projectile)
 			#special_attack_range(element,)
 			#special_attack_close()
 		Elements.Element.WATER:

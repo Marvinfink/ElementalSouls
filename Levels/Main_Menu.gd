@@ -5,10 +5,10 @@ extends CanvasLayer
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var water_icon := scale_texture(load("res://Art/mystic_woods_free_2.1/overlay/Wasser-Elementpng.png"), Vector2(32, 32))
-	var fire_icon := scale_texture(load("res://Art/mystic_woods_free_2.1/overlay/Feuer_Element.png"), Vector2(32, 32))
-	var plant_icon := scale_texture(load("res://Art/mystic_woods_free_2.1/overlay/Pflanze-Element.png"), Vector2(32, 32))
-	var electricity_icon := scale_texture(load("res://Art/mystic_woods_free_2.1/overlay/Elektro_Element.png"), Vector2(32, 32))
+	var water_icon := scale_texture(load("res://Art/pixelart/overlay/Wasser-Elementpng.png"), Vector2(32, 32))
+	var fire_icon := scale_texture(load("res://Art/pixelart/overlay/Feuer_Element.png"), Vector2(32, 32))
+	var plant_icon := scale_texture(load("res://Art/pixelart/overlay/Pflanze-Element.png"), Vector2(32, 32))
+	var electricity_icon := scale_texture(load("res://Art/pixelart/overlay/Elektro_Element.png"), Vector2(32, 32))
 	
 	var popup = menubutton.get_popup()
 	popup.id_pressed.connect(menu_button_selected)

@@ -32,7 +32,7 @@ func set_data():
 
 
 func set_type():
-	$BodyEndboss.texture = preload("res://Art/mystic_woods_free_2.1/enemies/plant_boss.png")
+	$BodyEndboss.texture = preload("res://Art/pixelart/enemies/plant_boss.png")
 	element = Elements.Element.PLANT
 
 

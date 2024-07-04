@@ -37,7 +37,7 @@ func _physics_process(delta):
 func _on_body_entered(body):
 	if created_by_player:
 		if body.has_method("enemy"):
-			body.attack_player(damage, element)
+			body.player_attack(damage, element)
 			count += 1
 	else:
 		if body.has_method("player"):

@@ -1,7 +1,7 @@
 [gd_scene load_steps=63 format=3 uid="uid://2vi1bcr01qel"]
 
 [ext_resource type="Script" path="res://enemy/types/enemy_marksman.gd" id="1_tjw1w"]
-[ext_resource type="Texture2D" uid="uid://cuml37prg4fr4" path="res://Art/mystic_woods_free_2.1/enemies/elektroRanged.png" id="2_ax3jv"]
+[ext_resource type="Texture2D" uid="uid://cuml37prg4fr4" path="res://Art/pixelart/enemies/elektroRanged.png" id="2_ax3jv"]
 
 [sub_resource type="Animation" id="Animation_jv01g"]
 length = 0.001

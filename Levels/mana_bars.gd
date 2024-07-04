@@ -23,7 +23,7 @@ func use_dash() -> bool:
 
 
 func use_spell() -> bool:
-	if $Mana_Bar_Spell.value == 0:
+	if $Mana_Bar_Spell.value >= 0:
 		$Mana_Bar_Spell.value = 0
 		return true
 	return false

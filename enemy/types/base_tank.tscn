@@ -1,7 +1,7 @@
 [gd_scene load_steps=62 format=3 uid="uid://dc01d5k5ii4sp"]
 
 [ext_resource type="Script" path="res://enemy/types/enemy_tank.gd" id="1_2ky5o"]
-[ext_resource type="Texture2D" uid="uid://lr36brdi7emp" path="res://Art/mystic_woods_free_2.1/enemies/elektro_tank.png" id="1_i506q"]
+[ext_resource type="Texture2D" uid="uid://lr36brdi7emp" path="res://Art/pixelart/enemies/elektro_tank.png" id="1_i506q"]
 
 [sub_resource type="Animation" id="Animation_ymrl7"]
 length = 0.001
