@@ -45,16 +45,23 @@ func move_position(delta: float):
 
 func player_attack(amount: int, enemy_element: Elements.Element):
 	health -=  round(amount * Elements.get_element_multiplier(enemy_element, element))
+	set_health_bar()
 	if health <= 0:
 		set_state(Animations.IS_DEAD)
-		set_process(false)
-		await get_tree().create_timer(1).timeout
-		queue_free()
+		set_physics_process(false)
+		await get_tree().create_timer(1.5).timeout
+		destroy()
 		return
 	set_state(Animations.GETS_DAMAGE)
 	await get_tree().create_timer(0.5).timeout
 	set_state(Animations.IDLE)
 
+
+func set_health_bar():
+	pass
+
+func destroy():
+	queue_free()
 
 func start_attack_countdown():
 	$attack_cooldown.start()
@@ -124,35 +131,25 @@ func _on_enemy_hitbox_body_exited(body):
 func set_state(state: String):
 	for a in states:
 		states[a] = false
+		animation_tree["parameters/conditions/%s" % a] = false
 	states[state] = true
-	set_animation(state)
+	animation_tree["parameters/conditions/%s" % state] = true
 	set_sound(state)
 
 
-func set_animation(animation: String):
-	for a in states:
-		animation_tree["parameters/conditions/%s" % a] = false
-	animation_tree["parameters/conditions/%s" % animation] = true
-
 func set_sound(state:String):
-	
 	match state: 
-		
 		Animations.IS_WALKING:
 			if not bossWalk.playing:
 				bossWalk.play()
-			
 		Animations.IDLE:
 			bossWalk.stop()
-			
 			bossDeath.stop()	
 			bossDamage.stop()
-		
 		Animations.IS_DEAD:
 			bossDeath.play()
-		
 		Animations.GETS_DAMAGE:
 			bossDamage.play()	
-		
 		Animations.IS_ATTACKING:
 			bossAttack.play()
+

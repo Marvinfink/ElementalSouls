@@ -1,11 +1,11 @@
 [gd_scene load_steps=86 format=3 uid="uid://cgba3rwoeuejw"]
 
-[ext_resource type="Texture2D" uid="uid://bupo4t18ya38f" path="res://Art/mystic_woods_free_2.1/enemies/plant_boss.png" id="1_5h4xe"]
 [ext_resource type="Script" path="res://enemy/base/base_enemy.gd" id="1_dgapf"]
 [ext_resource type="AudioStream" uid="uid://hfda5vkigoku" path="res://enemy/EnemySounds/bossAttack.mp3" id="3_1hsqt"]
 [ext_resource type="AudioStream" uid="uid://bxhape3f5ytim" path="res://enemy/EnemySounds/bossWalk.mp3" id="3_xfqhx"]
 [ext_resource type="AudioStream" uid="uid://dmiu4pagidc54" path="res://enemy/EnemySounds/bossDeath.mp3" id="5_yvrbr"]
 [ext_resource type="AudioStream" uid="uid://bi23s0hnicitf" path="res://enemy/EnemySounds/bossDamage.mp3" id="6_tx1j6"]
+[ext_resource type="Texture2D" uid="uid://cygkmy6odmqvr" path="res://Art/mystic_woods_free_2.1/enemies/fire_boss.png" id="2_obycy"]
 
 [sub_resource type="Animation" id="Animation_fi830"]
 length = 0.001
@@ -642,10 +642,7 @@ radius = 72.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vlvn4"]
 radius = 14.0
-height = 52.0
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_auald"]
-radius = 45.0
+height = 34.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8wusg"]
 radius = 13.0
@@ -656,7 +653,7 @@ script = ExtResource("1_dgapf")
 
 [node name="BodyEndboss" type="Sprite2D" parent="."]
 scale = Vector2(0.6, 0.6)
-texture = ExtResource("1_5h4xe")
+texture = ExtResource("2_obycy")
 hframes = 5
 vframes = 21
 
@@ -693,12 +690,8 @@ shape = SubResource("CircleShape2D_s8uaw")
 [node name="enemy_hitbox" type="Area2D" parent="."]
 
 [node name="HitboxShape" type="CollisionShape2D" parent="enemy_hitbox"]
+position = Vector2(0, 1)
 shape = SubResource("CapsuleShape2D_vlvn4")
-
-[node name="attack" type="Area2D" parent="."]
-
-[node name="attack_area" type="CollisionShape2D" parent="attack"]
-shape = SubResource("CircleShape2D_auald")
 
 [node name="spell_timer" type="Timer" parent="."]
 wait_time = 5.0
@@ -734,7 +727,5 @@ volume_db = 6.0
 [connection signal="body_exited" from="detection_area" to="." method="_on_detection_area_body_exited"]
 [connection signal="body_entered" from="enemy_hitbox" to="." method="_on_enemy_hitbox_body_entered"]
 [connection signal="body_exited" from="enemy_hitbox" to="." method="_on_enemy_hitbox_body_exited"]
-[connection signal="body_entered" from="attack" to="." method="_on_attack_body_entered"]
-[connection signal="body_exited" from="attack" to="." method="_on_attack_body_exited"]
 [connection signal="timeout" from="spell_timer" to="." method="_on_spell_timer_timeout"]
 [connection signal="timeout" from="attack_cooldown" to="." method="_on_attack_cooldown_timeout"]

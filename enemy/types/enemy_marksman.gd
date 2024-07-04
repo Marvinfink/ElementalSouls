@@ -19,7 +19,6 @@ func _physics_process(delta: float) -> void:
 		move_position(delta)
 
 
-
 # für nicht-physikalische Logik wie Animationen, UI-Updates, nicht-physikbasierte Bewegungen
 func _process(delta: float) -> void:
 	pass

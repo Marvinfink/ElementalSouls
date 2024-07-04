@@ -1,27 +1,6 @@
-extends "res://enemy/base/base_enemy.gd"
+extends "res://enemy/base/base_endboss.gd"
 
-var player_in_shooting_range: bool
-var spell_ready: bool
-
-const thorn_projectile := preload("res://enemy/projectile/fire_tornado.tscn")
-
-func _on_spell_timer_timeout():
-	spell_ready = true
-	
-
-func set_helper():
-	pass
-
-
-func _on_shooting_area_body_entered(body):
-	if body.has_method("player"):
-		player_in_shooting_range = true
-
-
-func _on_shooting_area_body_exited(body):
-	if body.has_method("player"):
-		player_in_shooting_range = false
-
+const fire_projectile := preload("res://enemy/projectile/fire_tornado.tscn")
 
 func set_data():
 	health = 500
@@ -33,32 +12,31 @@ func set_data():
 
 
 func set_type():
-	$BodyEndboss.texture = preload("res://Art/mystic_woods_free_2.1/enemies/plant_boss.png")
+	$BodyEndboss.texture = preload("res://Art/mystic_woods_free_2.1/enemies/fire_boss.png")
 	element = Elements.Element.FIRE
 
 
-# für physikalische Berechnungen und Logik, die präzise Synchronisation erfordert, wie Bewegungen und Kollisionen
 func _physics_process(delta: float) -> void:
 	if states[Animations.IS_DEAD]:
 		return
 	update_blend_position()
 	if spell_ready and not states[Animations.IS_ATTACKING] and player_in_shooting_range:
 		spell_ready = false
-		use_spell(3)
+		use_spell(randi_range(3, 6))
 	elif enemy_attack_cooldown and player_in_range and not states[Animations.USING_SPECIAL_ATTACK]:
 		enemy_attack_cooldown = false
 		attack_player()
 	elif not states[Animations.IS_ATTACKING] and not states[Animations.USING_SPECIAL_ATTACK]:
 		move_position(delta)
-		
-		
+
+
 func use_spell(times: int):
 	for x in range(times):
 		set_state(Animations.USING_SPECIAL_ATTACK)
-		await get_tree().create_timer(0.6).timeout
-		var projectile := thorn_projectile.instantiate()
+		await get_tree().create_timer(0.5).timeout
+		var projectile := fire_projectile.instantiate()
 		projectile.global_position = self.global_position
-		projectile.direction = player.global_position - global_position
+		projectile.set_direction(player.global_position - global_position)
 		projectile.created_by_player = false
 		owner.add_child(projectile)
 	start_spell_timer()
@@ -67,26 +45,6 @@ func use_spell(times: int):
 	set_physics_process(true)
 	set_state(Animations.IDLE)
 
-		
-func attack_player():
-	set_state(Animations.IS_ATTACKING)
-	await get_tree().create_timer(0.3).timeout
-	player.enemy_attack()
-	start_attack_countdown()
-	set_state(Animations.IDLE)
 
-# für nicht-physikalische Logik wie Animationen, UI-Updates, nicht-physikbasierte Bewegungen
 func _process(delta: float) -> void:
 	pass
-	
-
-func start_spell_timer():
-	$spell_timer.start()
-	
-	
-func _on_attack_body_entered(body):
-	pass
-
-func _on_attack_body_exited(body):
-	pass
-

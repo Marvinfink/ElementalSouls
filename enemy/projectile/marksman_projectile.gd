@@ -1,5 +1,5 @@
 extends "res://enemy/base/base_projectile.gd"
 
 func _ready():
-	speed = 1.5
+	speed = 100
 	range = 200

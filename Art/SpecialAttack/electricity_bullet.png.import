@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://8oatw54a200k"
-path="res://.godot/imported/tiles1.1.png-a2df93467737daf5590c99d4b9d710c9.ctex"
+uid="uid://c6wc4yyyvbelr"
+path="res://.godot/imported/electricity_bullet.png-9721390c669192082b3b9128bc899767.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/mystic_woods_free_2.1/sprites/DG Fire Zone Expansion Free Ver/tiles1.1.png"
-dest_files=["res://.godot/imported/tiles1.1.png-a2df93467737daf5590c99d4b9d710c9.ctex"]
+source_file="res://Art/SpecialAttack/electricity_bullet.png"
+dest_files=["res://.godot/imported/electricity_bullet.png-9721390c669192082b3b9128bc899767.ctex"]
 
 [params]
 

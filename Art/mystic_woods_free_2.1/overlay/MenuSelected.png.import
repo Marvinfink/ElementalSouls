@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bkhy52xbn10nx"
-path="res://.godot/imported/Fireball Animation-Sheet.png-95c2ea799e3e5b40fc98884ec7deede0.ctex"
+uid="uid://bf2frcipr0hba"
+path="res://.godot/imported/MenuSelected.png-5eaa453d923f0c15d04dab95dc58d75d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/SpecialAttack/Fireball Animation-Sheet.png"
-dest_files=["res://.godot/imported/Fireball Animation-Sheet.png-95c2ea799e3e5b40fc98884ec7deede0.ctex"]
+source_file="res://Art/mystic_woods_free_2.1/overlay/MenuSelected.png"
+dest_files=["res://.godot/imported/MenuSelected.png-5eaa453d923f0c15d04dab95dc58d75d.ctex"]
 
 [params]
 
