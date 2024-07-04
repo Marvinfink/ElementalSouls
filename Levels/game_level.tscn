@@ -1,4 +1,4 @@
-[gd_scene load_steps=93 format=3 uid="uid://bf4wgcyu31x7p"]
+[gd_scene load_steps=98 format=3 uid="uid://bf4wgcyu31x7p"]
 
 [ext_resource type="Script" path="res://Levels/Main_Menu.gd" id="1_5xqtd"]
 [ext_resource type="Script" path="res://Levels/Game_Over_Overlay.gd" id="1_uqqfm"]
@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://tau1gknfvjq8" path="res://Art/mystic_woods_free_2.1/sprites/Dungeon Gathering Free Version/Set 1.1 New.png" id="2_srd1t"]
 [ext_resource type="Texture2D" uid="uid://b0l7ha24q06ol" path="res://Art/mystic_woods_free_2.1/sprites/Dungeon Gathering Free Version/Set 1.1.png" id="3_6veiq"]
 [ext_resource type="Script" path="res://Levels/mana_bars.gd" id="3_a1stw"]
-[ext_resource type="Texture2D" uid="uid://r77xsgaglm4u" path="res://Art/mystic_woods_free_2.1/sprites/DG Fire Zone Expansion Free Ver/All Tiles Free Ver..png" id="3_q67ss"]
+[ext_resource type="Texture2D" uid="uid://c8xr4jy16olho" path="res://Art/mystic_woods_free_2.1/sprites/Dungeon Gathering Free Version/DG Fire Zone Expansion Free Ver/All Tiles Free Ver..png" id="3_q67ss"]
 [ext_resource type="Texture2D" uid="uid://dxlbxsiu3cl73" path="res://Art/mystic_woods_free_2.1/overlay/ProgressUnder.png" id="4_0vejb"]
 [ext_resource type="Texture2D" uid="uid://dptry8dr6tw1a" path="res://Art/mystic_woods_free_2.1/overlay/Wasser-Elementpng.png" id="4_8r0mk"]
 [ext_resource type="Texture2D" uid="uid://8oatw54a200k" path="res://Art/mystic_woods_free_2.1/sprites/DG Fire Zone Expansion Free Ver/tiles1.1.png" id="4_gt7ua"]
@@ -43,7 +43,7 @@
 [ext_resource type="Script" path="res://enemy/types/water/enemy_water_tank.gd" id="14_1lgo5"]
 [ext_resource type="Script" path="res://Levels/Winning_Overlay.gd" id="14_x83so"]
 [ext_resource type="Script" path="res://enemy/types/electricity/enemy_electricity_tank.gd" id="15_himr5"]
-[ext_resource type="PackedScene" uid="uid://ev1i03wvhnvq" path="res://Levels/time_container.tscn" id="15_or1c2"]
+[ext_resource type="PackedScene" path="res://Levels/time_container.tscn" id="15_or1c2"]
 [ext_resource type="Texture2D" uid="uid://gx2wipqf51mt" path="res://Art/mystic_woods_free_2.1/overlay/SpecialTitle.png" id="16_djm5d"]
 [ext_resource type="Script" path="res://enemy/types/plant/enemy_plant_marksman.gd" id="17_8ukml"]
 [ext_resource type="Texture2D" uid="uid://b0331saia28ee" path="res://Art/mystic_woods_free_2.1/overlay/DashTitle.png" id="17_53v4r"]
@@ -4736,6 +4736,7 @@ texture = ExtResource("12_ljsuh")
 metadata/_edit_lock_ = true
 
 [node name="time_container" parent="Winning_Overlay/Winning_Overlay" instance=ExtResource("15_or1c2")]
+layout_mode = 0
 offset_left = 476.0
 offset_top = 330.0
 offset_right = 676.0

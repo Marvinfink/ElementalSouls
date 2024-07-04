@@ -120,9 +120,7 @@ func _physics_process(delta):
 			walkingSound.play()
 		walking =true
 		set_walking(walking)
-		update_blend_position()
-		
-	
+		update_blend_position()	
 	else:
 		if walking:
 			walkingSound.stop()
