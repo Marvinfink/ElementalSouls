@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bx3l2rryjcjhp"
-path="res://.godot/imported/electrotile1.1 - Kopie.png-63c3208212aa038f850f80d4717a8287.ctex"
+uid="uid://8oatw54a200k"
+path="res://.godot/imported/firetiles1.1.png-911e14d22d4916df5bced44c98401897.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/mystic_woods_free_2.1/sprites/DG Fire Zone Expansion Free Ver/electrotile1.1 - Kopie.png"
-dest_files=["res://.godot/imported/electrotile1.1 - Kopie.png-63c3208212aa038f850f80d4717a8287.ctex"]
+source_file="res://Art/mystic_woods_free_2.1/sprites/DG Fire Zone Expansion Free Ver/firetiles1.1.png"
+dest_files=["res://.godot/imported/firetiles1.1.png-911e14d22d4916df5bced44c98401897.ctex"]
 
 [params]
 
