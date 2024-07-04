@@ -242,6 +242,7 @@ func set_first_element(e: Elements.Element):
 func endboss_killed(el: Elements.Element):
 	# add special attack
 	health = 10
+	health_bar.set_heart_bar(health)
 	
 
 func player():
