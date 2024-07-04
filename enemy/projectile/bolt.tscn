@@ -1,7 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://cgjhkdo3ss80g"]
+[gd_scene load_steps=14 format=3 uid="uid://cspqhhws2cpiv"]
 
 [ext_resource type="Script" path="res://enemy/projectile/bolt.gd" id="1_yta1c"]
 [ext_resource type="Texture2D" uid="uid://uot1sovdj18k" path="res://Art/SpecialAttack/Bolt-Sheet.png" id="2_rtybt"]
+[ext_resource type="AudioStream" uid="uid://b037tkda2cbl" path="res://enemy/projectile/projectileSounds/electroAttack.mp3" id="3_n4jyq"]
 
 [sub_resource type="Animation" id="Animation_bvc5u"]
 length = 0.001
@@ -115,6 +116,10 @@ autostart = true
 [node name="death_timer" type="Timer" parent="."]
 wait_time = 4.0
 autostart = true
+
+[node name="boltSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_n4jyq")
+volume_db = 6.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

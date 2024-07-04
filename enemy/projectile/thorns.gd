@@ -5,8 +5,11 @@ var damage
 var element
 @onready var count = 0
 
+# sound
+@onready var thornsSound = $thornsSound
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	thornsSound.play()
 	element = Elements.Element.PLANT
 
 
